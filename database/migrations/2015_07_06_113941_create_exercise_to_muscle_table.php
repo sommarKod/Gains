@@ -14,10 +14,12 @@ class CreateExerciseToMuscleTable extends Migration
     {
         Schema::create('exercise_to_muscle', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('muscle_intensity');
             $table->integer('muscle_id')->unsigned();
             $table->integer('exercise_id')->unsigned();
             $table->foreign('muscle_id')->references('id')->on('muscles');
             $table->foreign('exercise_id')->references('id')->on('exercises');
+            $table->timestamps();
         });
     }
 

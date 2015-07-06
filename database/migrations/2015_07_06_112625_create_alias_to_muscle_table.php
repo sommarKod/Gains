@@ -17,6 +17,7 @@ class CreateAliasToMuscleTable extends Migration
             $table->string('name');
             $table->integer('muscle_id')->unsigned();
             $table->foreign('muscle_id')->references('id')->on('muscles');
+            $table->timestamps();
         });
     }
 

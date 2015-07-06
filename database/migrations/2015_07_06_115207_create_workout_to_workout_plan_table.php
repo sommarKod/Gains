@@ -18,6 +18,7 @@ class CreateWorkoutToWorkoutPlanTable extends Migration
             $table->integer('workout_plan_id')->unsigned();
             $table->foreign('workout_id')->references('id')->on('workouts');
             $table->foreign('workout_plan_id')->references('id')->on('workout_plans');
+            $table->timestamps();
         });
     }
 

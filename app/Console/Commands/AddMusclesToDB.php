@@ -1,174 +1,182 @@
 <?php
 
-namespace App\Jobs;
+namespace App\Console\Commands;
 
-use App\Jobs\Job;
-use DB;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Bus\SelfHandling;
-use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Muscle;
+use Illuminate\Console\Command;
 
-class AddMusclesToDB extends Job implements SelfHandling, ShouldQueue
+class AddMusclesToDB extends Command
 {
-    use InteractsWithQueue, SerializesModels;
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'databasefiller:muscles';
 
     /**
-     * Create a new job instance.
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Add muscles to the database';
+
+    /**
+     * Create a new command instance.
      *
      * @return void
      */
     public function __construct()
     {
-        //
+        parent::__construct();
     }
 
     /**
-     * Execute the job.
+     * Execute the console command.
      *
-     * @return void
+     * @return mixed
      */
     public function handle()
     {
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Adductors']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Biceps Brachii']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Brachialis']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Brachioradialis']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Deltoid Anterior']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Deltoid Lateral']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Deltoid Posterior']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Deep Hip External Rotators']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Erector Spinae']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Gastrocnemius']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Gluteus Maximus']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Gluteus Medius']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Gluteus Minimus']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Gracilis']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Hamstrings']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Iliopsoas']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Infraspinatus']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Latissimus Dorsi']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Levator Scapulae']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Obliques']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Pectineous']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Pectoralis Major Clavicular Head']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Pectoralis Major Sternal Head']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Pectoralis Minor']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Popliteus']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Quadratus Lumborum']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Quadriceps']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Rectus Abdominis']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Rhomboids']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Sartorius']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Serratus Anterior']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Soleus']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Splenius']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Sternocleidomastoid']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Subscapularis']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Supraspinatus']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Tensor Fasciae Latae']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Teres Major']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Teres Minor']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Tibialis Anterior']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Transverse Abdominus']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Trapezius Lower Fibers']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Trapezius Middle Fibers']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Trapezius Upper Fibers']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Triceps Brachii']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Wrist Extensors']
         );
-        DB::table('muscles')->insert(
+        Muscle::firstOrCreate(
             ['name' => 'Wrist Flexors']
         );
     }

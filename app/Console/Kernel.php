@@ -13,7 +13,9 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        \App\Console\Commands\Inspire::class,
+        '\App\Console\Commands\AddMusclesToDB',
+        '\App\Console\Commands\AddExercisesToDB',
+        '\App\Console\Commands\ConnectExerciseToMuscle'
     ];
 
     /**
@@ -24,7 +26,6 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('inspire')
-                 ->hourly();
+
     }
 }
