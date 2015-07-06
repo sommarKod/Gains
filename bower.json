@@ -3,7 +3,11 @@
   "version": "0.0.0",
   "homepage": "https://github.com/sommarKod/Gains",
   "authors": [
-    "Erik Axelsson <erikaxelsson1@gmail.com>"
+    "Erik Axelsson <erikaxelsson1@gmail.com>",
+    "Jonathan Thunberg <jonathan.thunberg@gmail.com>",
+    "Gabriel Andersson <anderssongabriel665@gmail.com>",
+    "Emil Johansson <e@0x45.se>",
+    "Rasmus Egerö <rasmus.egero@gmail.com>"
   ],
   "license": "MIT",
   "ignore": [
@@ -17,6 +21,7 @@
   "dependencies": {
     "angular-bootstrap": "~0.13.0",
     "angular-resource": "~1.4.1",
+    "angular-route": "~1.4.1",
     "bootstrap": "~3.3.5",
     "moment": "~2.10.3",
     "ngReact": "~0.1.6"

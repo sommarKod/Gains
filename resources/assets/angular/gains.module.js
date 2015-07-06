@@ -1,1 +1,1 @@
-var gains = angular.module('gains', []);
+var gains = angular.module('gains', ['ngRoute', 'templates']);
