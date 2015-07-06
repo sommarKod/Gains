@@ -23,7 +23,15 @@ elixir(function(mix) {
             'bootstrap/dist/js/bootstrap.min.js'
             ], 'public/js/all.js', bowerDir);
     mix.angular();
-
+    mix.ngTemplateCache('/**/*.html', 'public/js', 'resources/assets/templates', {
+        templateCache: {
+            standalone: true
+        },
+        htmlmin: {
+            collapseWhitespace: true,
+            removeComments: true
+        }
+    });
 });
 
 elixir(function(mix) {
