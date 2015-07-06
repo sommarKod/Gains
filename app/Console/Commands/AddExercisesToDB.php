@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Exercise;
 use Illuminate\Console\Command;
+use DB;
 
 class AddExercisesToDB extends Command
 {
@@ -22,6 +23,12 @@ class AddExercisesToDB extends Command
     protected $description = 'Add exercises to the database';
 
     /**
+     * Constants for setting muscle intensity on an exercise
+     */
+    private static $high_intensity = 100;
+    private static $medium_intensity = 60;
+
+    /**
      * Create a new command instance.
      *
      * @return void
@@ -38,77 +45,17 @@ class AddExercisesToDB extends Command
      */
     public function handle()
     {
-        Exercise::firstOrCreate(
-            ['name' => 'Bench press']
-        );
-        Exercise::firstOrCreate(
-            ['name' => 'Deadlift']
-        );
-        Exercise::firstOrCreate(
-            ['name' => 'Face pulls']
-        );
-        Exercise::firstOrCreate(
-            ['name' => 'Shrugs']
-        );
-        Exercise::firstOrCreate(
-            ['name' => 'Pull-ups']
-        );
-        Exercise::firstOrCreate(
-            ['name' => 'Bicep curl']
-        );
-        Exercise::firstOrCreate(
-            ['name' => 'Seated row']
-        );
-        Exercise::firstOrCreate(
-            ['name' => 'Hammer curl']
-        );
-        Exercise::firstOrCreate(
-            ['name' => 'Overhead press']
-        );
-        Exercise::firstOrCreate(
-            ['name' => 'Incline dumbbell press']
-        );
-        Exercise::firstOrCreate(
-            ['name' => 'Skullcrusher']
-        );
-        Exercise::firstOrCreate(
-            ['name' => 'Lateral raise']
-        );
-        Exercise::firstOrCreate(
-            ['name' => 'Dips']
-        );
-        Exercise::firstOrCreate(
-            ['name' => 'Triceps pushdown']
-        );
-        Exercise::firstOrCreate(
-            ['name' => 'Cable crossover']
-        );
-        Exercise::firstOrCreate(
-            ['name' => 'Low-bar squats']
-        );
-        Exercise::firstOrCreate(
-            ['name' => 'Front squats']
-        );
-        Exercise::firstOrCreate(
-            ['name' => 'Standing calf-raises']
-        );
-        Exercise::firstOrCreate(
-            ['name' => 'Seated calf-raises']
-        );
-        Exercise::firstOrCreate(
-            ['name' => 'Seated hamstring curls']
-        );
-        Exercise::firstOrCreate(
-            ['name' => 'Lying hamstring curls']
-        );
-        Exercise::firstOrCreate(
-            ['name' => 'Leg-press']
-        );
-        Exercise::firstOrCreate(
-            ['name' => 'Lounges']
-        );
-        Exercise::firstOrCreate(
-            ['name' => 'Straight-leg deadlift']
-        );
+        // Delete all data in the database, TODO: remove before production
+        DB::statement("SET foreign_key_checks=0");
+        Exercise::truncate();
+        DB::statement("SET foreign_key_checks=1");
+
+        $exercise = Exercise::create(['name' => 'Bench press']);
+        $exercise->muscles()->attach(23,  ['muscle_intensity' => self::$high_intensity]);
+        $exercise->muscles()->attach(22,  ['muscle_intensity' => self::$medium_intensity]);
+        $exercise->muscles()->attach(5,  ['muscle_intensity' => self::$medium_intensity]);
+        $exercise->muscles()->attach(45,  ['muscle_intensity' => self::$medium_intensity]);
+
+
     }
 }
