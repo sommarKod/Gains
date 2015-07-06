@@ -20,7 +20,9 @@ var bowerDir = './resources/assets/bower/';
 elixir(function(mix) {
     mix.scripts([
             'jquery/dist/jquery.min.js',
-            'bootstrap/dist/js/bootstrap.min.js'
+            'bootstrap/dist/js/bootstrap.min.js',
+	    'angular/angular.js',
+	    'angular-bootstrap/ui-bootstrap.min.js'
             ], 'public/js/all.js', bowerDir);
     mix.angular("resources/assets/angular/", "public/js/", "angularApp.js");
 
