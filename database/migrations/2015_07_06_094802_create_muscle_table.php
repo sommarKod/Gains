@@ -15,7 +15,6 @@ class CreateMuscleTable extends Migration
         Schema::create('muscles', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('latin_name');
         });
     }
 
