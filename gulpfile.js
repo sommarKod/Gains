@@ -25,7 +25,7 @@ elixir(function(mix) {
     mix.angular("resources/assets/angular/", "public/js/", "angularApp.js");
 
     
-    mix.ngTemplateCache('/**/*.html', 'public/js', 'resources/assets/templates', {
+    mix.ngTemplateCache('/**/*.html', 'public/js', 'resources/assets/angular', {
         templateCache: {
             standalone: true
         },
