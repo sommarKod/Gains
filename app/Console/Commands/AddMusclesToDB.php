@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Muscles;
+use App\Muscle;
 use Illuminate\Console\Command;
 
 class AddMusclesToDB extends Command
@@ -12,7 +12,7 @@ class AddMusclesToDB extends Command
      *
      * @var string
      */
-    protected $signature = 'command:addmusclestodb';
+    protected $signature = 'databasefiller:muscles';
 
     /**
      * The console command description.
