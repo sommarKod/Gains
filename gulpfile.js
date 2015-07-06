@@ -25,6 +25,6 @@ elixir(function(mix) {
             'jquery/dist/jquery.min.js',
             'bootstrap/dist/js/bootstrap.min.js'
             ], 'public/js/all.js', bowerDir);
-    mix.angular();
+    mix.angular("resources/assets/angular/", "public/js/angular/", "application.js");
 
 });
