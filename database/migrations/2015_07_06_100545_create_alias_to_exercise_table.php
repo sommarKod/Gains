@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMuscleAliasTable extends Migration
+class CreateAliasToExerciseTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,11 @@ class CreateMuscleAliasTable extends Migration
      */
     public function up()
     {
-        Schema::create('muscle_alias', function (Blueprint $table) {
+        Schema::create('alias_to_exercise', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('muscle_id')->unsigned();
-            $table->foreign('muscle_id')->references('id')->on('muscles');
+            $table->integer('exercise_id')->unsigned();
+            $table->foreign('exercise_id')->references('id')->on('exercises');
         });
     }
 
@@ -27,6 +27,6 @@ class CreateMuscleAliasTable extends Migration
      */
     public function down()
     {
-        Schema::drop('muscle_aliases');
+        Schema::drop('alias_to_exercise');
     }
 }
