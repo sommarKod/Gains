@@ -16,6 +16,7 @@
 var elixir = require('laravel-elixir');
 
 require('laravel-elixir-angular');
+require('laravel-elixir-ngtemplatecache');
 
 var bowerDir = './resources/assets/bower/';
 
