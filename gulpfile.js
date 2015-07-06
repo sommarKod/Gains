@@ -9,9 +9,6 @@
  |
  */
 
-/*elixir(function(mix) {
-    mix.sass('app.scss');
-});*/
 
 var elixir = require('laravel-elixir');
 
@@ -27,4 +24,8 @@ elixir(function(mix) {
             ], 'public/js/all.js', bowerDir);
     mix.angular("resources/assets/angular/", "public/js/angular/", "application.js");
 
+});
+
+elixir(function(mix) {
+    mix.sass('app.scss');
 });
