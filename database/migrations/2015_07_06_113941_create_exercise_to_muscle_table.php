@@ -17,7 +17,7 @@ class CreateExerciseToMuscleTable extends Migration
             $table->integer('muscle_id')->unsigned();
             $table->integer('exercise_id')->unsigned();
             $table->foreign('muscle_id')->references('id')->on('muscles');
-            $table->foreign('exercise_id')->references('id')->on('exercise');
+            $table->foreign('exercise_id')->references('id')->on('exercises');
         });
     }
 

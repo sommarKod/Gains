@@ -17,7 +17,7 @@ class CreateExerciseToWorkoutTable extends Migration
             $table->integer('exercise_id')->unsigned();
             $table->integer('workout_id')->unsigned();
             $table->foreign('workout_id')->references('id')->on('workouts');
-            $table->foreign('exercise_id')->references('id')->on('exercise');
+            $table->foreign('exercise_id')->references('id')->on('exercises');
         });
     }
 

@@ -12,7 +12,7 @@ class CreateMuscleAliasTable extends Migration
      */
     public function up()
     {
-        Schema::create('muscle_aliases', function (Blueprint $table) {
+        Schema::create('muscle_alias', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->integer('muscle_id')->unsigned();

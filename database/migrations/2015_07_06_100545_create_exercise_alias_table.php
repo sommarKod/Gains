@@ -12,7 +12,7 @@ class CreateExerciseAliasTable extends Migration
      */
     public function up()
     {
-        Schema::create('exercise_aliases', function (Blueprint $table) {
+        Schema::create('exercise_alias', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->integer('exercise_id')->unsigned();
