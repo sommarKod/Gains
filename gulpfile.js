@@ -24,6 +24,16 @@ elixir(function(mix) {
             ], 'public/js/all.js', bowerDir);
     mix.angular("resources/assets/angular/", "public/js/", "angularApp.js");
 
+    
+    mix.ngTemplateCache('/**/*.html', 'public/js', 'resources/assets/templates', {
+        templateCache: {
+            standalone: true
+        },
+        htmlmin: {
+            collapseWhitespace: true,
+            removeComments: true
+        }
+    });
 });
 
 elixir(function(mix) {
