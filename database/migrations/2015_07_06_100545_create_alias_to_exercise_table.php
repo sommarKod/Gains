@@ -17,6 +17,7 @@ class CreateAliasToExerciseTable extends Migration
             $table->string('name');
             $table->integer('exercise_id')->unsigned();
             $table->foreign('exercise_id')->references('id')->on('exercises');
+            $table->timestamps();
         });
     }
 
