@@ -4,3 +4,5 @@ Homestead.yaml
 .env
 .idea/
 /resources/assets/bower
+.DS_Store
+/public/js
