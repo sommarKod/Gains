@@ -15,6 +15,7 @@ class CreateMuscleAliasTable extends Migration
         Schema::create('muscle_aliases', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->integer('muscle_id');
             $table->foreign('muscle_id')->references('id')->on('muscles');
         });
     }
