@@ -11,6 +11,18 @@ var elixir = require('laravel-elixir');
  |
  */
 
-elixir(function(mix) {
+/*elixir(function(mix) {
     mix.sass('app.scss');
+});*/
+
+var elixir = require('laravel-elixir');
+
+var bowerDir = './resources/assets/bower/';
+
+elixir(function(mix) {
+    mix.scripts([
+            'jquery/dist/jquery.min.js',
+            'bootstrap/dist/js/bootstrap.min.js'
+            ], 'public/js/all.js', bowerDir);
+
 });
