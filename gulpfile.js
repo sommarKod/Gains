@@ -15,6 +15,8 @@
 
 var elixir = require('laravel-elixir');
 
+require('laravel-elixir-angular');
+
 var bowerDir = './resources/assets/bower/';
 
 elixir(function(mix) {
