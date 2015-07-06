@@ -15,7 +15,7 @@ class CreateExerciseAliasTable extends Migration
         Schema::create('exercise_aliases', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('exercise_id');
+            $table->integer('exercise_id')->unsigned();
             $table->foreign('exercise_id')->references('id')->on('exercises');
         });
     }
