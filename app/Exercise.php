@@ -9,15 +9,20 @@ use DB;
 
 class Exercise extends Model
 {
+    protected $hidden = array('created_at','updated_at');
     protected $fillable = ['name'];
 
     public function muscles()
     {
-        return $this->belongsToMany('App\Muscle');
+        return $this->belongsToMany('App\Muscle')->withPivot('muscle_intensity');
     }
     public function exerciseAlias()
     {
         return $this->hasMany('App\ExerciseAlias');
+    }
+    public function workout()
+    {
+        return $this->belongsToMany('App\Exercise');
     }
     public function attachToMuscle($muscles){
 
