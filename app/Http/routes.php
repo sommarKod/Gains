@@ -11,6 +11,12 @@
 |
 */
 
+URL::setRootControllerNamespace('App\Http\Controllers');
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('exercise', 'ExerciseController');
+Route::resource('muscle', 'MuscleController');
+
