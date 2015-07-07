@@ -11,4 +11,10 @@ class Workout extends Model
     {
         return $this->belongsToMany('App\WorkoutPlan');
     }
+
+    public function attachToWorkoutPlan($workout_plans){
+        foreach($workout_plans as $workout_plan)  {
+            $this->workout()->attach($workout_plan[0], ['position' => $workout_plan[1]]);
+        }
+    }
 }
