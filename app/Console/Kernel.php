@@ -16,7 +16,8 @@ class Kernel extends ConsoleKernel
         '\App\Console\Commands\AddMusclesToDB',
         '\App\Console\Commands\AddExercisesToDB',
         '\App\Console\Commands\AddExerciseAliasesToDB',
-        '\App\Console\Commands\AddMuscleAliasesToDB'
+        '\App\Console\Commands\AddMuscleAliasesToDB',
+        '\App\Console\Commands\BuildDatabase'
     ];
 
     /**
