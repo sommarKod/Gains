@@ -57,6 +57,9 @@ class AddExercisesToDB extends Command
         $exercise->muscles()->attach(5,  ['muscle_intensity' => self::$medium_intensity]);
         $exercise->muscles()->attach(45,  ['muscle_intensity' => self::$medium_intensity]);
 
+        $exercise = Exercise::create(['name' => 'Deadlift']);
+        $exercise->muscles()->attach(23,  ['muscle_intensity' => self::$high_intensity]);
+
 
 
     }
