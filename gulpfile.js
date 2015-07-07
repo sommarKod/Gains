@@ -23,7 +23,8 @@ elixir(function(mix) {
               'bootstrap/dist/js/bootstrap.min.js',
               'angular/angular.js',
               "angular-route/angular-route.js",
-              'angular-bootstrap/ui-bootstrap.min.js'
+              'angular-bootstrap/ui-bootstrap.min.js',
+              'ngDraggable/ngDraggable.js'
             ], 'public/js/all.js', bowerDir);
     mix.angular("resources/assets/angular/", "public/js/", "angularApp.js");
 

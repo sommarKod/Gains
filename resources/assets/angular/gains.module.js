@@ -1,1 +1,1 @@
-var gains = angular.module('gains', ['ngRoute', 'templates']);
+var gains = angular.module('gains', ['ngRoute', 'templates','ngDraggable']);

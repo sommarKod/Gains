@@ -1,39 +1,42 @@
-<div class="panel panel-default">
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-		<div ng-init='exercises = [
-				    {"name": "Bench-Press",
-				     "muscles": [
-				        {
-				            "name": "boobie",
-				            "intensity": 100
-				        }
-				     ],
-				     "description": "Good choice."
-				     },
-				 	{"name": "Bench-Press2",
-				     "muscles": [
-				        {
-				            "name": "boobie",
-				            "intensity": 100
-				        }
-				     ],
-				     "description": "Good choice."
-				     },
-				 	{"name": "Bench-Press1",
-				     "muscles": [
-				        {
-				            "name": "boobie",
-				            "intensity": 100
-				        }
-				     ],
-				     "description": "Good choice."
-				     }
-				  ]'>
-		</div>
-			<div ng-repeat="exercise in exercises">
-				<div ng-include src="'components/routinelist/exerciseitem/exerciseitemView.html'">
+<div class="panel panel-default" >
+	<div>
+
+		<div ng-init='exercises=[
+	    {"name": "Bench-Press",
+	     "muscles": [
+	        {
+	            "name": "boobie",
+	            "intensity": 100
+	        }
+	     ],
+	     "description": "Good choice."
+	     },
+	    {"name": "Bench-Press2",
+	     "muscles": [
+	        {
+	            "name": "boobie",
+	            "intensity": 100
+	        }
+	     ],
+	     "description": "Good choice."
+	     },
+	    {"name": "Bench-Press1",
+	     "muscles": [
+	        {
+	            "name": "boobie",
+	            "intensity": 100
+	        }
+	     ],
+	     "description": "Good choice."
+	    }]'>
+	    </div>
+
+		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" style="margin:0px;">
+				<div ng-repeat="exercise in exercises">
+					<div ng-include src="'components/routinelist/exerciseitem/exerciseitemView.html'">
+					</div>
 				</div>
-			</div>
-		
-	</div>
+			
+		</div>
+	</div>	
 </div>
