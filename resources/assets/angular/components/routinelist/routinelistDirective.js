@@ -32,6 +32,16 @@ gains.directive('routinelist', function() {
              "description": "Good choice."
              }];
         
+        scope.onDragSuccess = function (index, data, evt) {
+            console.log(index);
+            console.log(data);
+            if(index > -1){
+                var otherData = scope.exercises[index];
+                var otherIndex = scope.exercises.indexOf(data);
+                scope.exercises[index] = data;
+                scope.exercises[otherIndex] = otherData;
+            }
+        };
     }
   };
 });

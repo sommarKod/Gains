@@ -1,13 +1,11 @@
 <div class="panel panel-default" >
-	<div>
-
-
-		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" style="margin:0px;">
-				<div ng-repeat="exercise in exercises">
-					<exerciseitem/>
-					</div>
+	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" style="margin:0px;">
+		<div >
+			<div ng-repeat="exercise in exercises" ng-drop="true" ng-drop-success="onDragSuccess($index,$data,$event)">
+				<div ng-drag="true" ng-drag-data="exercise">
+					<exerciseitem ></exerciseitem>
 				</div>
-			
+			</div>
 		</div>
-	</div>	
+	</div>
 </div>
