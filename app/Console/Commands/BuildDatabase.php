@@ -38,7 +38,7 @@ class BuildDatabase extends Command
      */
     public function handle()
     {
-
+        Artisan::call('migrate');
         Artisan::call('databasefiller:muscles');
         Artisan::call('databasefiller:exercises');
         Artisan::call('databasefiller:musclealiases');
