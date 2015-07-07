@@ -7,7 +7,7 @@ use App\Workout;
 
 class WorkoutPlan extends Model
 {
-    public function workout()
+    public function workouts()
     {
         return $this->belongsToMany('App\Workout');
     }
