@@ -45,6 +45,7 @@ class AddExercisesToDB extends Command
      */
     public function handle()
     {
+
         // Delete all data in the database, TODO: remove before production
         DB::statement("SET foreign_key_checks=0");
         Exercise::truncate();
@@ -55,6 +56,7 @@ class AddExercisesToDB extends Command
         $exercise->muscles()->attach(22,  ['muscle_intensity' => self::$medium_intensity]);
         $exercise->muscles()->attach(5,  ['muscle_intensity' => self::$medium_intensity]);
         $exercise->muscles()->attach(45,  ['muscle_intensity' => self::$medium_intensity]);
+
 
 
     }

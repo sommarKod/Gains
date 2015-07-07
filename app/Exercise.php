@@ -8,10 +8,12 @@ class Exercise extends Model
 {
     protected $fillable = ['name'];
 
-
-
     public function muscles()
     {
-        return $this->belongsToMany('App\Muscle', 'exercise_to_muscle');
+        return $this->belongsToMany('App\Muscle');
+    }
+    public function exerciseAlias()
+    {
+        return $this->hasMany('App\ExerciseAlias');
     }
 }

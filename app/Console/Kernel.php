@@ -14,8 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         '\App\Console\Commands\AddMusclesToDB',
-        '\App\Console\Commands\AddExercisesToDB',
-        '\App\Console\Commands\ConnectExerciseToMuscle'
+        '\App\Console\Commands\AddExercisesToDB'
     ];
 
     /**

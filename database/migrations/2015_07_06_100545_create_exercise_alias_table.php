@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateExerciseToWorkoutTable extends Migration
+class CreateExerciseAliasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,10 @@ class CreateExerciseToWorkoutTable extends Migration
      */
     public function up()
     {
-        Schema::create('exercise_to_workout', function (Blueprint $table) {
+        Schema::create('exercise_aliases', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
             $table->integer('exercise_id')->unsigned();
-            $table->integer('workout_id')->unsigned();
-            $table->foreign('workout_id')->references('id')->on('workouts');
             $table->foreign('exercise_id')->references('id')->on('exercises');
             $table->timestamps();
         });
@@ -29,6 +28,6 @@ class CreateExerciseToWorkoutTable extends Migration
      */
     public function down()
     {
-        Schema::drop('exercise_to_workout');
+        Schema::drop('exercise_aliases');
     }
 }
