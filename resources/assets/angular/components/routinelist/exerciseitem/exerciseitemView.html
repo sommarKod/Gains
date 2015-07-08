@@ -1,5 +1,5 @@
-<div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="heading-{{exercise.id}}">
+<div class="panel panel-default" data-as-sortable-item>
+    <div class="panel-heading" role="tab" id="heading-{{exercise.id}}" data-as-sortable-item-handle>
       <h4 class="panel-title">
         <div class="panel-button" role="button" ng-click="colapse($index)" data-parent="#accordion">
           {{exercise.name}}
@@ -10,13 +10,13 @@
       <div class="panel-body">
         <ul>
           <li ng-repeat="muscle in exercise.muscles">
-            <span style="font-weight:bold;">{{muscle.name}}:</span>
+            <span style="font-weight:bold;">{{muscle.name}}</span>
           </li>
         </ul>
         <span>Alias: </span>
         <ul>
-          <li ng-repeat="muscle in exercise.exercise_alias">
-            <span style="font-weight:bold;">{{muscle.name}}:</span>
+          <li ng-repeat="alias in exercise.exercise_alias">
+            <span style="font-weight:bold;">{{alias.name}}</span>
           </li>
         </ul>
       </div>

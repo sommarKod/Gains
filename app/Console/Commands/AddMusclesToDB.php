@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Muscle;
 use Illuminate\Console\Command;
+use DB;
 
 class AddMusclesToDB extends Command
 {
@@ -38,146 +39,53 @@ class AddMusclesToDB extends Command
      */
     public function handle()
     {
-        Muscle::firstOrCreate(
-            ['name' => 'Adductors']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Biceps Brachii']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Brachialis']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Brachioradialis']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Deltoid Anterior']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Deltoid Lateral']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Deltoid Posterior']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Deep Hip External Rotators']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Erector Spinae']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Gastrocnemius']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Gluteus Maximus']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Gluteus Medius']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Gluteus Minimus']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Gracilis']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Hamstrings']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Iliopsoas']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Infraspinatus']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Latissimus Dorsi']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Levator Scapulae']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Obliques']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Pectineous']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Pectoralis Major Clavicular Head']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Pectoralis Major Sternal Head']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Pectoralis Minor']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Popliteus']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Quadratus Lumborum']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Quadriceps']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Rectus Abdominis']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Rhomboids']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Sartorius']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Serratus Anterior']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Soleus']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Splenius']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Sternocleidomastoid']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Subscapularis']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Supraspinatus']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Tensor Fasciae Latae']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Teres Major']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Teres Minor']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Tibialis Anterior']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Transverse Abdominus']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Trapezius Lower Fibers']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Trapezius Middle Fibers']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Trapezius Upper Fibers']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Triceps Brachii']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Wrist Extensors']
-        );
-        Muscle::firstOrCreate(
-            ['name' => 'Wrist Flexors']
-        );
+        Muscle::create(['name' => 'Adductors']);
+        Muscle::create(['name' => 'Biceps Brachii']);
+        Muscle::create(['name' => 'Brachialis']);
+        Muscle::create(['name' => 'Brachioradialis']);
+        Muscle::create(['name' => 'Deltoid Anterior']);
+        Muscle::create(['name' => 'Deltoid Lateral']);
+        Muscle::create(['name' => 'Deltoid Posterior']);
+        Muscle::create(['name' => 'Deep Hip External Rotators']);
+        Muscle::create(['name' => 'Erector Spinae']);
+        Muscle::create(['name' => 'Gastrocnemius']);
+        Muscle::create(['name' => 'Gluteus Maximus']);
+        Muscle::create(['name' => 'Gluteus Medius']);
+        Muscle::create(['name' => 'Gluteus Minimus']);
+        Muscle::create(['name' => 'Gracilis']);
+        Muscle::create(['name' => 'Hamstrings']);
+        Muscle::create(['name' => 'Iliopsoas']);
+        Muscle::create(['name' => 'Infraspinatus']);
+        Muscle::create(['name' => 'Latissimus Dorsi']);
+        Muscle::create(['name' => 'Levator Scapulae']);
+        Muscle::create(['name' => 'Obliques']);
+        Muscle::create(['name' => 'Pectineous']);
+        Muscle::create(['name' => 'Pectoralis Major Clavicular Head']);
+        Muscle::create(['name' => 'Pectoralis Major Sternal Head']);
+        Muscle::create(['name' => 'Pectoralis Minor']);
+        Muscle::create(['name' => 'Popliteus']);
+        Muscle::create(['name' => 'Quadratus Lumborum']);
+        Muscle::create(['name' => 'Quadriceps']);
+        Muscle::create(['name' => 'Rectus Abdominis']);
+        Muscle::create(['name' => 'Rhomboids']);
+        Muscle::create(['name' => 'Sartorius']);
+        Muscle::create(['name' => 'Serratus Anterior']);
+        Muscle::create(['name' => 'Soleus']);
+        Muscle::create(['name' => 'Splenius']);
+        Muscle::create(['name' => 'Sternocleidomastoid']);
+        Muscle::create(['name' => 'Subscapularis']);
+        Muscle::create(['name' => 'Supraspinatus']);
+        Muscle::create(['name' => 'Tensor Fasciae Latae']);
+        Muscle::create(['name' => 'Teres Major']);
+        Muscle::create(['name' => 'Teres Minor']);
+        Muscle::create(['name' => 'Tibialis Anterior']);
+        Muscle::create(['name' => 'Transverse Abdominus']);
+        Muscle::create(['name' => 'Trapezius Lower Fibers']);
+        Muscle::create(['name' => 'Trapezius Middle Fibers']);
+        Muscle::create(['name' => 'Trapezius Upper Fibers']);
+        Muscle::create(['name' => 'Triceps Brachii']);
+        Muscle::create(['name' => 'Wrist Extensors']);
+        Muscle::create(['name' => 'Wrist Flexors']);
+
     }
 }

@@ -1,9 +1,21 @@
-<div class="container">
-    <div class="content col-md-12">
-        <div class="title">Welcome Friend</div>
-        <tr>
-            <anatomyimage class="col-md-6" gender="male" angle="front" muscledata="regionDataMale"></anatomyimage>
-            <anatomyimage class="col-md-6" gender="female" angle="front" muscledata="regionDataFemale"></anatomyimage>
-        </tr>
-    </div>
-</div>
+  <div class="content">
+    <h1>Welcome Freud!</h1>
+    <table style="overflow-x:scroll;">
+      <tr>
+          <td ng-repeat="workout in workoutPlan.workouts">
+            <routinelist index="{{$index}}"/></routinelist>
+          </td>
+      </tr>
+    </table>
+
+      <routinesearch/></routinesearch>
+
+      <div class="container">
+          <div class="content col-md-7">
+              <tr>
+                  <anatomyimage class="col-md-6" gender="male" angle="front" muscledata="regionDataMale"></anatomyimage>
+                  <anatomyimage class="col-md-6" gender="female" angle="front" muscledata="regionDataFemale"></anatomyimage>
+              </tr>
+          </div>
+      </div>
+  </div>
