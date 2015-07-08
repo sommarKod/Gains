@@ -1,8 +1,7 @@
-gains.directive('routinelist', function() {
+gains.directive('routinelist' ,['ApiFactory',function (mpApiFactory) {
   return {
     templateUrl: "components/routinelist/routinelistView.html",
     link: function(scope, element, attr){
-
     	scope.routineIndex = attr.index;
         scope.routine = scope.workoutPlan.workouts[attr.index];
         scope.exercises = scope.workoutPlan.workouts[attr.index].exercises;
@@ -22,22 +21,28 @@ gains.directive('routinelist', function() {
 		    containment: '#workout'//optional param.
 		};
 
-/*        scope.onDropSuccess = function (data, evt){
-            var index = scope.exercises.indexOf(data);
-            
-            if(index === -1){
-                scope.exercises.push(data);
-            }
-        };
+      mpApiFactory.getExersise().success(function(data){
+        scope.exercises = data;
+     });
+        scope.colapse= function(index) {
+            var routineexe = element[0].querySelectorAll('.routineexe');
+            var panels = [];
+            angular.forEach(routineexe,function(path,key){
+              var exe = angular.element(path);
+              var exercises = exe[0].querySelectorAll('.panel-collapse');
+              panels.push(exercises);
+            });
 
-        scope.onDragSuccess = function (data, evt) {
-            var index = scope.exercises.indexOf(data);
-            console.log("drag "+index);
-            console.log(evt);
-            if(index > -1){
-                scope.exercises.splice(index,1);
-            }
-        };*/
+            angular.forEach(panels,function(path,key){
+                  var panel = angular.element(path);
+                  console.log(panel);
+                  panel.collapse('hide');
+            });
+
+            var whospan =  angular.element(panels[index]);
+            console.log(whospan);
+            whospan.collapse('show');
+          };
     }
   };
-});
+}]);
