@@ -8,6 +8,12 @@ gains.controller('RoutinePlannerController',['$location','ApiFactory','$scope',f
             $scope.workoutPlan=data;
         }
     );
+    APIFactory.getExersise().success(
+    	function(data){
+            $scope.workoutSearches = [{"exercises":data}];
+         	console.log(data);
+    	}
+    );
 
 
 }]);
