@@ -1,4 +1,4 @@
-gains.factory('mpApiFactory', ['$http', function($http) {
+gains.factory('ApiFactory', ['$http', function($http) {
 
     'use strict';
     var apiRoute = "http://localhost:8000";

@@ -59,7 +59,7 @@ class AddWorkoutToDB extends Command
         $exercises[] = ['Squats', $position++];
         $exercises[] = ['Bench press', $position++];
 
-        $workout->attachToExercise($exercises);
+        $workout->addExercises($exercises);
         $position = 0;
 
         // Workout two
@@ -70,7 +70,7 @@ class AddWorkoutToDB extends Command
         $exercises[] = ['Squats', $position++];
         $exercises[] = ['Bench press', $position++];
 
-        $workout->attachToExercise($exercises);
+        $workout->addExercises($exercises);
         $position = 0;
 
         // Workout three
@@ -81,7 +81,7 @@ class AddWorkoutToDB extends Command
         $exercises[] = ['Squats', $position++];
         $exercises[] = ['Skull-crusher', $position++];
 
-        $workout->attachToExercise($exercises);
+        $workout->addExercises($exercises);
         $position = 0;
 
         // Workout four
@@ -92,7 +92,7 @@ class AddWorkoutToDB extends Command
         $exercises[] = ['Lateral raise', $position++];
         $exercises[] = ['Overhead press', $position++];
 
-        $workout->attachToExercise($exercises);
+        $workout->addExercises($exercises);
         $position = 0;
 
         // Workout five
@@ -103,7 +103,7 @@ class AddWorkoutToDB extends Command
         $exercises[] = ['Front Squats', $position++];
         $exercises[] = ['Bench press', $position++];
 
-        $workout->attachToExercise($exercises);
+        $workout->addExercises($exercises);
         $position = 0;
 
         // Workout six
@@ -114,7 +114,7 @@ class AddWorkoutToDB extends Command
         $exercises[] = ['Skull-crusher', $position++];
         $exercises[] = ['Lateral raise', $position++];
 
-        $workout->attachToExercise($exercises);
+        $workout->addExercises($exercises);
         $position = 0;
     }
 }
