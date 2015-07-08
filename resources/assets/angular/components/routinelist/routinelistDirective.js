@@ -6,16 +6,22 @@ gains.directive('routinelist' ,['ApiFactory',function (mpApiFactory) {
         scope.routine = scope.workoutPlan.workouts[attr.index];
         scope.exercises = scope.workoutPlan.workouts[attr.index].exercises;
 
+
+        scope.$watch(function(scope) { return scope.exercises },
+            function() {console.log("$watch")}
+        );
         scope.dragControlListeners = {
 		    accept: function (sourceItemHandleScope, destSortableScope) {
-	            //console.log("accept "+sourceItemHandleScope.itemScope.sortableScope.$id === destSortableScope.$id);
+	            console.log("accept ");
             	return sourceItemHandleScope.itemScope.sortableScope.$id === destSortableScope.$id;
 		    },
 		    itemMoved: function (event) {
+                console.log("itemMoved ");
 		    	event.source.itemScope.modelValue.status = event.dest.sortableScope.$parent.column.name;
 		    	//Do what you want
 			},
 		    orderChanged: function(event) {
+                console.log("orderChanged");
 		    	//Do what you want
 			},
 		    containment: '#workout'//optional param.

@@ -9,6 +9,5 @@ gains.controller('RoutinePlannerController',['$location','ApiFactory','$scope',f
         }
     );
 
-
 }]);
   //temporary
