@@ -1,7 +1,11 @@
 angular.module('gains').directive('anatomyimage', ['$compile', function ($compile) {
     return {
         restrict: 'E',
-        templateUrl: 'components/anatomy/man_front.html',
+        templateUrl: function(element) {
+            var gender = element.context.attributes.gender.value;
+            var angle = element.context.attributes.angle.value;
+            return 'components/anatomy/' + gender + '_' + angle + '.html';
+        },
         link: function (scope, element, attrs) {
             var regions = element[0].querySelectorAll('.muscle-group');
             angular.forEach(regions, function (path, key) {
@@ -51,10 +55,6 @@ angular.module('gains').filter('map_intensity_colour', [function () {
             b = 0;
             g = 255 - Math.floor((input - 75) * 4 * 2.55); // ([25->75] - 25) * 4 * 2.55 = 0 -> 255
         }
-        console.log(input);
-        console.log(r);
-        console.log(g);
-        console.log(b);
         return "rgba(" + r + "," + g + "," + b + ",1)";
     };
 }]);
