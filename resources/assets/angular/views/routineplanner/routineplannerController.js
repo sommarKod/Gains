@@ -14,7 +14,13 @@ gains.controller('RoutinePlannerController',['$location','ApiFactory','$scope',f
         angular.forEach(muscleRegions, function (region, key) {
             temp[region] = {value: Math.random() * 100};
         });
-        $scope.dummyData = temp;
+        $scope.regionDataMale = temp;
+
+        var temp2 = {};
+        angular.forEach(muscleRegions, function (region, key) {
+            temp2[region] = {value: Math.random() * 100};
+        });
+        $scope.regionDataFemale = temp2;
     };
     $scope.createDummyData();
 }]);

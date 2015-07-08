@@ -1,6 +1,9 @@
 angular.module('gains').directive('anatomyimage', ['$compile', function ($compile) {
     return {
         restrict: 'E',
+        scope: {
+            regionData: "=muscledata"
+        },
         templateUrl: function(element) {
             var gender = element.context.attributes.gender.value;
             var angle = element.context.attributes.angle.value;
@@ -11,7 +14,7 @@ angular.module('gains').directive('anatomyimage', ['$compile', function ($compil
             angular.forEach(regions, function (path, key) {
                 var regionElement = angular.element(path);
                 regionElement.attr("muscleregion", "");
-                regionElement.attr("dummy-data", "dummyData");
+                regionElement.attr("region-data", "regionData");
                 $compile(regionElement)(scope);
             });
         }
@@ -22,15 +25,15 @@ angular.module('gains').directive('muscleregion', ['$compile', function ($compil
     return {
         restrict: 'A',
         scope: {
-            dummyData: "="
+            regionData: "="
         },
         link: function (scope, element, attrs) {
             scope.elementId = element.attr("id");
             scope.regionClick = function () {
-                alert(scope.elementId + ":" + scope.dummyData[scope.elementId].value);
+                alert(scope.elementId + ":" + scope.regionData[scope.elementId].value);
             };
             element.attr("ng-click", "regionClick()");
-            element.attr("ng-attr-fill", "{{dummyData[elementId].value | map_intensity_colour}}");
+            element.attr("ng-attr-fill", "{{regionData[elementId].value | map_intensity_colour}}");
             element.removeAttr("muscleregion");
             $compile(element)(scope);
         }
