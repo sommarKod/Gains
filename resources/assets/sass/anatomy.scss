@@ -2,5 +2,7 @@
 
 }
 .muscle-group:hover , .muscle-group.active {
-    fill:#FF0000
+  stroke-width: 2.5;
+  stroke: #000;
+  fill-opacity: 0.4;
 }
