@@ -1,8 +1,10 @@
 <div class="panel panel-default" >
-	<header>Hello darr</header>
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" style="margin:0px;">
-		<div ng-drop="true" ng-drop-success="onDropSuccess($data,$event)">
-			<div ng-repeat="exercise in exercises" ng-drag="true" ng-drag-data="exercise" ng-drag-success="onDragSuccess($data,$event)">
+	<div class="panel-heading">
+    	<h3 class="panel-title">Workout {{routineIndex}}</h3>
+  	</div>
+	<div class="panel-body">
+		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" style="margin:0px;">
+			<div ng-repeat="exercise in exercises">
 				<exerciseitem ></exerciseitem>
 			</div>
 		</div>
