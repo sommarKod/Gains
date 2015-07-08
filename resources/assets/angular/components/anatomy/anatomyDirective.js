@@ -40,16 +40,16 @@ angular.module('gains').filter('map_intensity_colour', [function () {
         var g = 255;
         if (input < 25) { // 00 00 FF -> 00 FF FF
             r = 0;
-            b = Math.floor(input * 4 * 2.55); // [0->25] * 4 * 2.55 = 0 -> 255
+            g = Math.floor(input * 4 * 2.55); // [0->25] * 4 * 2.55 = 0 -> 255
         } else if (input < 50) { // 00 FF FF -> 00 FF 00
             r = 0;
-            g = 255 - Math.floor((input - 25) * 4 * 2.55); // ([25->50] - 25) * 4 * 2.55 = 0 -> 255
+            b = 255 - Math.floor((input - 25) * 4 * 2.55); // ([25->50] - 25) * 4 * 2.55 = 0 -> 255
         } else if (input < 75) { // 00 FF 00 -> FF FF 00
-            g = 0;
+            b = 0;
             r = Math.floor((input - 50) * 4 * 2.55); // ([50->75] - 50) * 4 * 2.55 = 0 -> 255
         } else { // FF FF 00 -> FF 00 00
-            g = 0;
-            b = 255 - Math.floor((input - 75) * 4 * 2.55); // ([25->75] - 25) * 4 * 2.55 = 0 -> 255
+            b = 0;
+            g = 255 - Math.floor((input - 75) * 4 * 2.55); // ([25->75] - 25) * 4 * 2.55 = 0 -> 255
         }
         console.log(input);
         console.log(r);
