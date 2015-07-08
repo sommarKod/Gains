@@ -9,8 +9,9 @@ gains.directive('routinelist', function() {
 
         scope.dragControlListeners = {
 		    accept: function (sourceItemHandleScope, destSortableScope) {
-		    	return sourceItemHandleScope.itemScope.sortableScope.$id === destSortableScope.$id;
-		    },//override to determine drag is allowed or not. default is true.
+	            //console.log("accept "+sourceItemHandleScope.itemScope.sortableScope.$id === destSortableScope.$id);
+            	return sourceItemHandleScope.itemScope.sortableScope.$id === destSortableScope.$id;
+		    },
 		    itemMoved: function (event) {
 		    	event.source.itemScope.modelValue.status = event.dest.sortableScope.$parent.column.name;
 		    	//Do what you want

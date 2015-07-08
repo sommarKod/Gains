@@ -26,6 +26,14 @@ elixir(function(mix) {
               'angular-bootstrap/ui-bootstrap.min.js',
               'ng-sortable/dist/ng-sortable.min.js'
             ], 'public/js/all.js', bowerDir);
+
+
+    mix.styles([
+              'ng-sortable/dist/ng-sortable.min.css',
+              'ng-sortable/dist/ng-sortable.style.min.css'
+            ],'public/css/all.css', bowerDir);
+    
+
     mix.angular("resources/assets/angular/", "public/js/", "angularApp.js");
 
 
