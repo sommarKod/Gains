@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Workout;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\WorkoutPlan;
+use App\Workout;
 use Illuminate\Support\Facades\Input;
 use Response;
-class WorkoutPlanController extends Controller
+use App\Exercise;
+
+class WorkoutController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +20,7 @@ class WorkoutPlanController extends Controller
      */
     public function index()
     {
-        return Response::json(WorkoutPlan::all());
+        return Response::json(Workout::all());
     }
 
     /**
@@ -29,7 +30,7 @@ class WorkoutPlanController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
@@ -39,7 +40,7 @@ class WorkoutPlanController extends Controller
      */
     public function store()
     {
-        WorkoutPlan::create(Input::all());
+        Workout::create(Input::all());
     }
 
     /**
@@ -50,7 +51,7 @@ class WorkoutPlanController extends Controller
      */
     public function show($id)
     {
-        return Response::json(WorkoutPlan::with('workouts', 'workouts.exercises', 'workouts.exercises.muscles')->find($id));
+        return Response::json(Workout::with('exercises', 'exercises.muscles')->find($id));
     }
 
     /**
@@ -75,10 +76,10 @@ class WorkoutPlanController extends Controller
 
     }
 
-    public function addWorkouts($id)
+    public function addExercises($id)
     {
-        $workoutPlan = WorkoutPlan::find($id);
-        $workoutPlan->addWorkouts(Input::all());
+        $workout = Workout::find($id);
+        $workout->addExercises(Input::all());
     }
 
     /**

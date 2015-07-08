@@ -20,5 +20,7 @@ Route::get('/', function () {
 Route::resource('exercise', 'ExerciseController');
 Route::resource('muscle', 'MuscleController');
 Route::resource('workoutPlan', 'WorkoutPlanController');
-
+Route::resource('workout','WorkoutController');
+Route::post('workoutplan/{id}/addWorkouts','WorkoutPlanController@addWorkouts');
+Route::post('workout/{id}/addExercises','WorkoutController@addExercises');
 
