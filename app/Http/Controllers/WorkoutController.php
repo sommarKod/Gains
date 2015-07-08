@@ -76,7 +76,7 @@ class WorkoutController extends Controller
         $workout = Workout::find($id);
 
         $workout->removeAllExercises();
-        addEx($workout);
+        self::addEx($workout);
 
         $workout->save();
     }
@@ -87,7 +87,7 @@ class WorkoutController extends Controller
     public function addExercises($id)
     {
         $workout = Workout::find($id);
-        addEx($workout);
+        self::addEx($workout);
     }
 
     /**
