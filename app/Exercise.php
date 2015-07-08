@@ -20,9 +20,9 @@ class Exercise extends Model
     {
         return $this->hasMany('App\ExerciseAlias');
     }
-    public function workout()
+    public function workouts()
     {
-        return $this->belongsToMany('App\Exercise');
+        return $this->belongsToMany('App\Exercise')->withPivot('position');
     }
     public function attachToMuscle($muscles){
 
