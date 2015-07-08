@@ -3,10 +3,12 @@
     	<h3 class="panel-title">Workout {{routineIndex}}</h3>
   	</div>
 	<div class="panel-body">
-		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" style="margin:0px;">
-			<div ng-repeat="exercise in exercises">
-				<exerciseitem ></exerciseitem>
-			</div>
-		</div>
+		<ul data-as-sortable="workout.dragControlListeners" data-ng-model="exercises">
+			<li ng-repeat="exercise in exercises" data-as-sortable-item>
+				<div data-as-sortable-item-handle>
+					<exerciseitem ></exerciseitem>	
+				</div>
+			</li>
+		</ul>
 	</div>
 </div>
