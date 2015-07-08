@@ -45,5 +45,8 @@ class BuildDatabase extends Command
         Artisan::call('databasefiller:exercisealiases');
         Artisan::call('databasefiller:workouts');
         Artisan::call('databasefiller:workoutplans');
+        Artisan::call('databasefiller:musclegroups');
+        echo 'Done!';
+
     }
 }

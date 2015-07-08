@@ -19,7 +19,8 @@ class Kernel extends ConsoleKernel
         '\App\Console\Commands\AddMuscleAliasesToDB',
         '\App\Console\Commands\BuildDatabase',
         '\App\Console\Commands\AddWorkoutToDB',
-        '\App\Console\Commands\AddWorkoutPlanToDB'
+        '\App\Console\Commands\AddWorkoutPlanToDB',
+        '\App\Console\Commands\AddMuscleGroupsToDB'
     ];
 
     /**
