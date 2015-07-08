@@ -4,8 +4,10 @@
       </form>
       <table id="searchTextResults">
         <tr>
-        <div class="panel-group col-md-6" id="accordion" role="tablist" aria-multiselectable="true" ng-repeat="exercise in works | filter:q" style="margin:0px;">
-        	<exerciseitem class="exercisesearch" />
+        <div data-as-sortable="search.dragControlListeners" data-ng-model="searchitems">
+          <div class="panel-group col-md-6" id="accordion" role="tablist" aria-multiselectable="true" ng-repeat="exercise in works | filter:q" style="margin:0px;">
+               <exerciseitem class="exercisesearch" />
+          </div>
         </div>
       </tr>
       </table>

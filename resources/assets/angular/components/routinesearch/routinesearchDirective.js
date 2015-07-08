@@ -5,7 +5,6 @@ gains.directive('routinesearch',['ApiFactory',function (mpApiFactory) {
        mpApiFactory.getExersise().success(function(data){
          scope.works = data;
        });
-
        scope.dragControlListeners = {
 		    accept: function (sourceItemHandleScope, destSortableScope) {
 	            //console.log("accept "+sourceItemHandleScope.itemScope.sortableScope.$id === destSortableScope.$id);
