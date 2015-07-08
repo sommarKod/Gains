@@ -2,44 +2,24 @@ gains.directive('routinelist', function() {
   return {
     templateUrl: "components/routinelist/routinelistView.html",
     link: function(scope, element, attr){
-        scope.exercises = [
-            {
-                "name": "Press",
-                "muscles": [
-                    {
-                        "name": "boobie",
-                        "intensity": 100
-                    }
-                ],
-             "description": "Good choice."
-            },
-            {"name": "Bench-Press2",
-             "muscles": [
-                {
-                    "name": "boobie",
-                    "intensity": 100
-                }
-             ],
-             "description": "Good choice."
-             },
-            {"name": "Bench-Press1",
-             "muscles": [
-                {
-                    "name": "boobie",
-                    "intensity": 100
-                }
-             ],
-             "description": "Good choice."
-             }];
-        
-        scope.onDragSuccess = function (index, data, evt) {
-            console.log(index);
-            console.log(data);
+
+        scope.routine = scope.routines[attr.index];
+        scope.exercises = scope.routine.exercises;
+
+        scope.onDropSuccess = function (data, evt){
+            var index = scope.exercises.indexOf(data);
+            console.log("drop "+index);
+            console.log(evt);
+            if(index === -1){
+                scope.exercises.push(data);
+            }
+        };
+
+        scope.onDragSuccess = function (data, evt) {
+            var index = scope.exercises.indexOf(data);
+            console.log("drag "+index);
             if(index > -1){
-                var otherData = scope.exercises[index];
-                var otherIndex = scope.exercises.indexOf(data);
-                scope.exercises[index] = data;
-                scope.exercises[otherIndex] = otherData;
+                scope.exercises.splice(index,1);
             }
         };
     }
