@@ -1,12 +1,12 @@
 {
   "private": true,
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "dependencies": {
     "bootstrap-sass": "^3.0.0",
     "gulp": "^3.9.0",
     "laravel-elixir": "^2.0.0",
     "laravel-elixir-angular": "^0.1.4",
-    "laravel-elixir-ngtemplatecache": "^0.1.0"
+    "laravel-elixir-ngtemplatecache": "^0.1.0",
+    "ng-sortable": "^1.2.2"
   }
 }

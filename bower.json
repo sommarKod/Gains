@@ -24,7 +24,6 @@
     "angular-route": "~1.4.1",
     "bootstrap": "~3.3.5",
     "moment": "~2.10.3",
-    "ngReact": "~0.1.6",
-    "ngDraggable": "~0.1.8"
+    "ng-sortable": "~1.2.2"
   }
 }

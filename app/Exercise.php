@@ -14,11 +14,15 @@ class Exercise extends Model
 
     public function muscles()
     {
-        return $this->belongsToMany('App\Muscle');
+        return $this->belongsToMany('App\Muscle')->withPivot('muscle_intensity');
     }
     public function exerciseAlias()
     {
         return $this->hasMany('App\ExerciseAlias');
+    }
+    public function workouts()
+    {
+        return $this->belongsToMany('App\Exercise')->withPivot('position');
     }
     public function attachToMuscle($muscles){
 

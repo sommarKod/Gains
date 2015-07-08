@@ -1,47 +1,48 @@
-gains.directive('routinelist', function() {
+gains.directive('routinelist' ,['ApiFactory',function (mpApiFactory) {
   return {
     templateUrl: "components/routinelist/routinelistView.html",
     link: function(scope, element, attr){
-        scope.exercises = [
-            {
-                "name": "Press",
-                "muscles": [
-                    {
-                        "name": "boobie",
-                        "intensity": 100
-                    }
-                ],
-             "description": "Good choice."
-            },
-            {"name": "Bench-Press2",
-             "muscles": [
-                {
-                    "name": "boobie",
-                    "intensity": 100
-                }
-             ],
-             "description": "Good choice."
-             },
-            {"name": "Bench-Press1",
-             "muscles": [
-                {
-                    "name": "boobie",
-                    "intensity": 100
-                }
-             ],
-             "description": "Good choice."
-             }];
-        
-        scope.onDragSuccess = function (index, data, evt) {
-            console.log(index);
-            console.log(data);
-            if(index > -1){
-                var otherData = scope.exercises[index];
-                var otherIndex = scope.exercises.indexOf(data);
-                scope.exercises[index] = data;
-                scope.exercises[otherIndex] = otherData;
-            }
-        };
+    	scope.routineIndex = attr.index;
+        scope.routine = scope.workoutPlan.workouts[attr.index];
+        scope.exercises = scope.workoutPlan.workouts[attr.index].exercises;
+
+        scope.dragControlListeners = {
+		    accept: function (sourceItemHandleScope, destSortableScope) {
+	            //console.log("accept "+sourceItemHandleScope.itemScope.sortableScope.$id === destSortableScope.$id);
+            	return sourceItemHandleScope.itemScope.sortableScope.$id === destSortableScope.$id;
+		    },
+		    itemMoved: function (event) {
+		    	event.source.itemScope.modelValue.status = event.dest.sortableScope.$parent.column.name;
+		    	//Do what you want
+			},
+		    orderChanged: function(event) {
+		    	//Do what you want
+			},
+		    containment: '#workout'//optional param.
+		};
+
+      mpApiFactory.getExersise().success(function(data){
+        scope.exercises = data;
+     });
+        scope.colapse= function(index) {
+            var routineexe = element[0].querySelectorAll('.routineexe');
+            var panels = [];
+            angular.forEach(routineexe,function(path,key){
+              var exe = angular.element(path);
+              var exercises = exe[0].querySelectorAll('.panel-collapse');
+              panels.push(exercises);
+            });
+
+            angular.forEach(panels,function(path,key){
+                  var panel = angular.element(path);
+                  console.log(panel);
+                  panel.collapse('hide');
+            });
+
+            var whospan =  angular.element(panels[index]);
+            console.log(whospan);
+            whospan.collapse('show');
+          };
     }
   };
-});
+}]);

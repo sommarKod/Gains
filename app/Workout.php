@@ -4,17 +4,32 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\WorkoutPlan;
+use App\Exercise;
 
 class Workout extends Model
 {
-    public function workoutPlan()
+    protected $hidden = array('created_at','updated_at');
+    protected $fillable = ['name'];
+
+    public function workoutPlans()
     {
-        return $this->belongsToMany('App\WorkoutPlan');
+        return $this->belongsToMany('App\WorkoutPlan')->withPivot('position');
+    }
+    public function exercises()
+    {
+        return $this->belongsToMany('App\Exercise')->withPivot('position');
     }
 
+    public function addExercises($exercises){
+        foreach($exercises as $exercise)  {
+            $exercise_id = Exercise::where('name', $exercise[0])->first();
+            $this->exercises()->attach($exercise_id, ['position' => $exercise[1]]);
+        }
+    }
     public function attachToWorkoutPlan($workout_plans){
         foreach($workout_plans as $workout_plan)  {
-            $this->workout()->attach($workout_plan[0], ['position' => $workout_plan[1]]);
+            $workout_plan_id = WorkoutPlan::where('name', $workout_plan[0])->first();
+            $this->workoutPlans()->attach($workout_plan_id, ['position' => $workout_plan[1]]);
         }
     }
 }

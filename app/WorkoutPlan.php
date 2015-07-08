@@ -7,13 +7,17 @@ use App\Workout;
 
 class WorkoutPlan extends Model
 {
-    public function workout()
+    protected $hidden = array('created_at','updated_at');
+    protected $fillable = ['name'];
+
+    public function workouts()
     {
-        return $this->belongsToMany('App\Workout');
+        return $this->belongsToMany('App\Workout')->withPivot('position');
     }
-    public function attachToWorkout($workouts){
+    public function addWorkouts($workouts){
         foreach($workouts as $workout)  {
-            $this->workoutPlan()->attach($workout[0], ['position' => $workout[1]]);
+            $workout_id = Workout::where('name', $workout[0])->first();
+            $this->workouts()->attach($workout_id, ['position' => $workout[1]]);
         }
     }
 }
