@@ -31,9 +31,7 @@ gains.directive('routinelist' ,['ApiFactory',function (ApiFactory) {
 			},
 		    containment: '#workout'//optional param.
 		};
-        ApiFactory.getExersise().success(function(data){
-            scope.exercises = data;
-        });
+
      scope.colapse= function(index) {
      //    var thi = angular.element(this);
    //      console.log(thi[0].class =='.routineexe');
