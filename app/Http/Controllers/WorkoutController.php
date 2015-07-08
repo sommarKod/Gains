@@ -73,13 +73,21 @@ class WorkoutController extends Controller
      */
     public function update($id)
     {
+        $workout = Workout::find($id);
 
+        $workout->removeAllExercises();
+        addEx($workout);
+
+        $workout->save();
+    }
+    private function addEx($workout){
+        $workout->addExercises(Input::all());
     }
 
     public function addExercises($id)
     {
         $workout = Workout::find($id);
-        $workout->addExercises(Input::all());
+        addEx($workout);
     }
 
     /**
