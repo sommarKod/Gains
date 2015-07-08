@@ -4,8 +4,8 @@ gains.directive('routinelist', function() {
     link: function(scope, element, attr){
 
     	scope.routineIndex = attr.index;
-        scope.routine = scope.routines[attr.index];
-        scope.exercises = scope.routine.exercises;
+        scope.routine = scope.workoutPlan.workouts[attr.index];
+        scope.exercises = scope.workoutPlan.workouts[attr.index].exercises;
 
         scope.dragControlListeners = {
 		    accept: function (sourceItemHandleScope, destSortableScope) {

@@ -3,7 +3,7 @@
         <div class="title">Welcome Friend</div>
 
         <div ng-repeat="workout in workoutPlan.workouts">
-            <routinelist index="{{workout.id}}"/></routinelist>
+            <routinelist index="{{$index}}"/></routinelist>
         </div>
 
       <routinesearch/></routinesearch>

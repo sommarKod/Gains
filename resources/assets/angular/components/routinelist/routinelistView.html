@@ -3,12 +3,12 @@
     	<h3 class="panel-title">Workout {{routineIndex}}</h3>
   	</div>
 	<div class="panel-body">
-		<ul data-as-sortable="workout.dragControlListeners" data-ng-model="exercises">
-			<li ng-repeat="exercise in exercises" data-as-sortable-item>
+		<div data-as-sortable="workout.dragControlListeners" data-ng-model="exercises">
+			<div ng-repeat="exercise in exercises" data-as-sortable-item>
 				<div data-as-sortable-item-handle>
 					<exerciseitem ></exerciseitem>	
 				</div>
-			</li>
-		</ul>
+			</div>
+		</div>
 	</div>
 </div>
