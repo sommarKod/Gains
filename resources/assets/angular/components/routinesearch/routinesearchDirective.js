@@ -6,7 +6,6 @@ gains.directive('routinesearch',['ApiFactory',function (mpApiFactory) {
          scope.works = data;
        });
 
-
        scope.colapse= function(index) {
        //    var thi = angular.element(this);
      //      console.log(thi[0].class =='.routineexe');

@@ -2,6 +2,7 @@
       <form name="userForm">
         <label>Search: <input id="searchbox" ng-model="q" ng-model-options="{ getterSetter: true }"></label>
       </form>
+
       <table id="searchTextResults">
         <tr>
         <div class="panel-group col-md-6" id="accordion" role="tablist" aria-multiselectable="true" ng-repeat="exercise in works | filter:q" style="margin:0px;">

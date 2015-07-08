@@ -1,4 +1,4 @@
-gains.directive('routinelist' ,['ApiFactory',function (mpApiFactory) {
+gains.directive('routinelist' ,['ApiFactory',function (ApiFactory) {
   return {
     templateUrl: "components/routinelist/routinelistView.html",
     link: function(scope, element, attr){
@@ -6,9 +6,14 @@ gains.directive('routinelist' ,['ApiFactory',function (mpApiFactory) {
         scope.routine = scope.workoutPlan.workouts[attr.index];
         scope.exercises = scope.workoutPlan.workouts[attr.index].exercises;
 
+        scope.$watch(
+            function(scope) { return scope.exercises; },
+            function(scope){
+                console.log("ApiFactory");
+                console.log(ApiFactory);
+               ApiFactory.updateWorkout(scope.routine);
 
-        scope.$watch(function(scope) { return scope.exercises },
-            function() {console.log("$watch")}
+            },true
         );
         scope.dragControlListeners = {
 		    accept: function (sourceItemHandleScope, destSortableScope) {
@@ -27,7 +32,7 @@ gains.directive('routinelist' ,['ApiFactory',function (mpApiFactory) {
 		    containment: '#workout'//optional param.
 		};
 
-      mpApiFactory.getExersise().success(function(data){
+        ApiFactory.getExersise().success(function(data){
         scope.exercises = data;
      });
      scope.colapse= function(index) {
