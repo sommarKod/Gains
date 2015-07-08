@@ -3,7 +3,7 @@
     	<h3 class="panel-title">Workout {{routineIndex}} <a ng-click="newButton()"></a></h3>
         <button >butt</button>
   	</div>
-	<div class="panel-body">
+	<div class="panel-body" style="height:400px; overflow-y:scroll;">
 		<div data-as-sortable="workout.dragControlListeners" data-ng-model="exercises">
 			<div ng-repeat="exercise in exercises" data-as-sortable-item>
 				<div data-as-sortable-item-handle>
