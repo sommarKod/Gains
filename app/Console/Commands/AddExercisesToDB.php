@@ -89,8 +89,8 @@ class AddExercisesToDB extends Command
         $muscles[] = ['Teres Minor', self::$medium_intensity];
         $muscles[] = ['Rhomboids', self::$medium_intensity];
         $muscles[] = ['Levator Scapulae', self::$medium_intensity];
-        $muscles[] = ['Trapezius Lower', self::$medium_intensity];
-        $muscles[] = ['Trapezius Middle', self::$medium_intensity];
+        $muscles[] = ['Trapezius Lower Fibers Fibers', self::$medium_intensity];
+        $muscles[] = ['Trapezius Middle Fibers Fibers', self::$medium_intensity];
         $muscles[] = ['Pectoralis Minor', self::$medium_intensity];
         $exercise->attachToMuscle($muscles);
 
@@ -101,8 +101,8 @@ class AddExercisesToDB extends Command
 
         $muscles[] = ['Triceps Brachii', self::$medium_intensity];
         $muscles[] = ['Pectoralis Major Clavicular Head', self::$medium_intensity];
-        $muscles[] = ['Trapezius Lower', self::$medium_intensity];
-        $muscles[] = ['Trapezius Middle', self::$medium_intensity];
+        $muscles[] = ['Trapezius Lower Fibers Fibers', self::$medium_intensity];
+        $muscles[] = ['Trapezius Middle Fibers', self::$medium_intensity];
         $muscles[] = ['Deltoid Lateral', self::$medium_intensity];
         $muscles[] = ['Serratus Anterior', self::$medium_intensity];
         $exercise->attachToMuscle($muscles);
@@ -120,8 +120,8 @@ class AddExercisesToDB extends Command
         $muscles[] = ['Deltoid Lateral', self::$max_intensity];
 
         $muscles[] = ['Deltoid Anterior', self::$medium_intensity];
-        $muscles[] = ['Trapezius Lower', self::$medium_intensity];
-        $muscles[] = ['Trapezius Middle', self::$medium_intensity];
+        $muscles[] = ['Trapezius Lower Fibers', self::$medium_intensity];
+        $muscles[] = ['Trapezius Middle Fibers', self::$medium_intensity];
         $muscles[] = ['Serratus Anterior', self::$medium_intensity];
         $muscles[] = ['Supraspinatus', self::$medium_intensity];
 
@@ -148,6 +148,30 @@ class AddExercisesToDB extends Command
         $muscles[] = ['Soleus', self::$medium_intensity];
 
         $exercise->attachToMuscle($muscles);
+
+        // Standing calf raise
+        $exercise = Exercise::create(['name' => 'Standing calf raise']);
+        $muscles = [];
+        $muscles[] = ['Gastrocnemius', self::$max_intensity];
+        $muscles[] = ['Soleus', self::$medium_intensity];
+
+        $exercise->attachToMuscle($muscles);
+
+        // Dips
+        $exercise = Exercise::create(['name' => 'Triceps Dips']);
+        $muscles = [];
+        $muscles[] = ['Triceps Brachii', self::$max_intensity];
+
+        $muscles[] = ['Deltoid Anterior', self::$medium_intensity];
+        $muscles[] = ['Pectoralis Major Clavicular Head', self::$medium_intensity];
+        $muscles[] = ['Pectoralis Major Sternal Head', self::$medium_intensity];
+        $muscles[] = ['Pectoralis Minor', self::$medium_intensity];
+        $muscles[] = ['Rhomboids', self::$medium_intensity];
+        $muscles[] = ['Levator Scapulae', self::$medium_intensity];
+        $muscles[] = ['Latissimus Dorsi', self::$medium_intensity];
+
+        $exercise->attachToMuscle($muscles);
+
 
     }
 }

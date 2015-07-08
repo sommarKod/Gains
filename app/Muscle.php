@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\MuscleGroup;
 
 
 class Muscle extends Model
@@ -18,5 +19,14 @@ class Muscle extends Model
     {
         return $this->hasMany('App\MuscleAlias');
     }
-
+    public function muscleGroups()
+    {
+        return $this->belongsToMany('App\MuscleGroup');
+    }
+    public function attachToMuscleGroups($muscleGroups){
+        foreach($muscleGroups as $muscleGroup)  {
+            $muscle_group_id = MuscleGroup::where('name', $muscleGroup);
+            $this->muscleGroups()->attach($muscle_group_id);
+        }
+    }
 }

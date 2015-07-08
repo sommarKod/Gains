@@ -19,7 +19,7 @@ class ExerciseController extends Controller
      */
     public function index()
     {
-        return Response::json(Exercise::with('exerciseAlias','muscles','muscles.muscleAlias')->get());
+        return Response::json(Exercise::all());
     }
 
     /**
@@ -50,7 +50,7 @@ class ExerciseController extends Controller
      */
     public function show($id)
     {
-        //
+        return Response::json(Exercise::with('exerciseAlias','muscles','muscles.muscleAlias')->find($id));
     }
 
     /**
