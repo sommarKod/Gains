@@ -20,10 +20,7 @@ gains.directive('routinelist' ,['ApiFactory',function (mpApiFactory) {
 			},
 		    containment: '#workout'//optional param.
 		};
-
-      mpApiFactory.getExersise().success(function(data){
-        scope.exercises = data;
-     });
+    
      scope.colapse= function(index) {
      //    var thi = angular.element(this);
    //      console.log(thi[0].class =='.routineexe');

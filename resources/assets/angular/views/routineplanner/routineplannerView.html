@@ -1,11 +1,12 @@
-<div class="container">
-    <div class="content">
-        <div class="title">Welcome Friend</div>
 
-        <div ng-repeat="workout in workoutPlan.workouts">
+  <div class="content">
+    <table style="overflow-x:scroll;">
+      <tr>
+          <td ng-repeat="workout in workoutPlan.workouts">
             <routinelist index="{{$index}}"/></routinelist>
-        </div>
+          </td>
+      </tr>
+    </table>
 
       <routinesearch/></routinesearch>
-    </div>
-</div>
+  </div>
