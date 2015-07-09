@@ -1,14 +1,13 @@
-
-  <div class="content">
-    <h1>Welcome Freud!</h1>
-    <table style="overflow-x:scroll;">
-      <tr>
-          <td ng-repeat="workout in workoutPlan.workouts">
-            <routinelist index="{{$index}}"/></routinelist>
-          </td>
-      </tr>
-    </table>
-      <div ng-repeat="searchbar in workoutSearches">
-        <routinesearch/></routinesearch>
-      </div>
+<div class="content">
+  <h1>Welcome Freud!</h1>
+  <table style="overflow-x:scroll;">
+    <tr ng-if="workoutPlan !== undefined && workoutPlan !== null" data-as-sortable="dragControlListeners" data-ng-model="workoutPlan.workouts">
+        <td ng-repeat="workout in workoutPlan.workouts">
+          <routinelist index="{{$index}}"/></routinelist>
+        </td>
+    </tr>
+  </table>
+  <div ng-if="workoutSearchOptions !== undefined && workoutSearchOptions !== null">
+      <routinesearch/></routinesearch>
   </div>
+</div>

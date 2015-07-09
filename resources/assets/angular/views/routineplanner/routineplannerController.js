@@ -10,10 +10,24 @@ gains.controller('RoutinePlannerController',['$location','ApiFactory','$scope',f
     );
     APIFactory.getExersise().success(
     	function(data){
-            $scope.workoutSearches = [{"exercises":data}];
+            $scope.workoutSearchOptions = {"exercises":data};
          	console.log(data);
     	}
     );
+
+    $scope.dragControlListeners = {
+            accept: function (sourceItemHandleScope, destSortableScope) {
+                return sourceItemHandleScope.itemScope.sortableScope.$id === destSortableScope.$id;
+            },
+            itemMoved: function (event) {
+                //event.source.itemScope.modelValue.status = event.dest.sortableScope.$parent.column.name;
+                //Do what you want
+                },
+                orderChanged: function(event) {
+                    //Do what you want
+                },
+                containment: '#planner'//optional param.
+            };
 
 
 }]);

@@ -2,7 +2,7 @@ gains.directive('routinesearch',[function () {
   return {
     templateUrl: "components/routinesearch/routinesearchView.html",
     link: function(scope, element, attr){
-        scope.exercises = scope.searchbar.exercises;
+        scope.exercises = scope.workoutSearchOptions.exercises;
 
 
         scope.dragControlListeners = {
