@@ -26,7 +26,6 @@ gains.directive('routinelist', ['ApiFactory', '$timeout', function (ApiFactory, 
                     //Do what you want
                 },
                 orderChanged: function(event) {
-                    console.log("orderChanged");
                     ApiFactory.updateWorkout(scope.routine);
                 },
                 containment: '#workout'//optional param.
@@ -45,23 +44,19 @@ gains.directive('routinelist', ['ApiFactory', '$timeout', function (ApiFactory, 
 
                 angular.forEach(panels, function (path, key) {
                     var panel = angular.element(path);
-                    console.log(panel);
                     panel.collapse('hide');
                 });
 
                 var whospan = angular.element(panels[index]);
-                console.log(whospan);
                 whospan.collapse('show');
             };
             scope.renameWorkout = function () {
-                console.log("renameWorkout");
                 scope.tempName = scope.routine.name;
                 scope.noEdit = false;
                 $timeout(function(){ $(".workoutNameInputField").focus().select(); });
             };
 
             scope.removeFocus = function () {
-                console.log("removefocus");
                 scope.noEdit = true;
             };
 
