@@ -12,8 +12,6 @@ gains.directive('routinelist', ['ApiFactory', '$timeout', function (ApiFactory, 
             scope.$watch(
                 function(scope) { return scope.exercises; },
                 function(){
-                    console.log("ApiFactory");
-                    console.log(ApiFactory);
                     ApiFactory.updateWorkout(scope.routine);
 
                 },true
