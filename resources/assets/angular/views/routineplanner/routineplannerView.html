@@ -3,7 +3,7 @@
     <div id="wrapper" style="width: 75%; height:80%, overflow-x:scroll; overflow-y:hidden; ">
   <table>
     <tr ng-if="workoutPlan !== undefined && workoutPlan !== null" data-as-sortable="dragWorkoutControlListeners" data-ng-model="workoutPlan.workouts">
-        <td ng-repeat="workout in workoutPlan.workouts">
+        <td ng-repeat="workout in workoutPlan.workouts" data-as-sortable-item style="display:table-cell; border:0px;">
           <routinelist index="{{$index}}"/></routinelist>
         </td>
     </tr>
