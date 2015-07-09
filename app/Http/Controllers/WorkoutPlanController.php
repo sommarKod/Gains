@@ -29,7 +29,9 @@ class WorkoutPlanController extends Controller
      */
     public function create()
     {
-
+        $Workoutplan= WorkoutPlan::create();
+        $WorkoutplanExtra = WorkoutPlan::with('workouts', 'workouts.exercises', 'workouts.exercises.muscles')->find($Workoutplan->id);
+        return Response::json( $WorkoutplanExtra);
     }
 
     /**

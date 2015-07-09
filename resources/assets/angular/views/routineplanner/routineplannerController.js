@@ -2,6 +2,14 @@
 gains.controller('RoutinePlannerController',['$location','ApiFactory','$scope','$window',function($location,APIFactory,$scope,$window) {
     var searchObject = $location.search();
     $scope.board=searchObject.board;
+    if($scope.board === undefined){
+        APIFactory.createWorkoutPlan().success(
+            function(data){
+                console.log(data);
+                $scope.workoutPlan=data;
+            }
+        );
+    }
     APIFactory.getWorkoutPlan($scope.board).success(
         function(data){
             console.log(data);

@@ -18,11 +18,12 @@ gains.directive('routinelist', ['ApiFactory', '$timeout', function (ApiFactory, 
                             return false;
                         }
                     }
+
                     return true;
                 },
                 itemMoved: function (event) {
-                    event.source.itemScope.modelValue.status = event.dest.sortableScope.$parent.column.name;
                     ApiFactory.updateWorkout(scope.routine);
+                    console.log(scope.routine);
                     //Do what you want
                 },
                 orderChanged: function(event) {
@@ -45,12 +46,12 @@ gains.directive('routinelist', ['ApiFactory', '$timeout', function (ApiFactory, 
 
                 angular.forEach(panels, function (path, key) {
                     var panel = angular.element(path);
-                    console.log(panel);
+
                     panel.collapse('hide');
                 });
 
                 var whospan = angular.element(panels[index]);
-                console.log(whospan);
+
                 whospan.collapse('show');
             };
             scope.renameWorkout = function () {
