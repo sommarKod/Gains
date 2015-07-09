@@ -14,13 +14,7 @@ gains.controller('RoutinePlannerController',['$location','ApiFactory','$scope','
          	console.log(data);
     	}
     );
-<<<<<<< HEAD
-    
     $scope.dragWorkoutControlListeners = {
-=======
-
-    $scope.dragControlListeners = {
->>>>>>> 275dbd38a5ad4ab75461d8ab72343b4654046af2
         accept: function (sourceItemHandleScope, destSortableScope) {
             return sourceItemHandleScope.itemScope.sortableScope.$id === destSortableScope.$id;
         },
