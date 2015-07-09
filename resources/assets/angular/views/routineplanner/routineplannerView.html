@@ -1,14 +1,23 @@
-<div class="content col-md-12">
-  <h1>Welcome Freud!</h1>
-      <table style="overflow-x:scroll;" class="col-md-9">
-        <tr>
-          <td ng-repeat="workout in workoutPlan.workouts">
-            <routinelist index="{{$index}}"/></routinelist>
-          </td>
-        </tr>
-      </table>
-      <div class="container col-md-3">
-        <anatomypanel gender="userGender" muscledata="regionDataMale"></anatomypanel>
-      </div>
+<div class="content" ng-style="style()">
+  <div id="wrapper" style="width: 75%; height:80%, overflow-x:scroll; overflow-y:hidden; float:left;">
+    <table>
+
+      <tr ng-if="workoutPlan !== undefined && workoutPlan !== null" data-as-sortable="dragWorkoutControlListeners" data-ng-model="workoutPlan.workouts">
+        <td ng-repeat="workout in workoutPlan.workouts" data-as-sortable-item style="display:table-cell; border:0px;">
+          <routinelist index="{{$index}}"/></routinelist>
+        </td>
+      </tr>
+
+    </table>
+  </div>
+
+  <div style="width: 25%; height: 80% !important; float:left;">
+    <anatomypanel gender="userGender" muscledata="regionDataMale"></anatomypanel>
+  </div>
+
+  <div style="width: 75%; height:20%">
+    <div ng-if="workoutSearchOptions !== undefined && workoutSearchOptions !== null">
       <routinesearch/></routinesearch>
+    </div>
+  </div>
 </div>
