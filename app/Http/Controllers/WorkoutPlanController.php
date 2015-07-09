@@ -72,8 +72,8 @@ class WorkoutPlanController extends Controller
      */
     public function update($id)
     {
-        WorkoutPlan::find($id)->update(Input::all());
-
+        $workoutPlan=WorkoutPlan::find($id);
+        $workoutPlan->updateWorkouts(Input::get('workouts'));
     }
 
 

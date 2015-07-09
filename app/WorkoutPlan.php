@@ -23,4 +23,10 @@ class WorkoutPlan extends Model
     public function removeAllWorkouts(){
         $this->workouts()->detach();
     }
+    public function updateWorkouts($workouts){
+        $this->workouts()->detach();
+        foreach($workouts as $pos =>$workout)  {
+            $this->workouts()->attach($workout['id'], ['position' => $pos]);
+        }
+    }
 }

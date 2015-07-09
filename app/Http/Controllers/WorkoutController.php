@@ -74,12 +74,7 @@ class WorkoutController extends Controller
     public function update($id)
     {
          $workout=Workout::find($id);
-
-
          $workout->updateExercises(Input::get('exercises'));
-
-      //  $workout->update(Input::all());
-
     }
 
 
@@ -88,8 +83,6 @@ class WorkoutController extends Controller
     public function addExercises($id)
     {
         $workout = Workout::find($id);
-
-
         $workout->addExercises(Input::all());
     }
 
