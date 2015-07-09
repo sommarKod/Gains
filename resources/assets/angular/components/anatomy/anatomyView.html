@@ -1,2 +1,8 @@
-
-<object id="mysvg" type="image/svg+xml" data="man_front.svg"></object>
+<div ng-if="gender == 'male'">
+  <anatomyimage class="col-md-6" gender="male" angle="front" muscledata="regionDataMale" anatomyhoverid="anatomyHoverId"></anatomyimage>
+  <anatomyimage class="col-md-6" gender="male" angle="front" muscledata="regionDataFemale" anatomyhoverid="anatomyHoverId"></anatomyimage>
+</div>
+<div ng-if="gender == 'female'">
+  <anatomyimage class="col-md-6" gender="female" angle="front" muscledata="regionDataMale" anatomyhoverid="anatomyHoverId"></anatomyimage>
+  <anatomyimage class="col-md-6" gender="female" angle="front" muscledata="regionDataFemale" anatomyhoverid="anatomyHoverId"></anatomyimage>
+</div>
