@@ -24,6 +24,16 @@ gains.factory('ApiFactory', ['$http', function($http) {
                     return false;
                 });
         },
+        getExercisesWithInfo: function () {
+            return $http.get(apiRoute + '/exerciseWithInfo').
+                success(function (data, status, headers, config) {
+                    return data;
+                }).
+                error(function (data, status, headers, config) {
+                    // log error
+                    return false;
+                });
+        },
         getWorkoutPlan: function (id) {
             return $http.get(apiRoute + '/workoutPlan/'+id).
                 success(function (data, status, headers, config) {
