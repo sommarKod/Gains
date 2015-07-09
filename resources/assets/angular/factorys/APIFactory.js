@@ -45,7 +45,9 @@ gains.factory('ApiFactory', ['$http', function($http) {
                 });
         },
         updateWorkout: function(workout){
+            console.log(workout);
             return $http.put(apiRoute + '/workout/'+workout.id,workout).
+
                 success(function (data, status, headers, config) {
                     return data;
                 }).

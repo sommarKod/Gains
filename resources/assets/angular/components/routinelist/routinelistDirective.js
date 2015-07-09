@@ -8,7 +8,7 @@ gains.directive('routinelist' ,['ApiFactory',function (ApiFactory) {
 
         scope.$watch(
             function(scope) { return scope.exercises; },
-            function(scope){
+            function(){
                 console.log("ApiFactory");
                 console.log(ApiFactory);
                ApiFactory.updateWorkout(scope.routine);
