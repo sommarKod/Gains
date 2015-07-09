@@ -74,11 +74,10 @@ class WorkoutController extends Controller
     public function update($id)
     {
          $workout=Workout::find($id);
+         $workout->name = Input::get('name');
+         $workout->save();
          $workout->updateExercises(Input::get('exercises'));
     }
-
-
-
 
     public function addExercises($id)
     {

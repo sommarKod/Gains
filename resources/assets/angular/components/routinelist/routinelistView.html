@@ -1,7 +1,13 @@
 <div class="panel panel-default" data-as-sortable-item>
 	<div class="panel-heading" data-as-sortable-item-handle>
-    	<h3 class="panel-title">Workout {{routine.id}}</h3>-
-  	</div>
+    	<h3 class="panel-title"  ng-if="noEdit" ng-click="renameWorkout()" >{{routine.name}}</h3>
+        <form ng-submit="saveWorkoutName()">
+
+            <input ng-if="!noEdit" ng-model="tempName" class="workoutNameInputField" type="text" ng-blur="removeFocus()" />
+            <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;"/>
+        </form>
+
+    </div>
 	<div style="overflow-y:auto;" class="panel-body">
 		<div  style="height:400px;"  data-as-sortable="dragControlListeners" data-ng-model="exercises">
 			<div ng-repeat="exercise in exercises">

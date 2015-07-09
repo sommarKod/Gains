@@ -43,6 +43,8 @@ gains.directive('routinesearch',[function () {
            console.log(whospan);
            whospan.collapse('show');
          };
+
+
     }
   };
 }]);

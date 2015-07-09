@@ -41,4 +41,5 @@ class Workout extends Model
     public function removeAllExercises(){
         $this->exercises()->detach();
     }
+
 }
