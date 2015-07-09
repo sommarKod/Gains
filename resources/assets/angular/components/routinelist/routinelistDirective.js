@@ -1,10 +1,13 @@
+
 gains.directive('routinelist' ,['ApiFactory',function (ApiFactory) {
+
+
   return {
     templateUrl: "components/routinelist/routinelistView.html",
     link: function(scope, element, attr){
     	scope.routineIndex = attr.index;
-        scope.routine = scope.workoutPlan.workouts[attr.index];
-        scope.exercises = scope.workoutPlan.workouts[attr.index].exercises;
+      scope.routine = scope.workoutPlan.workouts[attr.index];
+      scope.exercises = scope.workoutPlan.workouts[attr.index].exercises;
 
         scope.$watch(
             function(scope) { return scope.exercises; },

@@ -1,4 +1,4 @@
-gains.directive('routinesearch',['ApiFactory',function (mpApiFactory) {
+gains.directive('routinesearch',[function () {
   return {
     templateUrl: "components/routinesearch/routinesearchView.html",
     link: function(scope, element, attr){
