@@ -20,4 +20,7 @@ class WorkoutPlan extends Model
             $this->workouts()->attach($workout_id, ['position' => $workout[1]]);
         }
     }
+    public function removeAllWorkouts(){
+        $this->workouts()->detach();
+    }
 }
