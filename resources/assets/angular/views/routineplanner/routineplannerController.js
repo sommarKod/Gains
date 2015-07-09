@@ -44,7 +44,7 @@ gains.controller('RoutinePlannerController',['$location','ApiFactory','$scope','
         console.log("height:"+ newValue + 'px');
         return {
           height: newValue + 'px',
-          width: windowWidth + 'px'
+          width: $scope.windowWidth + 'px'
         };
       };
     });

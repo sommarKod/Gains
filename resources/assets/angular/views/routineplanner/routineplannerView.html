@@ -1,23 +1,26 @@
 <div class="content" ng-style="style()">
-  <div id="wrapper" style="width: 75%; height:80%, overflow-x:scroll; overflow-y:hidden; float:left;">
-    <table>
+  <div class="row">
+    <div id="wrapper" class="col-xs-9" style="height:60vh; overflow-x:auto; overflow-y:hidden;">
+      <table>
 
-      <tr ng-if="workoutPlan !== undefined && workoutPlan !== null" data-as-sortable="dragWorkoutControlListeners" data-ng-model="workoutPlan.workouts">
-        <td ng-repeat="workout in workoutPlan.workouts" data-as-sortable-item style="display:table-cell; border:0px;">
-          <routinelist index="{{$index}}"/></routinelist>
-        </td>
-      </tr>
+        <tr ng-if="workoutPlan !== undefined && workoutPlan !== null" data-as-sortable="dragWorkoutControlListeners" data-ng-model="workoutPlan.workouts">
+          <td ng-repeat="workout in workoutPlan.workouts" data-as-sortable-item style="display:table-cell; border:0px;">
+            <routinelist index="{{$index}}"/></routinelist>
+          </td>
+        </tr>
 
-    </table>
-  </div>
-
-  <div style="width: 25%; height: 80% !important; float:left;">
-    <anatomypanel gender="userGender" muscledata="regionDataMale"></anatomypanel>
-  </div>
-
-  <div style="width: 75%; height:20%">
-    <div ng-if="workoutSearchOptions !== undefined && workoutSearchOptions !== null">
-      <routinesearch/></routinesearch>
+      </table>
     </div>
+
+    <div class="col-xs-3" style="height:30vh;">
+      <anatomypanel gender="userGender" muscledata="regionDataMale"></anatomypanel>
+    </div>
+
+  </div>
+
+  <div class="row">
+      <div ng-if="workoutSearchOptions !== undefined && workoutSearchOptions !== null">
+        <routinesearch/></routinesearch>
+      </div>
   </div>
 </div>
