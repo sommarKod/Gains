@@ -1,5 +1,5 @@
 
-gains.controller('RoutinePlannerController',['$location','ApiFactory','$scope',function($location,APIFactory,$scope) {
+gains.controller('RoutinePlannerController',['$location','ApiFactory','$scope','$window',function($location,APIFactory,$scope,$window) {
     var searchObject = $location.search();
     $scope.board=searchObject.board;
     APIFactory.getWorkoutPlan($scope.board).success(
@@ -14,8 +14,13 @@ gains.controller('RoutinePlannerController',['$location','ApiFactory','$scope',f
          	console.log(data);
     	}
     );
+<<<<<<< HEAD
     
     $scope.dragWorkoutControlListeners = {
+=======
+
+    $scope.dragControlListeners = {
+>>>>>>> 275dbd38a5ad4ab75461d8ab72343b4654046af2
         accept: function (sourceItemHandleScope, destSortableScope) {
             return sourceItemHandleScope.itemScope.sortableScope.$id === destSortableScope.$id;
         },
@@ -24,9 +29,45 @@ gains.controller('RoutinePlannerController',['$location','ApiFactory','$scope',f
             //Do what you want
         },
         orderChanged: function(event) {
-            //Do what you want
+            APIFactory.updateWorkoutPlan($scope.workoutPlan);
         },
         containment: '#planner'//optional param.
     };
+
+    var w = angular.element(window);
+    $scope.getHeight = function() {
+      console.log(w.height());
+      return w.height();
+    };
+
+    $scope.getWidth = function() {
+      console.log(w.width());
+      return w.width();
+    };
+
+    $scope.$watch($scope.getHeight, function(newValue, oldValue) {
+      $scope.windowHeight = newValue;
+      $scope.style = function() {
+        console.log("height:"+ newValue + 'px');
+        return {
+          height: newValue + 'px',
+          width: windowWidth + 'px'
+        };
+      };
+    });
+
+    $scope.$watch($scope.getWidth, function(newValue, oldValue) {
+      $scope.windowWidth = newValue;
+      $scope.style = function() {
+        console.log("height:"+ newValue + 'px');
+        return {
+          height: $scope.windowHeight + 'px',
+          width: newValue + 'px'
+        };
+      };
+    });
+
+    w.bind('resize', function () {
+      $scope.$apply();
+    });
 }]);
-  //temporary

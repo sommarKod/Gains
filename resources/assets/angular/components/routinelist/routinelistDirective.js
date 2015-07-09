@@ -1,4 +1,4 @@
-gains.directive('routinelist' ,[function () {
+gains.directive('routinelist' ,['ApiFactory',function (mpApiFactory) {
   return {
     templateUrl: "components/routinelist/routinelistView.html",
     link: function(scope, element, attr){
@@ -17,15 +17,17 @@ gains.directive('routinelist' ,[function () {
                 }
                 return true;
   		    },
-  		    itemMoved: function (event) {
-		    	//event.source.itemScope.modelValue.status = event.dest.sortableScope.$parent.column.name;
+		    itemMoved: function (event) {
+		    	event.source.itemScope.modelValue.status = event.dest.sortableScope.$parent.column.name;
+                ApiFactory.updateWorkout(scope.routine);
 		    	//Do what you want
-    			},
-    		    orderChanged: function(event) {
-    		    	//Do what you want
-    			},
-    		    containment: '#workout'//optional param.
-    		};
+			},
+		    orderChanged: function(event) {
+                console.log("orderChanged");
+                ApiFactory.updateWorkout(scope.routine);
+			},
+		    containment: '#workout'//optional param.
+		};
 
      scope.colapse= function(index) {
      //    var thi = angular.element(this);
