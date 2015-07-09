@@ -21,6 +21,8 @@ gains.controller('RoutinePlannerController',['$location','ApiFactory','$scope',f
             temp2[region] = {value: Math.random() * 100};
         });
         $scope.regionDataFemale = temp2;
+
+        $scope.anatomyHoverId = 'none';
     };
     $scope.createDummyData();
 }]);
