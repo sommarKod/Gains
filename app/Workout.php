@@ -20,11 +20,11 @@ class Workout extends Model
         return $this->belongsToMany('App\Exercise')->withPivot('position');
     }
 
-    public function addExercises($exercises){
-        foreach($exercises as $exercise)  {
-            $exercise_id = Exercise::where('name', $exercise[0])->first();
-            $this->exercises()->attach($exercise_id, ['position' => $exercise[1]]);
-        }
+    public function updateExercises($exercises){
+        $this->exercises()->detach();
+        foreach($exercises as $pos =>$exercise)  {
+            $this->exercises()->attach($exercise['id'], ['position' => $pos]);
+       }
     }
     public function attachToWorkoutPlan($workout_plans){
         foreach($workout_plans as $workout_plan)  {
@@ -32,7 +32,13 @@ class Workout extends Model
             $this->workoutPlans()->attach($workout_plan_id, ['position' => $workout_plan[1]]);
         }
     }
+    public function addExercises($exercises){
+        foreach($exercises as $exercise)  {
+            $exercise_id = Exercise::where('name', $exercise[0])->first();
+            $this->exercises()->attach($exercise_id, ['position' => $exercise[1]]);
+        }
+    }
     public function removeAllExercises(){
-        $this->detach();
+        $this->exercises()->detach();
     }
 }

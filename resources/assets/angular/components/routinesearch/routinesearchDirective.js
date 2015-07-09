@@ -22,7 +22,6 @@ gains.directive('routinesearch',[function () {
     		    containment: '#search'//optional param.
     		};
 
-
        scope.colapse= function(index) {
        //    var thi = angular.element(this);
      //      console.log(thi[0].class =='.routineexe');
