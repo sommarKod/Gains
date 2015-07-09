@@ -5,7 +5,7 @@ gains.directive('routinesearch',[function () {
         scope.exercises = scope.workoutSearchOptions.exercises;
 
 
-        scope.dragControlListeners = {
+        scope.dragExerciseControlListeners = {
   		    accept: function (sourceItemHandleScope, destSortableScope, destItemScope) {
               return false;
   		    },

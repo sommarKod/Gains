@@ -1,7 +1,7 @@
 <div class="content">
   <h1>Welcome Freud!</h1>
   <table style="overflow-x:scroll;">
-    <tr ng-if="workoutPlan !== undefined && workoutPlan !== null" data-as-sortable="dragControlListeners" data-ng-model="workoutPlan.workouts">
+    <tr ng-if="workoutPlan !== undefined && workoutPlan !== null" data-as-sortable="dragWorkoutControlListeners" data-ng-model="workoutPlan.workouts">
         <td ng-repeat="workout in workoutPlan.workouts">
           <routinelist index="{{$index}}"/></routinelist>
         </td>

@@ -1,7 +1,4 @@
-
-gains.directive('routinelist' ,['ApiFactory',function (ApiFactory) {
-
-
+gains.directive('routinelist' ,[function () {
   return {
     templateUrl: "components/routinelist/routinelistView.html",
     link: function(scope, element, attr){
@@ -9,31 +6,26 @@ gains.directive('routinelist' ,['ApiFactory',function (ApiFactory) {
       scope.routine = scope.workoutPlan.workouts[attr.index];
       scope.exercises = scope.workoutPlan.workouts[attr.index].exercises;
 
-        scope.$watch(
-            function(scope) { return scope.exercises; },
-            function(){
-                console.log("ApiFactory");
-                console.log(ApiFactory);
-               ApiFactory.updateWorkout(scope.routine);
-
-            },true
-        );
-        scope.dragControlListeners = {
-		    accept: function (sourceItemHandleScope, destSortableScope) {
-	            console.log("accept ");
-            	return sourceItemHandleScope.itemScope.sortableScope.$id === destSortableScope.$id;
-		    },
-		    itemMoved: function (event) {
-                console.log("itemMoved ");
-		    	event.source.itemScope.modelValue.status = event.dest.sortableScope.$parent.column.name;
+        scope.dragExerciseControlListeners = {
+  		    accept: function (sourceItemHandleScope, destSortableScope) {
+                for(var i = 0; i< destSortableScope.modelValue.length; i++){
+                  if(destSortableScope.modelValue[i] === sourceItemHandleScope.itemScope.exercise){
+                    //Do nothing
+                  } else if(destSortableScope.modelValue[i].name === sourceItemHandleScope.itemScope.exercise.name){
+                    return false;
+                  }
+                }
+                return true;
+  		    },
+  		    itemMoved: function (event) {
+		    	//event.source.itemScope.modelValue.status = event.dest.sortableScope.$parent.column.name;
 		    	//Do what you want
-			},
-		    orderChanged: function(event) {
-                console.log("orderChanged");
-		    	//Do what you want
-			},
-		    containment: '#workout'//optional param.
-		};
+    			},
+    		    orderChanged: function(event) {
+    		    	//Do what you want
+    			},
+    		    containment: '#workout'//optional param.
+    		};
 
      scope.colapse= function(index) {
      //    var thi = angular.element(this);
