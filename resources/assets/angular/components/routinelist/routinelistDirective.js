@@ -1,7 +1,4 @@
-
-gains.directive('routinelist' ,['ApiFactory',function (ApiFactory) {
-
-
+gains.directive('routinelist' ,['ApiFactory',function (mpApiFactory) {
   return {
     templateUrl: "components/routinelist/routinelistView.html",
     link: function(scope, element, attr){
@@ -9,15 +6,12 @@ gains.directive('routinelist' ,['ApiFactory',function (ApiFactory) {
       scope.routine = scope.workoutPlan.workouts[attr.index];
       scope.exercises = scope.workoutPlan.workouts[attr.index].exercises;
 
-
-
         scope.dragControlListeners = {
 		    accept: function (sourceItemHandleScope, destSortableScope) {
-	            console.log("accept ");
+	            //console.log("accept "+sourceItemHandleScope.itemScope.sortableScope.$id === destSortableScope.$id);
             	return sourceItemHandleScope.itemScope.sortableScope.$id === destSortableScope.$id;
 		    },
 		    itemMoved: function (event) {
-                console.log("itemMoved ");
 		    	event.source.itemScope.modelValue.status = event.dest.sortableScope.$parent.column.name;
                 ApiFactory.updateWorkout(scope.routine);
 		    	//Do what you want
