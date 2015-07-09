@@ -45,8 +45,22 @@ gains.factory('ApiFactory', ['$http', function($http) {
                 });
         },
         updateWorkout: function(workout){
+            console.log('workout');
             console.log(workout);
             return $http.put(apiRoute + '/workout/'+workout.id,workout).
+
+                success(function (data, status, headers, config) {
+                    return data;
+                }).
+                error(function (data, status, headers, config) {
+                    // log error
+                    return false;
+                });
+        },
+        updateWorkoutPlan: function(workoutPlan){
+            console.log("workoutplan");
+            console.log(workoutPlan);
+            return $http.put(apiRoute + '/workoutPlan/'+workoutPlan.id,workoutPlan).
 
                 success(function (data, status, headers, config) {
                     return data;

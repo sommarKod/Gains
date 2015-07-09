@@ -9,15 +9,8 @@ gains.directive('routinelist' ,['ApiFactory',function (ApiFactory) {
       scope.routine = scope.workoutPlan.workouts[attr.index];
       scope.exercises = scope.workoutPlan.workouts[attr.index].exercises;
 
-        scope.$watch(
-            function(scope) { return scope.exercises; },
-            function(){
-                console.log("ApiFactory");
-                console.log(ApiFactory);
-               ApiFactory.updateWorkout(scope.routine);
 
-            },true
-        );
+
         scope.dragControlListeners = {
 		    accept: function (sourceItemHandleScope, destSortableScope) {
 	            console.log("accept ");
@@ -26,11 +19,12 @@ gains.directive('routinelist' ,['ApiFactory',function (ApiFactory) {
 		    itemMoved: function (event) {
                 console.log("itemMoved ");
 		    	event.source.itemScope.modelValue.status = event.dest.sortableScope.$parent.column.name;
+                ApiFactory.updateWorkout(scope.routine);
 		    	//Do what you want
 			},
 		    orderChanged: function(event) {
                 console.log("orderChanged");
-		    	//Do what you want
+                ApiFactory.updateWorkout(scope.routine);
 			},
 		    containment: '#workout'//optional param.
 		};

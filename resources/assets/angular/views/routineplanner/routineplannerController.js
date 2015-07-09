@@ -24,7 +24,7 @@ gains.controller('RoutinePlannerController',['$location','ApiFactory','$scope',f
             //Do what you want
         },
         orderChanged: function(event) {
-            //Do what you want
+            APIFactory.updateWorkoutPlan($scope.workoutPlan);
         },
         containment: '#planner'//optional param.
     };
