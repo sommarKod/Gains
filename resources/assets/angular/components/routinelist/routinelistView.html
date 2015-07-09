@@ -1,4 +1,4 @@
-<div class="panel panel-default" data-as-sortable-item>
+<div class="panel panel-default"  style="width:250px; max-width:250px;">
 	<div class="panel-heading" data-as-sortable-item-handle>
     	<h3 class="panel-title"  ng-if="noEdit" ng-click="renameWorkout()" >{{routine.name}}</h3>
         <form ng-submit="saveWorkoutName()">
@@ -9,7 +9,7 @@
 
     </div>
 	<div style="overflow-y:auto;" class="panel-body">
-		<div  style="height:400px;"  data-as-sortable="dragControlListeners" data-ng-model="exercises">
+		<div  style="height:400px;"  data-as-sortable="dragExerciseControlListeners" data-ng-model="exercises">
 			<div ng-repeat="exercise in exercises">
 				<div >
 					<exerciseitem class="routineexe" ></exerciseitem>

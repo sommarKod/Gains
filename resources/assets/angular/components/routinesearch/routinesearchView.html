@@ -1,11 +1,9 @@
-<form name="userForm">
-    <label>Search: <input id="searchbox" ng-model="q" ng-model-options="{ getterSetter: true }"></label>
-</form>
-<div data-as-sortable="dragControlListeners" data-ng-model="exercises">
+<label>Search: <input id="searchbox" ng-model="q" ng-model-options="{ getterSetter: true }"></label>
+
+<div data-as-sortable="dragExerciseControlListeners" data-ng-model="exercises">
     <div class="row" >
         <div class="panel-group col-md-6" id="accordion" role="tablist" aria-multiselectable="true" ng-repeat="exercise in exercises | filter:q" style="margin:0px;">
             <exerciseitem class="exercisesearch"> </exerciseitem>
        </div>
     </div>
 </div>
-

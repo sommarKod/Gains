@@ -11,7 +11,7 @@
         <script src="/js/templates.js"></script>
     </head>
 
-    <body>
+    <body style="overflow-x:hidden; width:100%;">
         <div ng-view></div>
     </body>
 </html>

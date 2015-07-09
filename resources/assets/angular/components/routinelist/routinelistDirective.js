@@ -3,25 +3,29 @@ gains.directive('routinelist', ['ApiFactory', '$timeout', function (ApiFactory, 
 
     return {
         templateUrl: "components/routinelist/routinelistView.html",
-        link: function (scope, element, attr) {
+        link: function(scope, element, attr){
             scope.noEdit = true;
             scope.routineIndex = attr.index;
             scope.routine = scope.workoutPlan.workouts[attr.index];
             scope.exercises = scope.workoutPlan.workouts[attr.index].exercises;
 
-
-            scope.dragControlListeners = {
+            scope.dragExerciseControlListeners = {
                 accept: function (sourceItemHandleScope, destSortableScope) {
-                    console.log("accept ");
-                    return sourceItemHandleScope.itemScope.sortableScope.$id === destSortableScope.$id;
+                    for(var i = 0; i< destSortableScope.modelValue.length; i++){
+                        if(destSortableScope.modelValue[i] === sourceItemHandleScope.itemScope.exercise){
+                            //Do nothing
+                        } else if(destSortableScope.modelValue[i].name === sourceItemHandleScope.itemScope.exercise.name){
+                            return false;
+                        }
+                    }
+                    return true;
                 },
                 itemMoved: function (event) {
-                    console.log("itemMoved ");
                     event.source.itemScope.modelValue.status = event.dest.sortableScope.$parent.column.name;
                     ApiFactory.updateWorkout(scope.routine);
                     //Do what you want
                 },
-                orderChanged: function (event) {
+                orderChanged: function(event) {
                     console.log("orderChanged");
                     ApiFactory.updateWorkout(scope.routine);
                 },
