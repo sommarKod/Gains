@@ -23,7 +23,7 @@ gains.directive('routinelist', ['ApiFactory', '$timeout', function (ApiFactory, 
                 },
                 itemMoved: function (event) {
                     ApiFactory.updateWorkout(scope.routine);
-                    console.log(scope.routine);
+                    console.log(scope.routine.id);
                     //Do what you want
                 },
                 orderChanged: function(event) {

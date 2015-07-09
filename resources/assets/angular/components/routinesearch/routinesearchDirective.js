@@ -11,7 +11,7 @@ gains.directive('routinesearch',[function () {
   		    },
   		    itemMoved: function (eventObj) {
               console.log("Moved");
-              eventObj.source.itemScope.sortableScope.insertItem(eventObj.source.index, eventObj.source.itemScope.exercise);
+              //eventObj.source.itemScope.sortableScope.insertItem(eventObj.source.index, eventObj.source.itemScope.exercise);
 
     		    	//event.source.itemScope.modelValue.status = event.dest.sortableScope.$parent.column.name;
   		    	  //Do what you want
