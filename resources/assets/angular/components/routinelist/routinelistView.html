@@ -10,10 +10,8 @@
     </div>
 	<div style="overflow-y:auto;" class="panel-body">
 		<div  style="height:40vh;"  data-as-sortable="dragExerciseControlListeners" data-ng-model="exercises">
-			<div ng-repeat="exercise in exercises">
-				<div >
+			<div ng-repeat="exercise in exercises" data-as-sortable-item style="border:0px;">
 					<exerciseitem class="routineexe" ></exerciseitem>
-				</div>
 			</div>
 		</div>
 	</div>
