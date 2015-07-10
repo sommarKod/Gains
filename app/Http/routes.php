@@ -21,6 +21,7 @@ Route::resource('exercise', 'ExerciseController');
 Route::resource('muscle', 'MuscleController');
 Route::resource('workoutPlan', 'WorkoutPlanController');
 Route::resource('workout','WorkoutController');
+Route::resource('muscleGroup', 'MuscleGroupController');
 Route::post('workoutplan/{id}/addWorkouts','WorkoutPlanController@addWorkouts');
 Route::post('workout/{id}/addExercises','WorkoutController@addExercises');
 Route::get('exerciseWithInfo', 'ExerciseController@getAllWithInfo');
