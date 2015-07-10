@@ -49,7 +49,7 @@ class MuscleController extends Controller
      */
     public function show($id)
     {
-        //
+        return Response::json(Muscle::with('muscleAlias').find($id));
     }
 
     /**
