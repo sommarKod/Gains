@@ -9,6 +9,14 @@ gains.directive('routinelist', ['ApiFactory', '$timeout', function (ApiFactory, 
             scope.routine = scope.workoutPlan.workouts[attr.index];
             scope.exercises = scope.workoutPlan.workouts[attr.index].exercises;
 
+            scope.$watch(
+                function(scope) { return scope.exercises; },
+                function(){
+                    ApiFactory.updateWorkout(scope.routine);
+
+                },true
+            );
+
             scope.dragExerciseControlListeners = {
                 accept: function (sourceItemHandleScope, destSortableScope) {
                     for(var i = 0; i< destSortableScope.modelValue.length; i++){
@@ -18,16 +26,16 @@ gains.directive('routinelist', ['ApiFactory', '$timeout', function (ApiFactory, 
                             return false;
                         }
                     }
+
                     return true;
                 },
                 itemMoved: function (event) {
-                    event.source.itemScope.modelValue.status = event.dest.sortableScope.$parent.column.name;
-                    ApiFactory.updateWorkout(scope.routine);
+                   // ApiFactory.updateWorkout(scope.routine);
+                    console.log(scope.routine.id);
                     //Do what you want
                 },
                 orderChanged: function(event) {
-                    console.log("orderChanged");
-                    ApiFactory.updateWorkout(scope.routine);
+                    //ApiFactory.updateWorkout(scope.routine);
                 },
                 containment: '#workout'//optional param.
             };
@@ -45,23 +53,20 @@ gains.directive('routinelist', ['ApiFactory', '$timeout', function (ApiFactory, 
 
                 angular.forEach(panels, function (path, key) {
                     var panel = angular.element(path);
-                    console.log(panel);
                     panel.collapse('hide');
                 });
 
                 var whospan = angular.element(panels[index]);
-                console.log(whospan);
+
                 whospan.collapse('show');
             };
             scope.renameWorkout = function () {
-                console.log("renameWorkout");
                 scope.tempName = scope.routine.name;
                 scope.noEdit = false;
                 $timeout(function(){ $(".workoutNameInputField").focus().select(); });
             };
 
             scope.removeFocus = function () {
-                console.log("removefocus");
                 scope.noEdit = true;
             };
 

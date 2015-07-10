@@ -24,6 +24,26 @@ gains.factory('ApiFactory', ['$http', function($http) {
                     return false;
                 });
         },
+        createWorkoutPlan: function () {
+            return $http.get(apiRoute + '/workoutPlan/create').
+                success(function (data, status, headers, config) {
+                    return data;
+                }).
+                error(function (data, status, headers, config) {
+                    // log error
+                    return false;
+                });
+        },
+        getExercisesWithInfo: function () {
+            return $http.get(apiRoute + '/exerciseWithInfo').
+                success(function (data, status, headers, config) {
+                    return data;
+                }).
+                error(function (data, status, headers, config) {
+                    // log error
+                    return false;
+                });
+        },
         getWorkoutPlan: function (id) {
             return $http.get(apiRoute + '/workoutPlan/'+id).
                 success(function (data, status, headers, config) {
@@ -45,7 +65,6 @@ gains.factory('ApiFactory', ['$http', function($http) {
                 });
         },
         updateWorkout: function(workout){
-            console.log(workout);
             return $http.put(apiRoute + '/workout/'+workout.id,workout).
 
                 success(function (data, status, headers, config) {
@@ -57,7 +76,6 @@ gains.factory('ApiFactory', ['$http', function($http) {
                 });
         },
         updateWorkoutPlan: function(workoutPlan){
-            console.log(workoutPlan);
             return $http.put(apiRoute + '/workoutPlan/'+workoutPlan.id,workoutPlan).
 
                 success(function (data, status, headers, config) {

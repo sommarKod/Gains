@@ -53,6 +53,10 @@ class ExerciseController extends Controller
         return Response::json(Exercise::with('exerciseAlias','muscles','muscles.muscleAlias')->find($id));
     }
 
+    public function getAllWithInfo(){
+        return Response::json(Exercise::with('exerciseAlias','muscles','muscles.muscleAlias')->get());
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

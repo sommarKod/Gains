@@ -1,16 +1,22 @@
 gains.controller('RoutinePlannerController',['$location','ApiFactory','$scope','$window',function($location,APIFactory,$scope,$window) {
     var searchObject = $location.search();
     $scope.board=searchObject.board;
+    if($scope.board === undefined){
+        APIFactory.createWorkoutPlan().success(
+            function(data){
+                console.log(data);
+                $scope.workoutPlan=data;
+            }
+        );
+    }
     APIFactory.getWorkoutPlan($scope.board).success(
         function(data){
-            console.log(data);
             $scope.workoutPlan=data;
         }
     );
-    APIFactory.getExersise().success(
+    APIFactory.getExercisesWithInfo().success(
     	function(data){
             $scope.workoutSearchOptions = {"exercises":data};
-         	console.log(data);
     	}
     );
     $scope.dragWorkoutControlListeners = {
@@ -29,19 +35,16 @@ gains.controller('RoutinePlannerController',['$location','ApiFactory','$scope','
 
     var w = angular.element(window);
     $scope.getHeight = function() {
-      console.log(w.height());
       return w.height();
     };
 
     $scope.getWidth = function() {
-      console.log(w.width());
       return w.width();
     };
 
     $scope.$watch($scope.getHeight, function(newValue, oldValue) {
       $scope.windowHeight = newValue;
       $scope.style = function() {
-        console.log("height:"+ newValue + 'px');
         return {
           height: newValue + 'px',
           width: $scope.windowWidth + 'px'
@@ -51,7 +54,6 @@ gains.controller('RoutinePlannerController',['$location','ApiFactory','$scope','
     $scope.$watch($scope.getWidth, function(newValue, oldValue) {
       $scope.windowWidth = newValue;
       $scope.style = function() {
-        console.log("height:"+ newValue + 'px');
         return {
           height: $scope.windowHeight + 'px',
           width: newValue + 'px'
