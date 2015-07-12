@@ -15,7 +15,7 @@ gains.factory('ApiFactory', ['$http', function($http) {
                 });
         },
         getMuscleGroups: function () {
-            return $http.get(apiRoute + '/muscleGroups').
+            return $http.get(apiRoute + '/muscleGroup').
                 success(function (data, status, headers, config) {
                     return data;
                 }).

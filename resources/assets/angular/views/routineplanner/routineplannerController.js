@@ -12,7 +12,6 @@ gains.controller('RoutinePlannerController',['$location','ApiFactory', 'WorkoutI
     APIFactory.getWorkoutPlan($scope.board).success(
         function(data){
             $scope.workoutPlan=data;
-            WorkoutIntensityService.getTotalIntensity($scope.workoutPlan);
         }
     );
     APIFactory.getExercisesWithInfo().success(
@@ -20,6 +19,20 @@ gains.controller('RoutinePlannerController',['$location','ApiFactory', 'WorkoutI
             $scope.workoutSearchOptions = {"exercises":data};
     	}
     );
+    APIFactory.getMuscleGroups().success(
+        function(data){
+            $scope.muscleGroups=data;
+            WorkoutIntensityService.setMuscleGroups(data);
+            $scope.muscleIntensityData =
+              WorkoutIntensityService.getTotalIntensity($scope.workoutPlan);
+
+            $scope.$watch($scope.workoutPlan.workouts, function() {
+                $scope.muscleIntensityData =
+                  WorkoutIntensityService.getTotalIntensity($scope.workoutPlan);
+            });
+        }
+    );
+
     $scope.dragWorkoutControlListeners = {
         accept: function (sourceItemHandleScope, destSortableScope) {
             return sourceItemHandleScope.itemScope.sortableScope.$id === destSortableScope.$id;

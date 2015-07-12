@@ -1,4 +1,7 @@
-angular.module('gains').directive('anatomyimage', ['$compile', function ($compile) {
+// List of muscle groups present in the image:
+gains.constant('renderedMuscleGroups', ["traps", "shoulders", "chest"]);
+
+gains.directive('anatomyimage', ['$compile', function ($compile) {
     return {
         restrict: 'E',
         scope: {
