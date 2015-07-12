@@ -13,7 +13,7 @@ gains.directive('routinelist', ['ApiFactory', '$timeout', function (ApiFactory, 
                 function(scope) { return scope.exercises; },
                 function(){
                     ApiFactory.updateWorkout(scope.routine);
-
+                    scope.updateTotalIntensity();
                 },true
             );
 
@@ -26,16 +26,11 @@ gains.directive('routinelist', ['ApiFactory', '$timeout', function (ApiFactory, 
                             return false;
                         }
                     }
-
                     return true;
                 },
                 itemMoved: function (event) {
-                   // ApiFactory.updateWorkout(scope.routine);
-                    console.log(scope.routine.id);
-                    //Do what you want
                 },
                 orderChanged: function(event) {
-                    //ApiFactory.updateWorkout(scope.routine);
                 },
                 containment: '#workout'//optional param.
             };

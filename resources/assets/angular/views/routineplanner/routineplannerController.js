@@ -19,17 +19,17 @@ gains.controller('RoutinePlannerController',['$location','ApiFactory', 'WorkoutI
             $scope.workoutSearchOptions = {"exercises":data};
     	}
     );
+
+    $scope.updateTotalIntensity = function () {
+      $scope.muscleIntensityData =
+        WorkoutIntensityService.getTotalIntensity($scope.workoutPlan);
+    };
+
     APIFactory.getMuscleGroups().success(
         function(data){
             $scope.muscleGroups=data;
             WorkoutIntensityService.setMuscleGroups(data);
-            $scope.muscleIntensityData =
-              WorkoutIntensityService.getTotalIntensity($scope.workoutPlan);
-
-            $scope.$watch($scope.workoutPlan.workouts, function() {
-                $scope.muscleIntensityData =
-                  WorkoutIntensityService.getTotalIntensity($scope.workoutPlan);
-            });
+            $scope.updateTotalIntensity();
         }
     );
 
@@ -43,6 +43,7 @@ gains.controller('RoutinePlannerController',['$location','ApiFactory', 'WorkoutI
         },
         orderChanged: function(event) {
             APIFactory.updateWorkoutPlan($scope.workoutPlan);
+            $scope.updateTotalIntensity();
         },
         containment: '#planner'//optional param.
     };
