@@ -1,14 +1,23 @@
 html, body {
-    height: 100%;
-}
-
-body {
     margin: 0;
     padding: 0;
     width: 100%;
-    display: table;
+    height: 100%;
     font-weight: 100;
     font-family: 'Lato';
+    overflow:hidden;
+}
+
+.anatomy-panel {
+    @include make-xs-column(3);
+    @include size(20%, 100%);
+}
+
+.workoutplan-panel {
+    @include make-xs-column(9);
+    @include size(80%, 60%);
+    overflow-x:auto;
+    overflow-y:hidden;
 }
 
 .container {

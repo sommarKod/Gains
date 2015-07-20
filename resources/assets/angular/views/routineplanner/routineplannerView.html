@@ -1,6 +1,6 @@
 <div class="content" ng-style="style()">
   <div class="row">
-    <div id="wrapper" class="col-xs-9" style="height:60vh; overflow-x:auto; overflow-y:hidden;">
+    <div id="wrapper" class="workoutplan-panel">
       <table>
 
         <tr ng-if="workoutPlan !== undefined && workoutPlan !== null" data-as-sortable="dragWorkoutControlListeners" data-ng-model="workoutPlan.workouts">
@@ -12,7 +12,7 @@
       </table>
     </div>
 
-    <div class="col-xs-3" style="height:30vh;">
+    <div class="anatomy-panel">
       <anatomypanel gender="userGender" muscledata="muscleIntensityData"></anatomypanel>
     </div>
 
