@@ -17,7 +17,12 @@ require('laravel-elixir-ngtemplatecache');
 
 var bowerDir = './resources/assets/bower/';
 
+
+bootstrap = './node_modules/bootstrap-sass/assets/';
+
+
 elixir(function(mix) {
+
     mix.scripts([
               'jquery/dist/jquery.min.js',
               'bootstrap/dist/js/bootstrap.min.js',
@@ -46,7 +51,10 @@ elixir(function(mix) {
             removeComments: true
         }
     });
+    mix.copy(bootstrap + 'fonts/**', 'public/fonts');
 });
+
+
 
 elixir(function(mix) {
     mix.sass('app.scss');
