@@ -10,11 +10,7 @@ gains.directive('routinesearch',[function () {
               return false;
   		    },
   		    itemMoved: function (eventObj) {
-              console.log("Moved");
               eventObj.source.itemScope.sortableScope.insertItem(eventObj.source.index, jQuery.extend(true, {}, eventObj.source.itemScope.exercise));
-
-    		    	//event.source.itemScope.modelValue.status = event.dest.sortableScope.$parent.column.name;
-  		    	  //Do what you want
     			},
     		  orderChanged: function(event) {
     		    	//Do what you want

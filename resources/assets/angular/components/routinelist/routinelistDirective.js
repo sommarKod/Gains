@@ -19,14 +19,12 @@ gains.directive('routinelist', ['ApiFactory', '$timeout', function (ApiFactory, 
 
             scope.dragExerciseControlListeners = {
                 accept: function (sourceItemHandleScope, destSortableScope) {
-                    for(var i = 0; i< destSortableScope.modelValue.length; i++){
-                        if(destSortableScope.modelValue[i] === sourceItemHandleScope.itemScope.exercise){
-                            //Do nothing
-                        } else if(destSortableScope.modelValue[i].name === sourceItemHandleScope.itemScope.exercise.name){
-                            return false;
-                        }
+                    if(sourceItemHandleScope.itemScope.sortableScope.$id === destSortableScope.$id){
+                        return true;
                     }
-                    return true;
+                    return !destSortableScope.modelValue.some(function(e){
+                        return e.id === sourceItemHandleScope.itemScope.exercise.id;  
+                    });
                 },
                 itemMoved: function (event) {
                 },
