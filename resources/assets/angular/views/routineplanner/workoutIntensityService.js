@@ -28,7 +28,7 @@ gains.service('WorkoutIntensityService', ['renderedMuscleGroups', function(rende
         individualIntensities[muscle.id] = 0;
 
         angular.forEach(muscleIntensities[workout.id][muscle.id], function (intensity){
-          individualIntensities[muscle.id] += intensity;
+          individualIntensities[muscle.id] += Number(intensity);
         });
 
         muscleGroupIntensities[muscleGroup.name.toLowerCase()] =
@@ -37,7 +37,6 @@ gains.service('WorkoutIntensityService', ['renderedMuscleGroups', function(rende
       });
 
     });
-    //console.log(muscleGroupIntensities);
     return muscleGroupIntensities;
   };
 
@@ -45,14 +44,65 @@ gains.service('WorkoutIntensityService', ['renderedMuscleGroups', function(rende
     muscleGroupList = muscleGroups;
   };
 
-  this.getWorkoutIntensity = function(workout) {
-    return calculateIntensity(workout);
+  var fixIndex = function(index, numWorkouts) {
+    if (numWorkouts == 1)
+      return 0;
+    if (index < 0)
+      return fixIndex(numWorkouts - Math.abs(index), numWorkouts);
+    return index;
+  };
+
+  var mergeIntensities = function(workoutIntensities, mergeFactors)
+  {
+    var numWorkouts = mergeFactors.length;
+    var muscleGroupIntensities = {};
+    var index;
+
+    var muscleSums = function (muscleGroup) {
+      var groupName = muscleGroup.name.toLowerCase();
+      if (muscleGroupIntensities[groupName] === undefined)
+        muscleGroupIntensities[groupName] = 0;
+
+      muscleGroupIntensities[groupName] += intensity[groupName] * mergeFactors[index];
+    };
+
+    for(index = 0; index < numWorkouts; index++)
+    {
+        var intensity = workoutIntensities[index];
+        angular.forEach(muscleGroupList, muscleSums);
+    }
+    return muscleGroupIntensities;
+  };
+
+  var calculateWorkoutIntensity = function(workoutPlan, index) {
+    var numWorkouts = workoutPlan.workouts.length;
+    var workoutIntensities = {};
+
+    workoutIntensities[0] = calculateIntensity(workoutPlan.workouts[index]);
+    workoutIntensities[1] = calculateIntensity(workoutPlan.workouts[fixIndex(index - 1, numWorkouts)]);
+    workoutIntensities[2] = calculateIntensity(workoutPlan.workouts[fixIndex(index - 2, numWorkouts)]);
+
+    var mergeFactors = [1, 0.5, 0.25];
+
+    return mergeIntensities(workoutIntensities, mergeFactors);
+  };
+
+  this.getWorkoutIntensity = function(workoutPlan, index) {
+    return calculateWorkoutIntensity(workoutPlan, index);
   };
 
   this.getTotalIntensity = function(workoutPlan) {
-    return calculateIntensity(workoutPlan.workouts[0]);
-    //angular.forEach(workoutPlan.workouts, function(workout) {
-      //var lol = calculateIntensity(workout);
-    //});
+    var numWorkouts = workoutPlan.workouts.length;
+    var workoutIntensities = {};
+    var mergeFactors = [];
+
+    var index;
+    for(index = 0; index < numWorkouts; index++)
+    {
+        workoutIntensities[index] = calculateWorkoutIntensity(workoutPlan, index);
+        mergeFactors[index] = 1 / numWorkouts;
+    }
+    
+    return mergeIntensities(workoutIntensities, mergeFactors);
   };
 }]);
