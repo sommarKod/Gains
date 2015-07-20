@@ -1,11 +1,17 @@
 <div class="panel panel-default" >
     <div class="panel-heading" role="tab" id="heading-{{exercise.id}}" data-as-sortable-item-handle>
-      <h4 class="panel-title row">
-        <div class="panel-button col-xs-8" role="button" ng-click="colapse($index)" data-parent="#accordion">
-          {{exercise.name}}
+      <div class="panel-title row">
+        <div class="panel-button col-xs-9"  data-parent="#accordion">
+          <div>
+            <span role="button" ng-click="colapse($index)">
+              {{exercise.name}}
+            </span>
+          </div>
         </div>
-          <span ng-click="removeExercise" class="col-xs-2" ng-if="listType=='routineexe'">X</span>
-      </h4>
+        <div ng-click="removeExercise($index)" role="button" class="col-xs-2" ng-if="listType=='routineexe'">
+            <span class="glyphicon glyphicon-remove-sign" aria-hidden="true" ></span>
+        </div>
+      </div>
     </div>
     <div id="collapse-{{exercise.id}}" class="panel-collapse collapse" role="tabpanel">
       <div class="panel-body">
