@@ -23,14 +23,31 @@ gains.directive('routinelist', ['ApiFactory', '$timeout', function (ApiFactory, 
                         return true;
                     }
                     return !destSortableScope.modelValue.some(function(e){
-                        return e.id === sourceItemHandleScope.itemScope.exercise.id;  
+                        return e.id === sourceItemHandleScope.itemScope.exercise.id;
                     });
                 },
                 itemMoved: function (event) {
                 },
                 orderChanged: function(event) {
                 },
-                containment: '#workout'//optional param.
+            };
+
+
+            scope.renameWorkout = function () {
+                scope.tempName = scope.routine.name;
+                scope.noEdit = false;
+                $timeout(function(){ $(".workoutNameInputField").focus().select(); });
+            };
+
+            scope.removeFocus = function () {
+                scope.noEdit = true;
+            };
+
+            scope.saveWorkoutName = function(event) {
+                scope.routine.name = $(".workoutNameInputField").val();
+                ApiFactory.updateWorkout(scope.routine);
+                scope.noEdit = true;
+
             };
 
             scope.colapse = function (index) {
@@ -53,22 +70,7 @@ gains.directive('routinelist', ['ApiFactory', '$timeout', function (ApiFactory, 
 
                 whospan.collapse('show');
             };
-            scope.renameWorkout = function () {
-                scope.tempName = scope.routine.name;
-                scope.noEdit = false;
-                $timeout(function(){ $(".workoutNameInputField").focus().select(); });
-            };
 
-            scope.removeFocus = function () {
-                scope.noEdit = true;
-            };
-
-            scope.saveWorkoutName = function(event) {
-                scope.routine.name = $(".workoutNameInputField").val();
-                ApiFactory.updateWorkout(scope.routine);
-                scope.noEdit = true;
-
-            };
 
             scope.removeExercise = function(index){
                 scope.exercises.splice(index,1);

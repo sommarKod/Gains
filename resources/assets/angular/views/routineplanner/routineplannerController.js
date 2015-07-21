@@ -1,4 +1,6 @@
 gains.controller('RoutinePlannerController',['$location','ApiFactory', 'WorkoutIntensityService','$scope','$window',function($location,APIFactory,WorkoutIntensityService,$scope,$window) {
+    $scope.search = {};
+    $scope.search.filter = "";
     var searchObject = $location.search();
     $scope.board=searchObject.board;
     if($scope.board === undefined){
@@ -9,6 +11,7 @@ gains.controller('RoutinePlannerController',['$location','ApiFactory', 'WorkoutI
             }
         );
     }
+
     APIFactory.getWorkoutPlan($scope.board).success(
         function(data){
             $scope.workoutPlan=data;

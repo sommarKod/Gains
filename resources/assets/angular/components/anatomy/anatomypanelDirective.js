@@ -3,11 +3,12 @@ angular.module('gains').directive('anatomypanel', ['$compile', 'renderedMuscleGr
         restrict: 'E',
         scope: {
             regionData: "=muscledata",
-            gender: "="
+            gender: "=",
+            searchfilter: "="
         },
         templateUrl: "components/anatomy/anatomyView.html",
         link: function (scope, element, attrs) {
-          
+
             scope.anatomyHoverId = 'none';
         }
     };

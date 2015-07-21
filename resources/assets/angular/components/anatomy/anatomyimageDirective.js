@@ -6,7 +6,8 @@ gains.directive('anatomyimage', ['$compile', function ($compile) {
         restrict: 'E',
         scope: {
             regionData: "=muscledata",
-            hoverId: "=anatomyhoverid"
+            hoverId: "=anatomyhoverid",
+            searchfilter: "="
         },
         templateUrl: function(element) {
             var gender = element.context.attributes.gender.value;
@@ -20,6 +21,7 @@ gains.directive('anatomyimage', ['$compile', function ($compile) {
                 regionElement.attr("muscleregion", "");
                 regionElement.attr("region-data", "regionData");
                 regionElement.attr("hover-id", "hoverId");
+                regionElement.attr("searchfilter", "searchfilter");
                 $compile(regionElement)(scope);
             });
         }
