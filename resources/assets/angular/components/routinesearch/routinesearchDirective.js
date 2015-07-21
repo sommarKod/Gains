@@ -16,9 +16,8 @@ gains.directive('routinesearch',[function () {
           return newArr;
         };
         scope.exercises2 = scope.chunk(scope.workoutSearchOptions.exercises);
-        scope.exercises = scope.workoutSearchOptions.exercises;
-        console.log(scope.exercises2);
-        console.log(scope.exercises);
+
+
 
         scope.dragExerciseControlListeners = {
   		    accept: function (sourceItemHandleScope, destSortableScope, destItemScope) {
@@ -31,6 +30,8 @@ gains.directive('routinesearch',[function () {
     		    	//Do what you want
     			},
     		};
+
+
 
 
 

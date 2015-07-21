@@ -1,10 +1,14 @@
-<label class="row row-centered">Search: <input id="searchbox" ng-model="q" ng-model-options="{ getterSetter: true }"></label>
+<label class="row row-centered">Search: <input id="searchbox" ng-model="search.filter" ng-model-options="{ getterSetter: true }">
+    <span ng-click="search.filter = '' " role="button">
+      <span class="glyphicon glyphicon-remove-sign" aria-hidden="true" ></span>
+  </span>
+</label>
 
 <div class="row row-centered" >
     <div class="row" >
-        <div ng-class="{'new-row': startNewRow($index, columnBreak) }" style="width:16%;float:left;margin:0px; border:0px;" ng-repeat="columne in exercises2 "  >
+        <div ng-class="{'new-row': startNewRow($index, columnBreak) }" style="width:16%;float:left;margin:0px; border:0px;" ng-repeat="columne in exercises2"  >
             <span data-as-sortable="dragExerciseControlListeners" data-ng-model="columne">
-              <div class="panel-group" ng-repeat="exercise in columne | filter:q">
+              <div class="panel-group" ng-repeat="exercise in columne | filter:search.filter">
                 <searchitem data-as-sortable-item  class="exercisesearch"> </searchitem>
               </div>
           </span>

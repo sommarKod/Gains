@@ -1,14 +1,15 @@
-angular.module('gains').directive('muscleregion', ['$compile', function ($compile) {
+angular.module('gains').directive('muscleregion', ['$compile',function ($compile) {
     return {
         restrict: 'A',
         scope: {
             regionData: "=",
-            hoverId: "="
+            hoverId: "=",
+            searchfilter: "="
         },
         link: function (scope, element, attrs) {
             scope.elementId = element.attr("id");
             scope.regionClick = function () {
-                alert(scope.elementId + ":" + scope.regionData[scope.elementId].value);
+              scope.searchfilter.filter = scope.elementId;
             };
 
             scope.hoverIn = function(){
