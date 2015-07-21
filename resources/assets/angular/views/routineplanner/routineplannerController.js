@@ -48,6 +48,7 @@ gains.controller('RoutinePlannerController',['$location','ApiFactory', 'WorkoutI
         containment: '#planner'//optional param.
     };
 
+    /*
     var w = angular.element(window);
     $scope.getHeight = function() {
       return w.height();
@@ -78,7 +79,7 @@ gains.controller('RoutinePlannerController',['$location','ApiFactory', 'WorkoutI
 
     w.bind('resize', function () {
       $scope.$apply();
-    });
+    });*/
 
     $scope.userGender = 'male';
 }]);
