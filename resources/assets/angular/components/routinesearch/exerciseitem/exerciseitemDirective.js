@@ -21,9 +21,8 @@ gains.directive('searchitem', [ function(){
             whospan.collapse('show');
         };**/
         scope.colapse= function(index) {
-          var row = element.parent().parent().parent();
+          var row = element.parent().parent().parent().parent();
            var panels = row[0].querySelectorAll('.panel-collapse');
-
            angular.forEach(panels,function(path,key){
                  var panel = angular.element(path);
                  panel.collapse('hide');
