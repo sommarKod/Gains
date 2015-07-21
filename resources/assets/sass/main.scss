@@ -8,16 +8,45 @@ html, body {
     overflow:hidden;
 }
 
+.upper-content {
+  @include make-row();
+  margin: 0px;
+}
+
 .anatomy-panel {
+    @include panel-variant(#FFFFFF, #000000, #000000, #000000);
     @include make-xs-column(3);
-    @include size(20%, 100%);
+    @include size(25vw, 60vh);
+    margin-bottom: 0px;
+    -webkit-box-shadow: ntne;
+    box-shadow: none;
+    padding: 0px;
 }
 
 .workoutplan-panel {
+    @include panel-variant($main-border-color, #000000, #000000, #000000);
     @include make-xs-column(9);
-    @include size(80%, 60%);
+    @include size(74vw, 60vh);
     overflow-x:auto;
     overflow-y:hidden;
+    padding-left: 15px;
+    padding-right: 0px;
+    margin: 0px;
+}
+
+.search-panel {
+    @include panel-variant(#FFFFFF, #000000, #000000, #000000);
+    @include make-row();
+    @include size(100%, 40%);
+    overflow-x:hidden;
+    overflow-y:auto;
+    background-color: $main-background-color;
+    margin: 0px;
+    padding-top: 10px;
+}
+
+.size-fill {
+    @include size(100%, 100%);
 }
 
 .container {

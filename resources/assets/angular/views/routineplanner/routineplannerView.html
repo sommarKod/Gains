@@ -1,6 +1,6 @@
 <div class="content" ng-style="style()">
-  <div class="row">
-    <div id="wrapper" class="workoutplan-panel">
+  <div class="upper-content">
+    <div id="wrapper" class="well panel-default workoutplan-panel">
       <table>
 
         <tr ng-if="workoutPlan !== undefined && workoutPlan !== null" data-as-sortable="dragWorkoutControlListeners" data-ng-model="workoutPlan.workouts">
@@ -12,13 +12,14 @@
       </table>
     </div>
 
-    <div class="anatomy-panel">
-      <anatomypanel gender="userGender" muscledata="muscleIntensityData"></anatomypanel>
+    <div class="panel panel-default anatomy-panel">
+      <anatomypanel class="size-fill" gender="userGender" muscledata="muscleIntensityData"></anatomypanel>
     </div>
 
   </div>
 
-  <div class="row">
+
+  <div class="panel panel-default search-panel">
     <div class="col-xs-9" ng-if="workoutSearchOptions !== undefined && workoutSearchOptions !== null">
       <routinesearch/></routinesearch>
     </div>

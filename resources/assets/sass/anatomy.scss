@@ -1,3 +1,19 @@
+.anatomy-image {
+  @include size(100%, 100%);
+  @include make-xs-column(6);
+}
+
+.anatomy-svg-panel {
+  @include size(100%, 95%);
+}
+
+.anatomy-delimiter {
+    @include size(80%, 1px);
+    margin-top: 4%;
+    margin-bottom: 0px;
+    border-color: $main-border-color;
+}
+
 .muscle-group {
 
 }
