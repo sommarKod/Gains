@@ -27,7 +27,7 @@ html, body {
     @include panel-variant($main-border-color, #000000, #000000, #000000);
     @include make-xs-column(9);
     @include size(74vw, 60vh);
-    overflow-x:auto;
+
     overflow-y:hidden;
     padding-left: 15px;
     padding-right: 0px;
@@ -49,6 +49,16 @@ html, body {
     @include size(100%, 100%);
 }
 
+.size-max {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.size-max-inherit {
+    max-height: inherit;
+    max-width: inherit;
+}
+
 .container {
     text-align: center;
     display: table-cell;
@@ -64,6 +74,36 @@ html, body {
     font-size: 96px;
 }
 
+.routinelist-column {
+    width:250px;
+    max-width:250px;
+    max-height: 100%;
+    margin: 0px;
+    float: left;
+    border: none;
+}
+
+.routinelist-column-panel {
+    margin: 0px;
+    max-height: 100%;
+}
+
+.routinelist-column-header {
+
+}
+
+.routinelist-column-content {
+    height: 90%;
+    overflow-y:auto;
+}
+
+.search-column {
+    width:16%;
+    float:left;
+    margin:0px;
+    border:0px;
+}
+
 .new-row {
-    clear: left;
+
 }

@@ -23,6 +23,9 @@ gains.directive('routinelist', ['ApiFactory', '$timeout', function (ApiFactory, 
                         return true;
                     }
                     return !destSortableScope.modelValue.some(function(e){
+                        // Workouts arent valid for drag'n'drop here, so return false on invalid scope
+                        if (sourceItemHandleScope.itemScope.exercise === undefined)
+                            return true;
                         return e.id === sourceItemHandleScope.itemScope.exercise.id;
                     });
                 },

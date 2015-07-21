@@ -1,24 +1,18 @@
 <div class="content">
   <div class="upper-content">
-    <div id="wrapper" class="well panel-default workoutplan-panel">
-      <table>
-
-        <tr ng-if="workoutPlan !== undefined && workoutPlan !== null" data-as-sortable="dragWorkoutControlListeners" data-ng-model="workoutPlan.workouts">
-          <td ng-repeat="workout in workoutPlan.workouts" data-as-sortable-item style="display:table-cell; border:0px;">
-            <routinelist index="{{$index}}"/></routinelist>
-          </td>
-          <td>
-            <div class="panel panel-default" ng-click="addRoutine()" role="button"  style="width:250px; max-width:250px; display:table-cell; border:0px; float:top;">
-            	<div class="panel-heading">
-                	<h3 class="panel-title" >New workout  
-                      <span class="glyphicon glyphicon-plus" aria-hidden="true" ></span>
-                  </h3>
-              </div>
-            </div>
-          </td>
-        </tr>
-
-      </table>
+    <div id="wrapper" class="well panel-default workoutplan-panel" >
+      <div class="size-fill" ng-if="workoutPlan !== undefined && workoutPlan !== null" data-as-sortable="dragWorkoutControlListeners" data-ng-model="workoutPlan.workouts">
+        <div class="routinelist-column size-fill" ng-repeat="workout in workoutPlan.workouts" data-as-sortable-item>
+          <routinelist class="size-max size-fill" index="{{$index}}"/></routinelist>
+        </div>
+        <div class="panel panel-default" ng-click="addRoutine()" role="button"  style="width:250px; max-width:250px; display:table-cell; border:0px; float:top;">
+          <div class="panel-heading">
+            <h3 class="panel-title" >New workout
+              <span class="glyphicon glyphicon-plus" aria-hidden="true" ></span>
+            </h3>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="panel panel-default anatomy-panel">
@@ -29,7 +23,7 @@
 
 
   <div class="panel panel-default search-panel">
-    <div class="col-xs-9" ng-if="workoutSearchOptions !== undefined && workoutSearchOptions !== null">
+    <div ng-if="workoutSearchOptions !== undefined && workoutSearchOptions !== null">
       <routinesearch></routinesearch>
     </div>
   </div>
