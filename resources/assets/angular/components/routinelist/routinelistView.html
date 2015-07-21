@@ -1,6 +1,9 @@
 <div class="panel panel-default"  style="width:250px; max-width:250px;">
 	<div class="panel-heading" data-as-sortable-item-handle>
-    	<h3 class="panel-title"  ng-if="noEdit" ng-click="renameWorkout()" >{{routine.name}}</h3>
+    	<h3 class="panel-title"  ng-if="noEdit" ng-click="renameWorkout()" >{{routine.name}}   <span ng-click="removeRoutine($index)" role="button" >
+            <span class="glyphicon glyphicon-remove-sign" aria-hidden="true" ></span>
+        </span>
+			</h3>
         <form ng-submit="saveWorkoutName()">
 
             <input ng-if="!noEdit" ng-model="tempName" class="workoutNameInputField" type="text" ng-blur="removeFocus()" />

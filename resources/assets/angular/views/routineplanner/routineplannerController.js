@@ -36,6 +36,17 @@ gains.controller('RoutinePlannerController',['$location','ApiFactory', 'WorkoutI
         }
     );
 
+    $scope.addRoutine = function(){
+      var temp = 0;
+      angular.forEach($scope.workoutPlan.workouts, function (path, key) {
+          if(temp<path.id){
+            temp = path.id;
+          }
+      });
+        $scope.workoutPlan.workouts.push({id:temp+1, name:"New workout",pivot:{},exercises:[]});
+        APIFactory.updateWorkoutPlan($scope.workoutPlan);
+    };
+
     $scope.dragWorkoutControlListeners = {
         accept: function (sourceItemHandleScope, destSortableScope) {
             return sourceItemHandleScope.itemScope.sortableScope.$id === destSortableScope.$id;

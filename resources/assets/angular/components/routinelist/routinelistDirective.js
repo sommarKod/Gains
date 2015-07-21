@@ -75,6 +75,12 @@ gains.directive('routinelist', ['ApiFactory', '$timeout', function (ApiFactory, 
             scope.removeExercise = function(index){
                 scope.exercises.splice(index,1);
             };
+
+            scope.removeRoutine = function(index){
+                scope.workoutPlan.workouts.splice(index,1);
+                ApiFactory.updateWorkoutPlan(scope.workoutPlan);
+                scope.updateTotalIntensity();
+            };
         }
     };
 }]);
