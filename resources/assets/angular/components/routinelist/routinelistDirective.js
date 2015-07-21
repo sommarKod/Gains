@@ -23,14 +23,13 @@ gains.directive('routinelist', ['ApiFactory', '$timeout', function (ApiFactory, 
                         return true;
                     }
                     return !destSortableScope.modelValue.some(function(e){
-                        return e.id === sourceItemHandleScope.itemScope.exercise.id;  
+                        return e.id === sourceItemHandleScope.itemScope.exercise.id;
                     });
                 },
                 itemMoved: function (event) {
                 },
                 orderChanged: function(event) {
                 },
-                containment: '#workout'//optional param.
             };
 
 
