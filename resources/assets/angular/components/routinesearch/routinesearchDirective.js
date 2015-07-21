@@ -2,7 +2,21 @@ gains.directive('routinesearch',[function () {
   return {
     templateUrl: "components/routinesearch/routinesearchView.html",
     link: function(scope, element, attr){
-        scope.exercises = scope.workoutSearchOptions.exercises;
+      scope.columnBreak = 6; //Max number of colunms
+        scope.startNewRow = function (index, count) {
+          return ((index) % count) === 0;
+        };
+
+        scope.chunk = function (arr) {
+          var newArr = [[],[],[],[],[],[]];
+          for (var i=0; i<arr.length; i+=1) {
+        //    console.log(""+i+" s"i%scope.columnBreak+" d"+arr.slice(i));
+            newArr[i%scope.columnBreak].push(arr[i]);
+          }
+          return newArr;
+        };
+        scope.exercises = scope.chunk(scope.workoutSearchOptions.exercises);
+        console.log(scope.exercises);
 
 
         scope.dragExerciseControlListeners = {
@@ -19,30 +33,9 @@ gains.directive('routinesearch',[function () {
     		  orderChanged: function(event) {
     		    	//Do what you want
     			},
-    		    containment: '#search'//optional param.
+    		    containment: '#search'//optional param.s
     		};
 
-       scope.colapse= function(index) {
-       //    var thi = angular.element(this);
-     //      console.log(thi[0].class =='.routineexe');
-           var routineexe = element[0].querySelectorAll('.exercisesearch');
-           var panels = [];
-           angular.forEach(routineexe,function(path,key){
-             var exe = angular.element(path);
-             var exercises = exe[0].querySelectorAll('.panel-collapse');
-             panels.push(exercises);
-           });
-
-           angular.forEach(panels,function(path,key){
-                 var panel = angular.element(path);
-                 console.log(panel);
-                 panel.collapse('hide');
-           });
-
-           var whospan =  angular.element(panels[index]);
-           console.log(whospan);
-           whospan.collapse('show');
-         };
 
 
     }

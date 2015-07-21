@@ -35,6 +35,24 @@ gains.directive('routinelist', ['ApiFactory', '$timeout', function (ApiFactory, 
                 containment: '#workout'//optional param.
             };
 
+
+            scope.renameWorkout = function () {
+                scope.tempName = scope.routine.name;
+                scope.noEdit = false;
+                $timeout(function(){ $(".workoutNameInputField").focus().select(); });
+            };
+
+            scope.removeFocus = function () {
+                scope.noEdit = true;
+            };
+
+            scope.saveWorkoutName = function(event) {
+                scope.routine.name = $(".workoutNameInputField").val();
+                ApiFactory.updateWorkout(scope.routine);
+                scope.noEdit = true;
+
+            };
+
             scope.colapse = function (index) {
                 //    var thi = angular.element(this);
                 //      console.log(thi[0].class =='.routineexe');
@@ -55,22 +73,7 @@ gains.directive('routinelist', ['ApiFactory', '$timeout', function (ApiFactory, 
 
                 whospan.collapse('show');
             };
-            scope.renameWorkout = function () {
-                scope.tempName = scope.routine.name;
-                scope.noEdit = false;
-                $timeout(function(){ $(".workoutNameInputField").focus().select(); });
-            };
 
-            scope.removeFocus = function () {
-                scope.noEdit = true;
-            };
-
-            scope.saveWorkoutName = function(event) {
-                scope.routine.name = $(".workoutNameInputField").val();
-                ApiFactory.updateWorkout(scope.routine);
-                scope.noEdit = true;
-
-            };
 
             scope.removeExercise = function(index){
                 scope.exercises.splice(index,1);

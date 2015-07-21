@@ -1,0 +1,18 @@
+<div class="panel panel-default" >
+    <div class="panel-heading" role="tab" id="heading-{{exercise.id}}" data-as-sortable-item-handle>
+      <h4 class="panel-title row">
+        <div class="panel-button" role="button" ng-click="colapse($index)">
+          {{exercise.name}}
+        </div>
+      </h4>
+    </div>
+    <div id="collapse-{{exercise.id}}" class="panel-collapse collapse" role="tabpanel">
+      <div class="panel-body">
+        <ul>
+          <li ng-repeat="muscle in exercise.muscles">
+            <span align="left" style="font-weight:bold; text-align:">{{muscle.name}}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+</div>
