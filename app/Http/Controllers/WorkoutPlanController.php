@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\WorkoutPlan;
 use Illuminate\Support\Facades\Input;
 use Response;
+use Exception;
 class WorkoutPlanController extends Controller
 {
     /**
@@ -29,9 +30,13 @@ class WorkoutPlanController extends Controller
      */
     public function create()
     {
-        $Workoutplan= WorkoutPlan::create();
+      try {
+        $Workoutplan= WorkoutPlan::create(['name'=>'new Workout']);
         $WorkoutplanExtra = WorkoutPlan::with('workouts', 'workouts.exercises', 'workouts.exercises.muscles')->find($Workoutplan->id);
         return Response::json( $WorkoutplanExtra);
+     } catch (Exception $e) {
+         error_log($e,0);
+     }
     }
 
     /**

@@ -8,8 +8,11 @@ gains.controller('RoutinePlannerController',['$location','ApiFactory', 'WorkoutI
             function(data){
                 console.log(data);
                 $scope.workoutPlan=data;
+                $location.path("/").search({board:data.id});
             }
         );
+
+
     }
 
     APIFactory.getWorkoutPlan($scope.board).success(
@@ -36,7 +39,7 @@ gains.controller('RoutinePlannerController',['$location','ApiFactory', 'WorkoutI
         }
     );
 
-    $scope.addRoutine = function(){
+    $scope.addWorkout = function(){
         var workout;
         APIFactory.createNewWorkout($scope.workoutPlan).success(
           function (data) {
