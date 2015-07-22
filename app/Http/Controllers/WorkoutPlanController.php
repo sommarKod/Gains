@@ -85,6 +85,17 @@ class WorkoutPlanController extends Controller
         $workoutPlan->addWorkouts(Input::all());
     }
 
+    public function createNewWorkout($id)
+    {
+        $workout = Workout::create(['name' => 'Test']);
+
+        $workoutPlan = WorkoutPlan::find($id);
+        $workoutPlan->addWorkouts(array($workout->id));
+
+        $result = Workout::with('exercises', 'exercises.muscles')->find($workout->id);
+        return Response::json($result);
+    }
+
     /**
      * Remove the specified resource from storage.
      *

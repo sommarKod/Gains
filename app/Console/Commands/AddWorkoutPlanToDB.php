@@ -60,6 +60,14 @@ class AddWorkoutPlanToDB extends Command
         $workouts[] = ['Test workout five', $position++];
 
         $workoutPlan->addWorkouts($workouts);
+
         $position = 0;
+        
+        $workoutPlan = WorkoutPlan::create(['name' => 'TWO']);
+        $workouts = [];
+
+        $workouts[] = ['Test workout six', $position++];
+
+        $workoutPlan->addWorkouts($workouts);
     }
 }

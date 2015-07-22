@@ -85,6 +85,17 @@ gains.factory('ApiFactory', ['$http', function($http) {
                     return false;
                 });
         },
+        createNewWorkout: function(workoutPlan){
+            return $http.get(apiRoute + '/workoutPlan/'+workoutPlan.id+'/createNewWorkout').
+
+                success(function (data, status, headers, config) {
+                    return data;
+                }).
+                error(function (data, status, headers, config) {
+                    // log error
+                    return false;
+                });
+        },
         updateWorkoutPlan: function(workoutPlan){
             return $http.put(apiRoute + '/workoutPlan/'+workoutPlan.id,workoutPlan).
 
