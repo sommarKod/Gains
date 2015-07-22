@@ -18,7 +18,7 @@ html, body {
     @include make-xs-column(3);
     @include size(25vw, 60vh);
     margin-bottom: 0px;
-    -webkit-box-shadow: ntne;
+    -webkit-box-shadow: none;
     box-shadow: none;
     padding: 0px;
 }
@@ -41,6 +41,8 @@ html, body {
     overflow-x:hidden;
     overflow-y:auto;
     background-color: $main-background-color;
+    -webkit-box-shadow: none;
+    box-shadow: none;
     margin: 0px;
     padding-top: 10px;
 }
@@ -96,6 +98,20 @@ html, body {
     height: 90%;
     overflow-y:auto;
     overflow-x:hidden;
+}
+
+.exerciseitem {
+    //@include panel-variant(#FFFFFF, #000000, #000000, #000000);
+}
+
+.searchitem {
+    @extend exerciseitem;
+    margin: 0px;
+}
+
+.remove-sortable-css {
+    border: 0px;
+    margin: 0px;
 }
 
 .search-column {

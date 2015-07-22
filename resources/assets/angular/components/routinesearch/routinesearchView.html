@@ -7,8 +7,8 @@
 <div class="row row-centered" >
         <div class="search-column" ng-repeat="columne in exercises2"  >
             <span data-as-sortable="dragExerciseControlListeners" data-ng-model="columne">
-              <div class="panel-group" ng-repeat="exercise in columne | filter:search.filter">
-                <searchitem data-as-sortable-item  class="exercisesearch"> </searchitem>
+              <div ng-repeat="exercise in columne | filter:search.filter">
+                <searchitem data-as-sortable-item class="exercisesearch remove-sortable-css"> </searchitem>
               </div>
           </span>
        </div>

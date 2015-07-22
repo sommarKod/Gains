@@ -1,6 +1,6 @@
 gains.directive('searchitem', [ function(){
   return {
-    templateUrl: "components/routinesearch/exerciseitem/exerciseitemView.html",
+    templateUrl: "components/routinesearch/searchitem/searchitemView.html",
     link: function(scope, element, attr){
         scope.listType = attr.class+"";
   /**      scope.colapse = function (index) {
