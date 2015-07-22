@@ -6,6 +6,7 @@ html, body {
     font-weight: 100;
     font-family: 'Lato';
     overflow:hidden;
+    background-color: $main-background-color;
 }
 
 .upper-content {
@@ -14,9 +15,11 @@ html, body {
 }
 
 .anatomy-panel {
-    @include panel-variant(#FFFFFF, #000000, #000000, #000000);
+    @include panel-variant($main-background-color, #000000, #000000, #000000);
     @include make-xs-column(3);
     @include size(25vw, 60vh);
+
+    background-color: $main-background-color !important;
     margin-bottom: 0px;
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -28,19 +31,21 @@ html, body {
     @include make-xs-column(9);
     @include size(74vw, 60vh);
 
+    background-color: $main-background-color-dark !important;
     overflow-y:hidden;
-    padding-left: 15px;
-    padding-right: 0px;
+    padding-top: 15px;
+    padding-left: 0px;
     margin: 0px;
 }
 
 .search-panel {
-    @include panel-variant(#FFFFFF, #000000, #000000, #000000);
+    @include panel-variant($main-background-color, #000000, #000000, #000000);
     @include make-row();
     @include size(100%, 40%);
+
+    background-color: $main-background-color !important;
     overflow-x:hidden;
     overflow-y:auto;
-    background-color: $main-background-color;
     -webkit-box-shadow: none;
     box-shadow: none;
     margin: 0px;
@@ -59,6 +64,13 @@ html, body {
 .size-max-inherit {
     max-height: inherit;
     max-width: inherit;
+}
+
+.off-screen {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
 }
 
 .container {
@@ -80,7 +92,10 @@ html, body {
     width:250px;
     max-width:250px;
     max-height: 100%;
-    margin: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 15px;
+    margin-right: 0px;
     float: left;
     border: none;
 }
@@ -88,13 +103,33 @@ html, body {
 .routinelist-column-panel {
     margin: 0px;
     max-height: 100%;
+    border-color: black !important;
 }
 
 .routinelist-column-header {
+    @include size(100%, 10%);
+    background-color: $alt-background-color !important;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    display: table;
 
+    .text {
+          font-weight:bold !important;
+          vertical-align:middle;
+          align:middle;
+          display: table-cell;
+    }
+
+    .remove-button {
+      // todo
+    }
 }
 
 .routinelist-column-content {
+    background-color: $main-background-color-light !important;
+    margin: 0px;
+
     height: 90%;
     overflow-y:auto;
     overflow-x:hidden;
@@ -121,6 +156,18 @@ html, body {
     border:0px;
 }
 
+.search-box {
+    color: white;
+
+    .search-input {
+      color: black;
+    }
+}
+
 .new-row {
 
+}
+
+.muscle-list {
+  padding: 5%;
 }

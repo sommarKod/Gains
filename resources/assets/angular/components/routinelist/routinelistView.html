@@ -1,14 +1,15 @@
 <div class="panel panel-default size-fill routinelist-column-panel">
 	<div class="panel-heading routinelist-column-header" data-as-sortable-item-handle>
-		<h3 class="panel-title"  ng-if="noEdit" ng-click="renameWorkout()" >{{routine.name}}
-			<span ng-click="removeRoutine($index)" role="button" >
+		<h3 align="center" class="panel-title text" ng-if="noEdit" ng-click="renameWorkout()" >{{routine.name}}
+			<span class="remove-button" ng-click="removeRoutine($index)" role="button" >
 				<span class="glyphicon glyphicon-remove-sign" aria-hidden="true" ></span>
 			</span>
 		</h3>
+
 		<form ng-submit="saveWorkoutName()">
 
 			<input ng-if="!noEdit" ng-model="tempName" class="workoutNameInputField" type="text" ng-blur="removeFocus()" />
-			<input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;"/>
+			<input type="submit" class="off-screen"/>
 		</form>
 
 	</div>
