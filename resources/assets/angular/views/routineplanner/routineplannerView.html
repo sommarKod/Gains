@@ -1,7 +1,7 @@
 <div class="content">
   <div class="upper-content">
     <div id="wrapper" class="well panel-default workoutplan-panel" >
-      <div class="size-fill" ng-if="workoutPlan !== undefined && workoutPlan !== null" data-as-sortable="dragWorkoutControlListeners" data-ng-model="workoutPlan.workouts">
+      <div class="size-fill plan-content" ng-if="workoutPlan !== undefined && workoutPlan !== null" data-as-sortable="dragWorkoutControlListeners" data-ng-model="workoutPlan.workouts">
         <div class="routinelist-column size-fill" ng-repeat="workout in workoutPlan.workouts" data-as-sortable-item>
           <routinelist class="size-max size-fill" index="{{$index}}"/></routinelist>
         </div>

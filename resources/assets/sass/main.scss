@@ -32,10 +32,16 @@ html, body {
     @include size(74vw, 60vh);
 
     background-color: $main-background-color-dark !important;
-    overflow-y:hidden;
     padding-top: 15px;
     padding-left: 0px;
     margin: 0px;
+
+    .plan-content {
+        overflow-y: hidden !important;
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+        text-align: left;
+    }
 }
 
 .search-panel {
@@ -96,8 +102,21 @@ html, body {
     margin-bottom: 0px;
     margin-left: 15px;
     margin-right: 0px;
-    float: left;
+    //float: left;
     border: none;
+    display: inline-block !important;
+    vertical-align: top;
+    text-align: center;
+
+    .new-workout-header {
+        background-color: $main-background-color-light !important;
+        border: 0px;
+
+        .text {
+              font-weight:bold !important;
+              //color: #FFFFFF;
+        }
+    }
 }
 
 .routinelist-column-panel {
@@ -134,16 +153,6 @@ html, body {
     height: 92%;
     overflow-y:auto;
     overflow-x:hidden;
-}
-
-.new-workout-header {
-    background-color: $main-background-color-light !important;
-    border: 0px;
-
-    .text {
-          font-weight:bold !important;
-          //color: #FFFFFF;
-    }
 }
 
 .exerciseitem {
