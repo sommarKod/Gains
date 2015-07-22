@@ -10,6 +10,7 @@ use App\Workout;
 use Illuminate\Support\Facades\Input;
 use Response;
 use App\Exercise;
+use Exception;
 
 class WorkoutController extends Controller
 {
@@ -83,6 +84,20 @@ class WorkoutController extends Controller
     {
         $workout = Workout::find($id);
         $workout->addExercises(Input::all());
+    }
+
+
+    public function deleteWorkout($id)
+    {
+        $workout = Workout::find($id);
+        $workout->exercises()->detach();
+
+        try {
+           $test = Workout::where("id","=",$id)->delete();
+       } catch (Exception $e) {
+           error_log($e,0);
+       }
+        return Response::json($test);
     }
 
     /**

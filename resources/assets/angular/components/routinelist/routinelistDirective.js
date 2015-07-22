@@ -80,8 +80,9 @@ gains.directive('routinelist', ['ApiFactory', '$timeout', function (ApiFactory, 
             };
 
             scope.removeRoutine = function(index){
-                scope.workoutPlan.workouts.splice(index,1);
                 ApiFactory.updateWorkoutPlan(scope.workoutPlan);
+                ApiFactory.deleteWorkout(scope.routine);
+                scope.workoutPlan.workouts.splice(index,1);
                 scope.updateTotalIntensity();
             };
         }
