@@ -92,7 +92,7 @@ class WorkoutPlanController extends Controller
 
     public function createNewWorkout($id)
     {
-        $workout = Workout::create(['name' => 'Test']);
+        $workout = Workout::create(['name' => 'New workout']);
 
         $workoutPlan = WorkoutPlan::find($id);
         $workoutPlan->addWorkouts(array($workout->id));
