@@ -125,6 +125,8 @@ html, body {
     max-height: 100%;
     border-color: black !important;
     background-color: $main-background-color-light !important;
+    border-color: $main-background-color !important;
+
 }
 
 .routinelist-column-header {
@@ -166,10 +168,12 @@ html, body {
 }
 
 .exerciseitem {
-    //@include panel-variant(#FFFFFF, #000000, #000000, #000000);
+    @include panel-variant($main-background-color, $alt-background-color-light, $alt-background-color, $main-background-color);
+
 }
 
 .searchitem {
+    @include panel-variant($main-background-color, $alt-background-color-light, $alt-background-color, $main-background-color);
     @extend exerciseitem;
 
 
