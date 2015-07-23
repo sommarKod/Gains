@@ -19,13 +19,14 @@ gains.directive('routinelist', ['ApiFactory', '$timeout', function (ApiFactory, 
 
             scope.dragExerciseControlListeners = {
                 accept: function (sourceItemHandleScope, destSortableScope) {
-                    if(sourceItemHandleScope.itemScope.sortableScope.$id === destSortableScope.$id){
+                    if (sourceItemHandleScope.itemScope.exercise === undefined) {
+                        return false;
+                    }
+                    else if(sourceItemHandleScope.itemScope.sortableScope.$id === destSortableScope.$id){
                         return true;
                     }
                     return !destSortableScope.modelValue.some(function(e){
                         // Workouts arent valid for drag'n'drop here, so return false on invalid scope
-                        if (sourceItemHandleScope.itemScope.exercise === undefined)
-                            return true;
                         return e.id === sourceItemHandleScope.itemScope.exercise.id;
                     });
                 },

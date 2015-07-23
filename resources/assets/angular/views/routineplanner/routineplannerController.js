@@ -62,8 +62,11 @@ gains.controller('RoutinePlannerController',['$location','ApiFactory', 'WorkoutI
             APIFactory.updateWorkoutPlan($scope.workoutPlan);
             $scope.updateTotalIntensity();
         },
-        containment: '#planner'//optional param.
+        additionalPlaceholderClass: 'as-sortable-placeholder-workout',
+        containment: '#wrapper'//optional param.
     };
+
+    $scope.workoutSortableOptions = { additionalPlaceholderClass: 'some-class' };
 
     /*
     var w = angular.element(window);
