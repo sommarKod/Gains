@@ -171,6 +171,17 @@ html, body {
     background-color: $main-background-color-light !important;
 }
 
+.as-sortable-dragging{
+  padding: 0px !important;
+  margin: 0px !important;
+  margin-left: 0px !important;
+  text-align: center !important;
+  align-content: center !important;
+   .routinelist-column, .searchitem {
+     margin: 0px !important;
+   }
+}
+
 .exerciseitem {
     //@include panel-variant(#FFFFFF, #000000, #000000, #000000);
 }
