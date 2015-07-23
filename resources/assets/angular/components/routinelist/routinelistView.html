@@ -1,21 +1,27 @@
 <div class="panel panel-default size-fill routinelist-column-panel">
-	<div class="panel-heading routinelist-column-header" data-as-sortable-item-handle>
-		<h3 align="center" class="panel-title text" ng-if="noEdit" ng-click="renameWorkout()" >{{routine.name}}
-			<span class="remove-button" ng-click="removeRoutine($index)" role="button" >
-				<span class="glyphicon glyphicon-remove-sign" aria-hidden="true" ></span>
-			</span>
-		</h3>
-
-		<form ng-submit="saveWorkoutName()">
-
-			<input ng-if="!noEdit" ng-model="tempName" class="workoutNameInputField" type="text" ng-blur="removeFocus()" />
-			<input type="submit" class="off-screen"/>
-		</form>
-
-	</div>
-	<div class="panel-body routinelist-column-content" data-as-sortable="dragExerciseControlListeners" data-ng-model="exercises">
-		<div class="remove-sortable-css" ng-repeat="exercise in exercises" data-as-sortable-item>
-			<exerciseitem class="routineexe" ></exerciseitem>
-		</div>
-	</div>
+    <div class="panel-heading routinelist-column-header" data-as-sortable-item-handle>
+        <div class="panel-title text row" style="verticle-align:middle;">
+        <div ng-if="noEdit" class="panel-button col-xs-9"  data-parent="#accordion">
+          <div>
+            <span role="button"  ng-click="renameWorkout()">
+              {{routine.name}}
+            </span>
+          </div>
+        </div>
+        <div ng-if="noEdit" ng-click="removeRoutine($index)" role="button" class="col-xs-2">
+            <span class="glyphicon glyphicon-remove-sign" aria-hidden="true" ></span>
+        </div>
+        <div ng-if="!noEdit" class="panel-button col-xs-9">
+            <form ng-if="!noEdit" class="panel-button col-xs-9" ng-submit="saveWorkoutName()">
+                <input  ng-model="tempName" class="workoutNameInputField" type="text" ng-blur="removeFocus()" />
+                <input type="submit" class="off-screen"/>
+            </form>
+        </div>
+        </div>
+    </div>
+    <div class="panel-body routinelist-column-content" data-as-sortable="dragExerciseControlListeners" data-ng-model="exercises">
+        <div class="remove-sortable-css" ng-repeat="exercise in exercises" data-as-sortable-item>
+            <exerciseitem class="routineexe" ></exerciseitem>
+        </div>
+    </div>
 </div>
