@@ -35,13 +35,19 @@ html, body {
     padding-top: 15px;
     padding-left: 0px;
     margin: 0px;
+    overflow-y: hidden !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    text-align: left;
+}
 
-    .plan-content {
-        overflow-y: hidden !important;
-        overflow-x: auto !important;
-        white-space: nowrap !important;
-        text-align: left;
-    }
+.plan-content {
+    height: 100% !important;
+    display: inline-block;
+    overflow-y: hidden !important;
+    overflow-x: hidden !important;
+    white-space: nowrap !important;
+    text-align: left;
 }
 
 .search-panel {

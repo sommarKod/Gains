@@ -1,20 +1,20 @@
 <div class="content">
   <div class="upper-content">
     <div id="wrapper" class="well panel-default workoutplan-panel" >
-      <div class="size-fill plan-content" ng-if="workoutPlan !== undefined && workoutPlan !== null" data-as-sortable="dragWorkoutControlListeners" data-ng-model="workoutPlan.workouts">
-        
+      <div class="plan-content" ng-if="workoutPlan !== undefined && workoutPlan !== null" data-as-sortable="dragWorkoutControlListeners" data-ng-model="workoutPlan.workouts">
+
         <div class="routinelist-column size-fill" ng-repeat="workout in workoutPlan.workouts" data-as-sortable-item>
           <routinelist class="size-max size-fill" index="{{$index}}"/></routinelist>
         </div>
 
-        <div class="panel panel-default routinelist-column" ng-click="addWorkout()" role="button">
-          <div class="panel-heading new-workout-header">
-            <h3 class="panel-title text" >New workout
-              <span class="glyphicon glyphicon-plus" aria-hidden="true" ></span>
-            </h3>
-          </div>
-        </div>
+      </div>
 
+      <div class="panel panel-default routinelist-column" ng-click="addWorkout()" role="button">
+        <div class="panel-heading new-workout-header">
+          <h3 class="panel-title text" >New workout
+            <span class="glyphicon glyphicon-plus" aria-hidden="true" ></span>
+          </h3>
+        </div>
       </div>
     </div>
 
