@@ -58,9 +58,9 @@ class AddExercisesToDB extends Command
         // Bench press
         $exercise = Exercise::create(['name' => 'Bench press']);
         $muscles = [];
-        $muscles[] = ['Pectoralis Major Sternal Head', self::$max_intensity];
+        $muscles[] = ['Pec. M. Sternal Head', self::$max_intensity];
 
-        $muscles[] = ['Pectoralis Major Clavicular Head', self::$high_intensity];
+        $muscles[] = ['Pec. M. Clavicular Head', self::$high_intensity];
 
         $muscles[] = ['Triceps Brachii', self::$medium_intensity];
         $muscles[] = ['Deltoid Anterior', self::$medium_intensity];
@@ -89,8 +89,8 @@ class AddExercisesToDB extends Command
         $muscles[] = ['Teres Minor', self::$medium_intensity];
         $muscles[] = ['Rhomboids', self::$medium_intensity];
         $muscles[] = ['Levator Scapulae', self::$medium_intensity];
-        $muscles[] = ['Trapezius Lower Fibers Fibers', self::$medium_intensity];
-        $muscles[] = ['Trapezius Middle Fibers Fibers', self::$medium_intensity];
+        $muscles[] = ['Trapezius Lower Fibers', self::$medium_intensity];
+        $muscles[] = ['Trapezius Middle Fibers', self::$medium_intensity];
         $muscles[] = ['Pectoralis Minor', self::$medium_intensity];
         $exercise->attachToMuscle($muscles);
 
@@ -100,8 +100,8 @@ class AddExercisesToDB extends Command
         $muscles[] = ['Deltoid Anterior', self::$max_intensity];
 
         $muscles[] = ['Triceps Brachii', self::$medium_intensity];
-        $muscles[] = ['Pectoralis Major Clavicular Head', self::$medium_intensity];
-        $muscles[] = ['Trapezius Lower Fibers Fibers', self::$medium_intensity];
+        $muscles[] = ['Pec. M. Clavicular Head', self::$medium_intensity];
+        $muscles[] = ['Trapezius Lower Fibers', self::$medium_intensity];
         $muscles[] = ['Trapezius Middle Fibers', self::$medium_intensity];
         $muscles[] = ['Deltoid Lateral', self::$medium_intensity];
         $muscles[] = ['Serratus Anterior', self::$medium_intensity];
@@ -163,8 +163,8 @@ class AddExercisesToDB extends Command
         $muscles[] = ['Triceps Brachii', self::$max_intensity];
 
         $muscles[] = ['Deltoid Anterior', self::$medium_intensity];
-        $muscles[] = ['Pectoralis Major Clavicular Head', self::$medium_intensity];
-        $muscles[] = ['Pectoralis Major Sternal Head', self::$medium_intensity];
+        $muscles[] = ['Pec. M. Clavicular Head', self::$medium_intensity];
+        $muscles[] = ['Pec. M. Sternal Head', self::$medium_intensity];
         $muscles[] = ['Pectoralis Minor', self::$medium_intensity];
         $muscles[] = ['Rhomboids', self::$medium_intensity];
         $muscles[] = ['Levator Scapulae', self::$medium_intensity];

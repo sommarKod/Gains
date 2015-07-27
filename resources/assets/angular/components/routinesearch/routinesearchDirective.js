@@ -29,6 +29,7 @@ gains.directive('routinesearch',[function () {
     		  orderChanged: function(event) {
     		    	//Do what you want
     			},
+            additionalPlaceholderClass: 'as-sortable-placeholder-exercise'
     		};
 
 
