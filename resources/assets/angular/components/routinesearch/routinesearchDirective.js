@@ -21,19 +21,30 @@ gains.directive('routinesearch',[function () {
 
         scope.dragExerciseControlListeners = {
   		    accept: function (sourceItemHandleScope, destSortableScope, destItemScope) {
-              return false;
+            if (sourceItemHandleScope.itemScope.exercise === undefined) {
+                return false;
+            }
+            else if(sourceItemHandleScope.$parent.$parent.$parent.$parent.$id === destSortableScope.$parent.$parent.$id){
+              return destSortableScope.modelValue.some(function(e){
+                  // Workouts arent valid for drag'n'drop here, so return false on invalid scope
+                  return e.id === sourceItemHandleScope.itemScope.exercise.id;
+              });
+            }else{
+              return true;
+            }
+
+              //return false;
   		    },
   		    itemMoved: function (eventObj) {
-              eventObj.source.itemScope.sortableScope.insertItem(eventObj.source.index, jQuery.extend(true, {}, eventObj.source.itemScope.exercise));
+            if(eventObj.dest.sortableScope.$parent.$parent === eventObj.source.sortableScope.$parent.$parent){
+              eventObj.dest.sortableScope.removeItem(eventObj.dest.index);
+            }
+            eventObj.source.itemScope.sortableScope.insertItem(eventObj.source.index, jQuery.extend(true, {}, eventObj.source.itemScope.exercise));
     			},
     		  orderChanged: function(event) {
-    		    	//Do what you want
+    		    //	eventObj.source.itemScope.sortableScope.insertItem(eventObj.source.index, jQuery.extend(true, {}, eventObj.source.itemScope.exercise));
     			},
     		};
-
-
-
-
 
     }
   };

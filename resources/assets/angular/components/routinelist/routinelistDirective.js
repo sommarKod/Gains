@@ -31,6 +31,9 @@ gains.directive('routinelist', ['ApiFactory', '$timeout', function (ApiFactory, 
                     });
                 },
                 itemMoved: function (event) {
+                  if(event.dest.sortableScope.$parent.$parent!= event.source.sortableScope.$parent.$parent){
+                    event.dest.sortableScope.removeItem(event.dest.index);
+                  }
                 },
                 orderChanged: function(event) {
                 },
