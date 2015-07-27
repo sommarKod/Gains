@@ -52,8 +52,8 @@ class AddMuscleGroupsToDB extends Command
 
         $muscleGroup = MuscleGroup::create(['name' => 'Chest']);
         $muscles = [];
-        $muscles[] = 'Pectoralis Major Sternal Head';
-        $muscles[] = 'Pectoralis Major Clavicular Head';
+        $muscles[] = 'Pec. M. Sternal Head';
+        $muscles[] = 'Pec. M. Clavicular Head';
         $muscles[] = 'Pectoralis Minor';
         $muscles[] = 'Serratus Anterior';
 

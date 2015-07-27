@@ -37,7 +37,9 @@ gains.directive('routinelist', ['ApiFactory', '$timeout', function (ApiFactory, 
                 },
                 orderChanged: function(event) {
                 },
+                additionalPlaceholderClass: 'as-sortable-placeholder-exercise'
             };
+
 
 
             scope.renameWorkout = function () {

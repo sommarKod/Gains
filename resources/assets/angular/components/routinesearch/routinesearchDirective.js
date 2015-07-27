@@ -44,6 +44,7 @@ gains.directive('routinesearch',[function () {
     		  orderChanged: function(event) {
     		    //	eventObj.source.itemScope.sortableScope.insertItem(eventObj.source.index, jQuery.extend(true, {}, eventObj.source.itemScope.exercise));
     			},
+            additionalPlaceholderClass: 'as-sortable-placeholder-exercise'
     		};
 
     }

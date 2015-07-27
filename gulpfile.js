@@ -54,7 +54,7 @@ elixir(function(mix) {
 
     // Bootstrap
     mix.sass("app.scss", 'public/css/', {includePaths: [paths.bootstrap + 'stylesheets/']})
-    .copy(paths.bootstrap + 'fonts/bootstrap/**', 'public/fonts')
+    .copy(paths.bootstrap + 'fonts/bootstrap/**', 'public/fonts/bootstrap')
     .scripts([
         'javascripts/bootstrap.js'
     ], 'public/js/bootstrapApp.js', paths.bootstrap);

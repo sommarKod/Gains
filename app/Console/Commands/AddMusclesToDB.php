@@ -39,6 +39,10 @@ class AddMusclesToDB extends Command
      */
     public function handle()
     {
+        DB::enableQueryLog();
+        // Delete all data in the database, TODO: remove before production
+        DB::statement("SET foreign_key_checks=0");
+        Muscle::truncate();
         Muscle::create(['name' => 'Adductors']);
         Muscle::create(['name' => 'Biceps Brachii']);
         Muscle::create(['name' => 'Brachialis']);
@@ -46,7 +50,7 @@ class AddMusclesToDB extends Command
         Muscle::create(['name' => 'Deltoid Anterior']);
         Muscle::create(['name' => 'Deltoid Lateral']);
         Muscle::create(['name' => 'Deltoid Posterior']);
-        Muscle::create(['name' => 'Deep Hip External Rotators']);
+        Muscle::create(['name' => 'Lateral Rotator Group']);
         Muscle::create(['name' => 'Erector Spinae']);
         Muscle::create(['name' => 'Gastrocnemius']);
         Muscle::create(['name' => 'Gluteus Maximus']);
@@ -60,8 +64,8 @@ class AddMusclesToDB extends Command
         Muscle::create(['name' => 'Levator Scapulae']);
         Muscle::create(['name' => 'Obliques']);
         Muscle::create(['name' => 'Pectineous']);
-        Muscle::create(['name' => 'Pectoralis Major Clavicular Head']);
-        Muscle::create(['name' => 'Pectoralis Major Sternal Head']);
+        Muscle::create(['name' => 'Pec. M. Clavicular Head']);
+        Muscle::create(['name' => 'Pec. M. Sternal Head']);
         Muscle::create(['name' => 'Pectoralis Minor']);
         Muscle::create(['name' => 'Popliteus']);
         Muscle::create(['name' => 'Quadratus Lumborum']);

@@ -178,6 +178,20 @@ html, body {
     border-color: $main-background-color !important;
     background-color: $main-background-color-light !important;
 }
+.as-sortable-placeholder-exercise {
+    display: inline-block !important;
+    margin-left: 0px !important;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    width: 100% !important;
+    border-style: inset !important;
+    border-color: $main-background-color !important;
+    background-color: $alt-background-color-muscle-list !important;
+  .searchitem {
+
+  }
+
+}
 
 .as-sortable-placeholder-okej {
     border-color: green !important;
@@ -190,6 +204,7 @@ html, body {
 }
 
 .as-sortable-dragging{
+  @include panel-variant($main-background-color, $alt-background-color-light, $alt-background-color, $main-background-color);
   overflow: hidden !important;
   padding: 0px !important;
   //margin: 0px !important;
@@ -253,4 +268,8 @@ html, body {
 
 .muscle-list {
   padding: 5%;
+  padding-left: 10%;
+}
+.muscle-panel{
+  background-color: $alt-background-color-muscle-list !important;
 }

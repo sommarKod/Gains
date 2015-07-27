@@ -71,7 +71,7 @@ class AddMuscleAliasesToDB extends Command
         MuscleAlias::create(['name' => 'Rear Delts', 'muscle_id' => $muscle_id]);
         MuscleAlias::create(['name' => 'Rear shoulders', 'muscle_id' => $muscle_id]);
 
-        $muscle_id = Muscle::where('name', 'Deep Hip External Rotators')->first()->id;
+        $muscle_id = Muscle::where('name', 'Lateral Rotator Group')->first()->id;
         MuscleAlias::create(['name' => 'Hip rotators', 'muscle_id' => $muscle_id]);
 
         $muscle_id = Muscle::where('name', 'Erector Spinae')->first()->id;
@@ -116,11 +116,11 @@ class AddMuscleAliasesToDB extends Command
 
         
 
-        $muscle_id = Muscle::where('name', 'Pectoralis Major Clavicular Head')->first()->id;
+        $muscle_id = Muscle::where('name', 'Pec. M. Clavicular Head')->first()->id;
         MuscleAlias::create(['name' => 'Upper chest', 'muscle_id' => $muscle_id]);
         MuscleAlias::create(['name' => 'Upper pecs', 'muscle_id' => $muscle_id]);
 
-        $muscle_id = Muscle::where('name', 'Pectoralis Major Sternal Head')->first()->id;
+        $muscle_id = Muscle::where('name', 'Pec. M. Sternal Head')->first()->id;
         MuscleAlias::create(['name' => 'Chest', 'muscle_id' => $muscle_id]);
         MuscleAlias::create(['name' => 'Lower pecs', 'muscle_id' => $muscle_id]);
 
