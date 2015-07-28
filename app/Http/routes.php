@@ -27,3 +27,6 @@ Route::get('workoutPlan/{id}/createNewWorkout','WorkoutPlanController@createNewW
 Route::post('workout/{id}/addExercises','WorkoutController@addExercises');
 Route::get('exerciseWithInfo', 'ExerciseController@getAllWithInfo');
 Route::get('workout/{id}/deleteWorkout','WorkoutController@deleteWorkout');
+Route::get('/exerciseForm', function() {
+    return view('exerciseForm');
+});
