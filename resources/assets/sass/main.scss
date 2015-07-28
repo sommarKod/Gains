@@ -8,6 +8,11 @@ html, body {
     overflow:hidden;
     background-color: $main-background-color;
 }
+.heading {
+  text-align: center;
+  font-size: 36px;
+  margin:0px;
+}
 
 .upper-content {
   @include make-row();
@@ -56,12 +61,13 @@ html, body {
     @include size(100%, 40%);
 
     background-color: $main-background-color !important;
-    overflow-x:hidden;
-    overflow-y:auto;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
     -webkit-box-shadow: none;
     box-shadow: none;
     margin: 0px;
     padding-top: 10px;
+
 }
 
 .size-fill {
@@ -186,11 +192,21 @@ html, body {
 
 }
 
+.as-sortable-placeholder-okej {
+    border-color: green !important;
+    background-color: green !important;
+}
+
+.as-sortable-placeholder-notokej {
+    border-color: green !important;
+    background-color: green !important;
+}
+
 .as-sortable-dragging{
   @include panel-variant($main-background-color, $alt-background-color-light, $alt-background-color, $main-background-color);
   overflow: hidden !important;
   padding: 0px !important;
-  margin: 0px !important;
+  //margin: 0px !important;
   margin-left: 0px !important;
   text-align: center !important;
   align-content: center !important;
@@ -227,6 +243,7 @@ html, body {
 
 .search-result {
     margin: 0px;
+    overflow-y:auto;
 
     .search-column {
         width:16.66%;
