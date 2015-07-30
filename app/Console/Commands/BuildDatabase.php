@@ -39,14 +39,21 @@ class BuildDatabase extends Command
     public function handle()
     {
         Artisan::call('migrate');
+        echo "migrate Done!\n";
         Artisan::call('databasefiller:muscles');
+        echo "databasefiller:muscles Done!\n";
         Artisan::call('databasefiller:exercises');
+        echo "databasefiller:exercises Done!\n";
         Artisan::call('databasefiller:musclealiases');
-        Artisan::call('databasefiller:exercisealiases');
+        echo "databasefiller:musclealiases Done!\n";
+      //  Artisan::call('databasefiller:exercisealiases');
+        echo "databasefiller:exercisealiases Done!\n";
         Artisan::call('databasefiller:workouts');
+        echo "databasefiller:workouts Done!\n";
         Artisan::call('databasefiller:workoutplans');
+        echo "databasefiller:workoutplans Done!\n";
         Artisan::call('databasefiller:musclegroups');
-        echo 'Done!';
+        echo 'musclegroups Done!\n All done';
 
     }
 }
