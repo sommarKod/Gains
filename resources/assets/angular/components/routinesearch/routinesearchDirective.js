@@ -15,8 +15,8 @@ gains.directive('routinesearch',[function () {
           }
           return newArr;
         };
-      //  scope.exercises2 = scope.chunk(scope.workoutSearchOptions.exercises);
-        scope.exercises2 = scope.workoutSearchOptions.exercises;
+        scope.exercises2 = scope.chunk(scope.workoutSearchOptions.exercises);
+
 
 
         scope.dragExerciseControlListeners = {

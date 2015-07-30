@@ -12,9 +12,6 @@ gains.directive('routinelist', ['ApiFactory', '$timeout', function (ApiFactory, 
             scope.$watch(
                 function(scope) { return scope.exercises; },
                 function(){
-                    console.log("$watch");
-                    console.log(scope.routine);
-
                     ApiFactory.updateWorkout(scope.routine);
                     scope.updateTotalIntensity();
                 },true
@@ -30,7 +27,6 @@ gains.directive('routinelist', ['ApiFactory', '$timeout', function (ApiFactory, 
                     }
                     return !destSortableScope.modelValue.some(function(e){
                         // Workouts arent valid for drag'n'drop here, so return false on invalid scope
-                        return true;
                         return e.id === sourceItemHandleScope.itemScope.exercise.id;
                     });
                 },
@@ -57,8 +53,6 @@ gains.directive('routinelist', ['ApiFactory', '$timeout', function (ApiFactory, 
             };
 
             scope.saveWorkoutName = function(event) {
-                console.log(saveWorkoutName);
-                console.log(scope.routine);
                 scope.routine.name = $(".workoutNameInputField").val();
                 ApiFactory.updateWorkout(scope.routine);
                 scope.noEdit = true;

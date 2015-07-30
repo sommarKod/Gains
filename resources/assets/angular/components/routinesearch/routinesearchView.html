@@ -5,20 +5,11 @@
 </label>
 
 <div class="row row-centered search-result">
-     <ui data-ng-model="exercises2" data-as-sortable="dragExerciseControlListeners" style="
-        list-style-type: none;
-        -webkit-column-count: 6;
-        -webkit-column-gap: 1em;
-        display:block
-    ">
-          <li ng-repeat="exercise in exercises2 | filter:search.filter" style="
-    display: inline-block;
-    -webkit-box-sizing: border-box;
-    margin: 0.5em 0 0.5em;
-    min-width: 300px
-" id="">
-              <searchitem data-as-sortable-item class="exercisesearch remove-sortable-css"> </searchitem>
-          </li>
-     </ui>
-
+        <div class="search-column" ng-repeat="columne in exercises2"  >
+            <span data-as-sortable="dragExerciseControlListeners" data-ng-model="columne">
+              <div ng-repeat="exercise in columne | filter:search.filter">
+                <searchitem data-as-sortable-item class="exercisesearch remove-sortable-css"> </searchitem>
+              </div>
+          </span>
+       </div>
 </div>
