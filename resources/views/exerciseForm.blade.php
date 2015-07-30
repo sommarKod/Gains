@@ -52,7 +52,7 @@
                     <div class="form-group">
             <td>{!! Form::label($muscle_id,$muscle->name,array('id'=>'','class'=>'form-control')) !!}</td>
             <td>{!! Form::checkbox($muscle->id,'1',false) !!}</td>
-                        <td>{!! Form::select($muscle_id_intensity, array('100' => 'Max', '80' => 'High', '60' => 'Stabilizer'), '60') !!} </td>
+                        <td>{!! Form::select($muscle_id_intensity, array('100' => 'Max', '80' => 'High', '60' => 'Stabilizer', '40' => 'Low Stabilizer'), '60') !!} </td>
                 </tr>
             </div>
             <?php

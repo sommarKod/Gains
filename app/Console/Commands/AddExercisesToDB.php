@@ -79,162 +79,502 @@ class AddExercisesToDB extends Command
         DB::statement("TRUNCATE TABLE `exercise_muscle`");
         DB::statement("SET foreign_key_checks=1");
 
-        // Bench press
-        $exercise = Exercise::create(['name' => 'Bench press']);
+        $exercise = Exercise::create(['name' => 'Overhead Press']);
         $muscles = [];
-        $muscles[] = [self::$sternal, self::$max_intensity];
-
-        $muscles[] = [self::$clavicular, self::$high_intensity];
-
-        $muscles[] = [self::$triceps, self::$medium_intensity];
-        $muscles[] = [self::$delt_ant, self::$medium_intensity];
+        $muscles[] = ['Biceps Brachii', '40'];
+        $muscles[] = ['Deltoid Anterior', '100'];
+        $muscles[] = ['Deltoid Lateral', '80'];
+        $muscles[] = ['Levator Scapulae', '60'];
+        $muscles[] = ['Pec. M. Clavicular Head', '80'];
+        $muscles[] = ['Serratus Anterior', '80'];
+        $muscles[] = ['Trapezius Lower Fibers', '80'];
+        $muscles[] = ['Trapezius Middle Fibers', '80'];
+        $muscles[] = ['Trapezius Upper Fibers', '60'];
+        $muscles[] = ['Triceps Brachii', '80'];
         $exercise->attachToMuscle($muscles);
 
-        // Bicep curl
-        $exercise = Exercise::create(['name' => 'Bicep curl']);
-        $muscles = [];
-        $muscles[] = [self::$biceps, self::$max_intensity];
 
-        $muscles[] = ['Brachialis', self::$medium_intensity];
-        $muscles[] = ['Brachioradialis', self::$medium_intensity];
+
+        $exercise = Exercise::create(['name' => 'Front Squats']);
+        $muscles = [];
+        $muscles[] = ['Adductors', '80'];
+        $muscles[] = ['Deltoid Anterior', '60'];
+        $muscles[] = ['Deltoid Lateral', '60'];
+        $muscles[] = ['Erector Spinae', '60'];
+        $muscles[] = ['Gastrocnemius', '60'];
+        $muscles[] = ['Gluteus Maximus', '100'];
+        $muscles[] = ['Hamstrings', '60'];
+        $muscles[] = ['Levator Scapulae', '60'];
+        $muscles[] = ['Pec. M. Clavicular Head', '60'];
+        $muscles[] = ['Quadriceps', '100'];
+        $muscles[] = ['Serratus Anterior', '60'];
+        $muscles[] = ['Soleus', '80'];
+        $muscles[] = ['Supraspinatus', '60'];
+        $muscles[] = ['Trapezius Lower Fibers', '60'];
+        $muscles[] = ['Trapezius Middle Fibers', '60'];
+        $muscles[] = ['Trapezius Upper Fibers', '60'];
         $exercise->attachToMuscle($muscles);
 
-        // Pull-up
-        $exercise = Exercise::create(['name' => 'Pull-up']);
-        $muscles = [];
-        $muscles[] = [self::$lats, self::$max_intensity];
 
-        $muscles[] = ['Brachialis', self::$medium_intensity];
-        $muscles[] = ['Brachioradialis', self::$medium_intensity];
-        $muscles[] = [self::$biceps, self::$medium_intensity];
-        $muscles[] = [self::$teres_major, self::$medium_intensity];
-        $muscles[] = [self::$delt_post, self::$medium_intensity];
-        $muscles[] = ['Infraspinatus', self::$medium_intensity];
-        $muscles[] = [self::$teres_minor, self::$medium_intensity];
-        $muscles[] = ['Rhomboids', self::$medium_intensity];
-        $muscles[] = ['Levator Scapulae', self::$medium_intensity];
-        $muscles[] = [self::$traps_L, self::$medium_intensity];
-        $muscles[] = [self::$traps_M, self::$medium_intensity];
-        $muscles[] = [self::$pec_mini, self::$medium_intensity];
+
+        $exercise = Exercise::create(['name' => 'Squat']);
+        $muscles = [];
+        $muscles[] = ['Adductors', '80'];
+        $muscles[] = ['Erector Spinae', '60'];
+        $muscles[] = ['Gastrocnemius', '60'];
+        $muscles[] = ['Gluteus Maximus', '100'];
+        $muscles[] = ['Hamstrings', '60'];
+        $muscles[] = ['Obliques', '60'];
+        $muscles[] = ['Quadriceps', '100'];
+        $muscles[] = ['Rectus Abdominis', '60'];
+        $muscles[] = ['Soleus', '80'];
         $exercise->attachToMuscle($muscles);
 
-        // Overhead press
-        $exercise = Exercise::create(['name' => 'Overhead press']);
-        $muscles = [];
-        $muscles[] = [self::$delt_ant, self::$max_intensity];
 
-        $muscles[] = [self::$triceps, self::$medium_intensity];
-        $muscles[] = [self::$clavicular, self::$medium_intensity];
-        $muscles[] = [self::$traps_L, self::$medium_intensity];
-        $muscles[] = [self::$traps_M, self::$medium_intensity];
-        $muscles[] = [self::$delt_lat, self::$medium_intensity];
-        $muscles[] = ['Serratus Anterior', self::$medium_intensity];
+
+        $exercise = Exercise::create(['name' => 'Lying Hamstring Curl']);
+        $muscles = [];
+        $muscles[] = ['Gastrocnemius', '80'];
+        $muscles[] = ['Hamstrings', '100'];
+        $muscles[] = ['Popliteus', '80'];
+        $muscles[] = ['Quadriceps', '40'];
+        $muscles[] = ['Sartorius', '80'];
+        $muscles[] = ['Tibialis Anterior', '60'];
         $exercise->attachToMuscle($muscles);
 
-        // Skullcrusher
-        $exercise = Exercise::create(['name' => 'Skull-crusher']);
-        $muscles = [];
-        $muscles[] = [self::$triceps, self::$max_intensity];
 
+
+        $exercise = Exercise::create(['name' => 'Leg Extension']);
+        $muscles = [];
+        $muscles[] = ['Levator Scapulae', '60'];
+        $muscles[] = ['Quadriceps', '100'];
+        $muscles[] = ['Trapezius Middle Fibers', '60'];
+        $muscles[] = ['Trapezius Upper Fibers', '60'];
         $exercise->attachToMuscle($muscles);
 
-        // Lateral raise
-        $exercise = Exercise::create(['name' => 'Lateral raise']);
+
+
+        $exercise = Exercise::create(['name' => 'Bench Press']);
         $muscles = [];
-        $muscles[] = [self::$delt_lat, self::$max_intensity];
-
-        $muscles[] = [self::$delt_ant, self::$medium_intensity];
-        $muscles[] = [self::$traps_L, self::$medium_intensity];
-        $muscles[] = [self::$traps_M, self::$medium_intensity];
-        $muscles[] = ['Serratus Anterior', self::$medium_intensity];
-        $muscles[] = ['Supraspinatus', self::$medium_intensity];
-
-        $exercise->attachToMuscle($muscles);
-
-        // Squats
-        $exercise = Exercise::create(['name' => 'Squats']);
-        $muscles = [];
-        $muscles[] = [self::$glutes, self::$max_intensity];
-        $muscles[] = [self::$quads, self::$max_intensity];
-
-        $muscles[] = ['Adductors', self::$medium_intensity];
-        $muscles[] = [self::$sol, self::$medium_intensity];
-
-        $exercise->attachToMuscle($muscles);
-
-        // Front Squats
-        $exercise = Exercise::create(['name' => 'Front squats']);
-        $muscles = [];
-        $muscles[] = [self::$quads, self::$max_intensity];
-        $muscles[] = [self::$glutes, self::$max_intensity];
-
-        $muscles[] = ['Adductors', self::$medium_intensity];
-        $muscles[] = [self::$sol, self::$medium_intensity];
-
-        $exercise->attachToMuscle($muscles);
-
-        // Standing calf raise
-        $exercise = Exercise::create(['name' => 'Standing calf raise']);
-        $muscles = [];
-        $muscles[] = [self::$calf, self::$max_intensity];
-        $muscles[] = [self::$sol, self::$medium_intensity];
-
-        $exercise->attachToMuscle($muscles);
-
-        // Dips
-        $exercise = Exercise::create(['name' => 'Triceps Dips']);
-        $muscles = [];
-        $muscles[] = [self::$triceps, self::$max_intensity];
-
-        $muscles[] = [self::$delt_ant, self::$medium_intensity];
-        $muscles[] = [self::$clavicular, self::$medium_intensity];
-        $muscles[] = [self::$sternal, self::$medium_intensity];
-        $muscles[] = [self::$pec_mini, self::$medium_intensity];
-        $muscles[] = ['Rhomboids', self::$medium_intensity];
-        $muscles[] = ['Levator Scapulae', self::$medium_intensity];
-        $muscles[] = [self::$lats, self::$medium_intensity];
-
+        $muscles[] = ['Biceps Brachii', '40'];
+        $muscles[] = ['Deltoid Anterior', '80'];
+        $muscles[] = ['Pec. M. Clavicular Head', '100'];
+        $muscles[] = ['Pec. M. Sternal Head', '100'];
+        $muscles[] = ['Triceps Brachii', '80'];
         $exercise->attachToMuscle($muscles);
 
         $exercise = Exercise::create(['name' => 'Deadlift']);
         $muscles = [];
-        $muscles[] = [self::$glutes, self::$max_intensity];
-        $muscles[] = ['Erector Spinae', self::$max_intensity];
-
-        $muscles[] = [self::$lats, self::$high_intensity];
-        $muscles[] = [self::$quads, self::$high_intensity];
-        $muscles[] = [self::$hamstrings, self::$high_intensity];
-        $muscles[] = [self::$forearm_inner, self::$high_intensity];
-        $muscles[] = [self::$forearm_outer, self::$high_intensity];
-
-        $muscles[] = [self::$biceps, self::$medium_intensity];
-        $muscles[] = [self::$traps_U, self::$medium_intensity];
-        $muscles[] = [self::$traps_M, self::$medium_intensity];
-        $muscles[] = [self::$traps_L, self::$medium_intensity];
-
-
-        $muscles[] = ['Adductor Magnus', self::$low_intensity];
-        $muscles[] = [self::$sol, self::$low_intensity];
-        $muscles[] = [self::$calf, self::$low_intensity];
-
+        $muscles[] = ['Adductors', '80'];
+        $muscles[] = ['Erector Spinae', '100'];
+        $muscles[] = ['Gluteus Maximus', '100'];
+        $muscles[] = ['Hamstrings', '80'];
+        $muscles[] = ['Latissimus Dorsi', '100'];
+        $muscles[] = ['Levator Scapulae', '60'];
+        $muscles[] = ['Obliques', '60'];
+        $muscles[] = ['Quadriceps', '80'];
+        $muscles[] = ['Rectus Abdominis', '60'];
+        $muscles[] = ['Rhomboids', '60'];
+        $muscles[] = ['Soleus', '80'];
+        $muscles[] = ['Trapezius Middle Fibers', '60'];
+        $muscles[] = ['Trapezius Upper Fibers', '60'];
+        $muscles[] = ['Biceps Brachii', '60'];
+        $muscles[] = ['Trapezius Lower Fibers', '60'];
+        $muscles[] = ['Wrist Extensors', '80'];
+        $muscles[] = ['Wrist Flexors', '80'];
         $exercise->attachToMuscle($muscles);
 
-        $exercise = Exercise::create(['name' => 'Triceps pushdown']);
-        $muscles = [];
-        $muscles[] = [self::$triceps, self::$max_intensity];
 
+
+
+
+        $exercise = Exercise::create(['name' => 'Face Pull']);
+        $muscles = [];
+        $muscles[] = ['Adductors', '40'];
+        $muscles[] = ['Biceps Brachii', '60'];
+        $muscles[] = ['Brachialis', '80'];
+        $muscles[] = ['Brachioradialis', '80'];
+        $muscles[] = ['Deltoid Lateral', '80'];
+        $muscles[] = ['Deltoid Posterior', '100'];
+        $muscles[] = ['Erector Spinae', '60'];
+        $muscles[] = ['Gluteus Maximus', '60'];
+        $muscles[] = ['Hamstrings', '40'];
+        $muscles[] = ['Infraspinatus', '80'];
+        $muscles[] = ['Rhomboids', '80'];
+        $muscles[] = ['Teres Minor', '80'];
+        $muscles[] = ['Trapezius Lower Fibers', '80'];
+        $muscles[] = ['Trapezius Middle Fibers', '80'];
         $exercise->attachToMuscle($muscles);
 
-        $exercise = Exercise::create(['name' => 'Lying leg curl']);
+
+
+        $exercise = Exercise::create(['name' => 'Seated Row']);
         $muscles = [];
-        $muscles[] = [self::$hamstrings, self::$max_intensity];
+        $muscles[] = ['Adductors', '60'];
+        $muscles[] = ['Biceps Brachii', '60'];
+        $muscles[] = ['Brachialis', '80'];
+        $muscles[] = ['Brachioradialis', '80'];
+        $muscles[] = ['Deltoid Posterior', '80'];
+        $muscles[] = ['Erector Spinae', '80'];
+        $muscles[] = ['Gluteus Maximus', '60'];
+        $muscles[] = ['Hamstrings', '60'];
+        $muscles[] = ['Infraspinatus', '80'];
+        $muscles[] = ['Latissimus Dorsi', '80'];
+        $muscles[] = ['Pec. M. Sternal Head', '60'];
+        $muscles[] = ['Rhomboids', '80'];
+        $muscles[] = ['Teres Major', '80'];
+        $muscles[] = ['Teres Minor', '80'];
+        $muscles[] = ['Trapezius Lower Fibers', '80'];
+        $muscles[] = ['Trapezius Middle Fibers', '80'];
+        $muscles[] = ['Triceps Brachii', '40'];
+        $exercise->attachToMuscle($muscles);
 
-        $muscles[] = [self::$calf, self::$medium_intensity];
 
-        $muscles[] = ['Sartorius', self::$low_intensity];
-        $muscles[] = ['Gracilis', self::$low_intensity];
-        $muscles[] = ['Popliteus', self::$low_intensity];
 
+        $exercise = Exercise::create(['name' => 'Barbell Shrug']);
+        $muscles = [];
+        $muscles[] = ['Erector Spinae', '60'];
+        $muscles[] = ['Levator Scapulae', '80'];
+        $muscles[] = ['Trapezius Middle Fibers', '80'];
+        $muscles[] = ['Trapezius Upper Fibers', '100'];
+        $exercise->attachToMuscle($muscles);
+
+
+
+        $exercise = Exercise::create(['name' => 'Pull-up']);
+        $muscles = [];
+        $muscles[] = ['Biceps Brachii', '80'];
+        $muscles[] = ['Brachialis', '80'];
+        $muscles[] = ['Brachioradialis', '80'];
+        $muscles[] = ['Deltoid Posterior', '80'];
+        $muscles[] = ['Infraspinatus', '80'];
+        $muscles[] = ['Latissimus Dorsi', '100'];
+        $muscles[] = ['Levator Scapulae', '80'];
+        $muscles[] = ['Pectoralis Minor', '80'];
+        $muscles[] = ['Rhomboids', '80'];
+        $muscles[] = ['Teres Major', '80'];
+        $muscles[] = ['Teres Minor', '80'];
+        $muscles[] = ['Trapezius Lower Fibers', '80'];
+        $muscles[] = ['Trapezius Middle Fibers', '80'];
+        $muscles[] = ['Triceps Brachii', '40'];
+        $exercise->attachToMuscle($muscles);
+
+
+
+        $exercise = Exercise::create(['name' => 'Barbell Curl']);
+        $muscles = [];
+        $muscles[] = ['Biceps Brachii', '100'];
+        $muscles[] = ['Brachialis', '80'];
+        $muscles[] = ['Brachioradialis', '80'];
+        $muscles[] = ['Deltoid Anterior', '60'];
+        $muscles[] = ['Levator Scapulae', '60'];
+        $muscles[] = ['Trapezius Middle Fibers', '60'];
+        $muscles[] = ['Trapezius Upper Fibers', '60'];
+        $muscles[] = ['Wrist Flexors', '60'];
+        $exercise->attachToMuscle($muscles);
+
+
+
+        $exercise = Exercise::create(['name' => 'Barbell Row']);
+        $muscles = [];
+        $muscles[] = ['Adductors', '60'];
+        $muscles[] = ['Biceps Brachii', '60'];
+        $muscles[] = ['Brachialis', '80'];
+        $muscles[] = ['Brachioradialis', '80'];
+        $muscles[] = ['Deltoid Posterior', '80'];
+        $muscles[] = ['Erector Spinae', '60'];
+        $muscles[] = ['Gluteus Maximus', '60'];
+        $muscles[] = ['Hamstrings', '60'];
+        $muscles[] = ['Infraspinatus', '80'];
+        $muscles[] = ['Latissimus Dorsi', '80'];
+        $muscles[] = ['Obliques', '60'];
+        $muscles[] = ['Pec. M. Sternal Head', '60'];
+        $muscles[] = ['Rectus Abdominis', '60'];
+        $muscles[] = ['Rhomboids', '80'];
+        $muscles[] = ['Teres Major', '80'];
+        $muscles[] = ['Teres Minor', '80'];
+        $muscles[] = ['Trapezius Lower Fibers', '80'];
+        $muscles[] = ['Trapezius Middle Fibers', '80'];
+        $muscles[] = ['Triceps Brachii', '40'];
+        $exercise->attachToMuscle($muscles);
+
+
+
+        $exercise = Exercise::create(['name' => 'Cable Pulldown']);
+        $muscles = [];
+        $muscles[] = ['Biceps Brachii', '80'];
+        $muscles[] = ['Brachialis', '80'];
+        $muscles[] = ['Brachioradialis', '80'];
+        $muscles[] = ['Deltoid Posterior', '80'];
+        $muscles[] = ['Infraspinatus', '80'];
+        $muscles[] = ['Latissimus Dorsi', '100'];
+        $muscles[] = ['Levator Scapulae', '80'];
+        $muscles[] = ['Pectoralis Minor', '80'];
+        $muscles[] = ['Rhomboids', '80'];
+        $muscles[] = ['Teres Major', '80'];
+        $muscles[] = ['Teres Minor', '80'];
+        $muscles[] = ['Trapezius Lower Fibers', '80'];
+        $muscles[] = ['Trapezius Middle Fibers', '80'];
+        $muscles[] = ['Triceps Brachii', '40'];
+        $exercise->attachToMuscle($muscles);
+
+
+
+        $exercise = Exercise::create(['name' => 'Chest Supported Row']);
+        $muscles = [];
+        $muscles[] = ['Biceps Brachii', '60'];
+        $muscles[] = ['Brachialis', '80'];
+        $muscles[] = ['Brachioradialis', '80'];
+        $muscles[] = ['Deltoid Posterior', '80'];
+        $muscles[] = ['Infraspinatus', '80'];
+        $muscles[] = ['Latissimus Dorsi', '80'];
+        $muscles[] = ['Pec. M. Sternal Head', '60'];
+        $muscles[] = ['Rhomboids', '80'];
+        $muscles[] = ['Teres Major', '80'];
+        $muscles[] = ['Teres Minor', '80'];
+        $muscles[] = ['Trapezius Lower Fibers', '80'];
+        $muscles[] = ['Trapezius Middle Fibers', '80'];
+        $muscles[] = ['Triceps Brachii', '40'];
+        $exercise->attachToMuscle($muscles);
+
+
+
+        $exercise = Exercise::create(['name' => 'Reverse Fly']);
+        $muscles = [];
+        $muscles[] = ['Deltoid Lateral', '80'];
+        $muscles[] = ['Deltoid Posterior', '100'];
+        $muscles[] = ['Infraspinatus', '80'];
+        $muscles[] = ['Rhomboids', '80'];
+        $muscles[] = ['Teres Minor', '100'];
+        $muscles[] = ['Trapezius Lower Fibers', '80'];
+        $muscles[] = ['Trapezius Middle Fibers', '80'];
+        $muscles[] = ['Triceps Brachii', '60'];
+        $muscles[] = ['Wrist Extensors', '60'];
+        $exercise->attachToMuscle($muscles);
+
+
+
+        $exercise = Exercise::create(['name' => 'Cable Bent-over Pullover']);
+        $muscles = [];
+        $muscles[] = ['Deltoid Posterior', '80'];
+        $muscles[] = ['Latissimus Dorsi', '80'];
+        $muscles[] = ['Levator Scapulae', '80'];
+        $muscles[] = ['Obliques', '60'];
+        $muscles[] = ['Pec. M. Clavicular Head', '60'];
+        $muscles[] = ['Pec. M. Sternal Head', '80'];
+        $muscles[] = ['Pectoralis Minor', '80'];
+        $muscles[] = ['Rectus Abdominis', '60'];
+        $muscles[] = ['Rhomboids', '80'];
+        $muscles[] = ['Teres Major', '80'];
+        $muscles[] = ['Triceps Brachii', '60'];
+        $muscles[] = ['Wrist Flexors', '60'];
+        $exercise->attachToMuscle($muscles);
+
+
+
+        $exercise = Exercise::create(['name' => 'Dumbbell Hammer Curl']);
+        $muscles = [];
+        $muscles[] = ['Biceps Brachii', '80'];
+        $muscles[] = ['Brachialis', '80'];
+        $muscles[] = ['Brachioradialis', '100'];
+        $muscles[] = ['Deltoid Anterior', '60'];
+        $muscles[] = ['Levator Scapulae', '60'];
+        $muscles[] = ['Trapezius Middle Fibers', '60'];
+        $muscles[] = ['Trapezius Upper Fibers', '60'];
+        $muscles[] = ['Wrist Extensors', '40'];
+        $muscles[] = ['Wrist Flexors', '40'];
+        $exercise->attachToMuscle($muscles);
+
+
+
+        $exercise = Exercise::create(['name' => 'Dumbbell Incline Bench Press']);
+        $muscles = [];
+        $muscles[] = ['Biceps Brachii', '40'];
+        $muscles[] = ['Deltoid Anterior', '80'];
+        $muscles[] = ['Pec. M. Clavicular Head', '100'];
+        $muscles[] = ['Pec. M. Sternal Head', '60'];
+        $muscles[] = ['Triceps Brachii', '80'];
+        $exercise->attachToMuscle($muscles);
+
+
+
+        $exercise = Exercise::create(['name' => 'Skull Crusher']);
+        $muscles = [];
+        $muscles[] = ['Deltoid Anterior', '60'];
+        $muscles[] = ['Deltoid Posterior', '60'];
+        $muscles[] = ['Latissimus Dorsi', '60'];
+        $muscles[] = ['Pec. M. Clavicular Head', '60'];
+        $muscles[] = ['Pec. M. Sternal Head', '60'];
+        $muscles[] = ['Teres Major', '60'];
+        $muscles[] = ['Triceps Brachii', '100'];
+        $muscles[] = ['Wrist Flexors', '60'];
+        $exercise->attachToMuscle($muscles);
+
+
+
+        $exercise = Exercise::create(['name' => 'Dumbbell Lateral Raise']);
+        $muscles = [];
+        $muscles[] = ['Deltoid Anterior', '80'];
+        $muscles[] = ['Deltoid Lateral', '100'];
+        $muscles[] = ['Levator Scapulae', '60'];
+        $muscles[] = ['Serratus Anterior', '60'];
+        $muscles[] = ['Supraspinatus', '80'];
+        $muscles[] = ['Trapezius Lower Fibers', '80'];
+        $muscles[] = ['Trapezius Middle Fibers', '80'];
+        $muscles[] = ['Trapezius Upper Fibers', '60'];
+        $muscles[] = ['Wrist Extensors', '60'];
+        $exercise->attachToMuscle($muscles);
+
+
+
+        $exercise = Exercise::create(['name' => 'Lever Lateral Raise']);
+        $muscles = [];
+        $muscles[] = ['Deltoid Anterior', '80'];
+        $muscles[] = ['Deltoid Lateral', '100'];
+        $muscles[] = ['Levator Scapulae', '60'];
+        $muscles[] = ['Serratus Anterior', '60'];
+        $muscles[] = ['Supraspinatus', '80'];
+        $muscles[] = ['Trapezius Lower Fibers', '80'];
+        $muscles[] = ['Trapezius Middle Fibers', '80'];
+        $muscles[] = ['Trapezius Upper Fibers', '60'];
+        $exercise->attachToMuscle($muscles);
+
+
+
+        $exercise = Exercise::create(['name' => 'Barbell Incline Bench Press']);
+        $muscles = [];
+        $muscles[] = ['Biceps Brachii', '40'];
+        $muscles[] = ['Deltoid Anterior', '80'];
+        $muscles[] = ['Pec. M. Clavicular Head', '100'];
+        $muscles[] = ['Pec. M. Sternal Head', '60'];
+        $muscles[] = ['Triceps Brachii', '80'];
+        $exercise->attachToMuscle($muscles);
+
+
+
+        $exercise = Exercise::create(['name' => 'Chest Dip']);
+        $muscles = [];
+        $muscles[] = ['Deltoid Anterior', '80'];
+        $muscles[] = ['Latissimus Dorsi', '80'];
+        $muscles[] = ['Levator Scapulae', '80'];
+        $muscles[] = ['Pec. M. Clavicular Head', '80'];
+        $muscles[] = ['Pec. M. Sternal Head', '100'];
+        $muscles[] = ['Pectoralis Minor', '80'];
+        $muscles[] = ['Rhomboids', '80'];
+        $muscles[] = ['Teres Major', '80'];
+        $muscles[] = ['Trapezius Lower Fibers', '60'];
+        $muscles[] = ['Triceps Brachii', '80'];
+        $exercise->attachToMuscle($muscles);
+
+
+
+        $exercise = Exercise::create(['name' => 'Triceps Dip']);
+        $muscles = [];
+        $muscles[] = ['Biceps Brachii', '60'];
+        $muscles[] = ['Deltoid Anterior', '80'];
+        $muscles[] = ['Latissimus Dorsi', '80'];
+        $muscles[] = ['Levator Scapulae', '80'];
+        $muscles[] = ['Pec. M. Clavicular Head', '80'];
+        $muscles[] = ['Pec. M. Sternal Head', '80'];
+        $muscles[] = ['Pectoralis Minor', '80'];
+        $muscles[] = ['Rhomboids', '80'];
+        $muscles[] = ['Trapezius Lower Fibers', '60'];
+        $muscles[] = ['Triceps Brachii', '100'];
+        $exercise->attachToMuscle($muscles);
+
+
+
+        $exercise = Exercise::create(['name' => 'Cable Lateral Raise']);
+        $muscles = [];
+        $muscles[] = ['Deltoid Anterior', '80'];
+        $muscles[] = ['Deltoid Lateral', '100'];
+        $muscles[] = ['Serratus Anterior', '60'];
+        $muscles[] = ['Supraspinatus', '80'];
+        $muscles[] = ['Trapezius Lower Fibers', '80'];
+        $muscles[] = ['Trapezius Middle Fibers', '80'];
+        $muscles[] = ['Levator Scapulae', '60'];
+        $muscles[] = ['Trapezius Upper Fibers', '60'];
+        $muscles[] = ['Wrist Extensors', '60'];
+        $exercise->attachToMuscle($muscles);
+
+
+
+
+
+
+
+        $exercise = Exercise::create(['name' => 'Cable Pushdown']);
+        $muscles = [];
+        $muscles[] = ['Deltoid Posterior', '60'];
+        $muscles[] = ['Erector Spinae', '60'];
+        $muscles[] = ['Latissimus Dorsi', '60'];
+        $muscles[] = ['Obliques', '60'];
+        $muscles[] = ['Pec. M. Sternal Head', '60'];
+        $muscles[] = ['Pectoralis Minor', '60'];
+        $muscles[] = ['Rectus Abdominis', '60'];
+        $muscles[] = ['Teres Major', '60'];
+        $muscles[] = ['Trapezius Lower Fibers', '60'];
+        $muscles[] = ['Triceps Brachii', '100'];
+        $muscles[] = ['Wrist Flexors', '60'];
+        $exercise->attachToMuscle($muscles);
+
+
+
+        $exercise = Exercise::create(['name' => 'Standing Calf Raise']);
+        $muscles = [];
+        $muscles[] = ['Gastrocnemius', '100'];
+        $muscles[] = ['Levator Scapulae', '60'];
+        $muscles[] = ['Soleus', '80'];
+        $muscles[] = ['Trapezius Middle Fibers', '60'];
+        $muscles[] = ['Trapezius Upper Fibers', '60'];
+        $exercise->attachToMuscle($muscles);
+
+
+
+        $exercise = Exercise::create(['name' => 'Seated Calf Raise']);
+        $muscles = [];
+        $muscles[] = ['Gastrocnemius', '80'];
+        $muscles[] = ['Soleus', '100'];
+        $exercise->attachToMuscle($muscles);
+
+
+
+        $exercise = Exercise::create(['name' => 'Seated Leg Curl']);
+        $muscles = [];
+        $muscles[] = ['Gastrocnemius', '80'];
+        $muscles[] = ['Gracilis', '80'];
+        $muscles[] = ['Hamstrings', '100'];
+        $muscles[] = ['Popliteus', '80'];
+        $muscles[] = ['Sartorius', '80'];
+        $muscles[] = ['Tibialis Anterior', '60'];
+        $exercise->attachToMuscle($muscles);
+
+
+
+        $exercise = Exercise::create(['name' => 'Leg Press']);
+        $muscles = [];
+        $muscles[] = ['Adductors', '80'];
+        $muscles[] = ['Gastrocnemius', '60'];
+        $muscles[] = ['Gluteus Maximus', '80'];
+        $muscles[] = ['Hamstrings', '60'];
+        $muscles[] = ['Quadriceps', '100'];
+        $muscles[] = ['Soleus', '80'];
+        $exercise->attachToMuscle($muscles);
+
+        $exercise = Exercise::create(['name' => 'Lunge']);
+        $muscles = [];
+        $muscles[] = ['Adductors', '80'];
+        $muscles[] = ['Erector Spinae', '60'];
+        $muscles[] = ['Gastrocnemius', '60'];
+        $muscles[] = ['Gluteus Maximus', '100'];
+        $muscles[] = ['Gluteus Medius', '60'];
+        $muscles[] = ['Gluteus Minimus', '60'];
+        $muscles[] = ['Hamstrings', '60'];
+        $muscles[] = ['Obliques', '60'];
+        $muscles[] = ['Quadratus Lumborum', '60'];
+        $muscles[] = ['Quadriceps', '80'];
+        $muscles[] = ['Soleus', '80'];
+        $muscles[] = ['Tibialis Anterior', '60'];
         $exercise->attachToMuscle($muscles);
 
 
