@@ -1,7 +1,7 @@
-<label class="row row-centered search-box">Search: <input id="searchbox" class="search-input" ng-model="search.filter" ng-model-options="{ getterSetter: true }">
-    <span ng-click="search.filter = '' " role="button">
+<label class="row row-centered search-box">Search: <input id="searchbox" class="search-input"  ng-model="queryText" ng-keyup="dosearch()" >
+    <a ng-click="queryText='';dosearch()" role="button">
         <span class="glyphicon glyphicon-remove-sign" aria-hidden="true" ></span>
-    </span>
+    </a>
 </label>
 
 <div class="row row-centered search-result">
