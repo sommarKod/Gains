@@ -237,13 +237,13 @@ html, body {
 
 
 .muscle-group-column {
-  margin: 0px; !important;
-  padding: 0px; !important;
+  margin: 0;
+  padding: 0px;
   background-color: $main-background-color-light !important;
   border-color: $main-background-color !important;
   .musclegroup {
-    margin: 0px; !important;
-    padding: 0px; !important;
+    margin: 0px;
+    padding: 0px;
     @include panel-variant($main-background-color, $alt-background-color-light, $alt-background-color, $main-background-color);
     cursor: pointer;
 
