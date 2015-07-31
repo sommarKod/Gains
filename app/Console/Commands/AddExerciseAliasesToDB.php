@@ -47,14 +47,6 @@ class AddExerciseAliasesToDB extends Command
         DB::statement("TRUNCATE TABLE `exercise_aliases`");
         DB::statement("SET foreign_key_checks=1");
 
-        $exercise_id = Exercise::where('name', 'Bicep curl')->first()->id;
-        ExerciseAlias::create(['name' => 'Curls', 'exercise_id' => $exercise_id]);
-
-        $exercise_id = Exercise::where('name', 'Skull-crusher')->first()->id;
-        ExerciseAlias::create(['name' => 'Triceps extension', 'exercise_id' => $exercise_id]);
-
-        $exercise_id = Exercise::where('name', 'Overhead press')->first()->id;
-        ExerciseAlias::create(['name' => 'Military press', 'exercise_id' => $exercise_id]);
 
     }
 }

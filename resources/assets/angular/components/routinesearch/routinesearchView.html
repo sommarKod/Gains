@@ -5,9 +5,9 @@
 </label>
 
 <div class="row row-centered search-result">
-        <div class="search-column" ng-repeat="columne in exercises2"  >
-            <span data-as-sortable="dragExerciseControlListeners" data-ng-model="columne">
-              <div ng-repeat="exercise in columne | filter:search.filter">
+        <div class="search-column" ng-repeat="column in exercises2"  >
+            <span data-as-sortable="dragExerciseControlListeners" data-ng-model="column">
+              <div ng-repeat="exercise in column | filter:search.filter">
                 <searchitem data-as-sortable-item class="exercisesearch remove-sortable-css"> </searchitem>
               </div>
           </span>
