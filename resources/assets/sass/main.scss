@@ -234,22 +234,31 @@ html, body {
 
     }
 }
-
-
+// <nice sass>
 .muscle-group-column {
-  margin: 0;
-  padding: 0px;
-  background-color: $main-background-color-light !important;
-  border-color: $main-background-color !important;
-  .musclegroup {
-    margin: 0px;
-    padding: 0px;
-    @include panel-variant($main-background-color, $alt-background-color-light, $alt-background-color, $main-background-color);
-    cursor: pointer;
+  margin-top: 5px;
+  padding-bottom: 5px;
+  background-color: $main-background-color-light;
+  border-color: $main-background-color;
+  .muscle-group-panel {
+    margin: 0;
+    padding-bottom: 10px;
+
+    .musclegroup {
+      font-size: x-large;
+      font-weight: bold;
+      margin: 0;
+      @include panel-variant($main-background-color, $alt-background-color-light, $alt-background-color, $main-background-color);
+      cursor: pointer;
+      &.pushed-musclegroup {
+        color: $alt-background-color-dark;
+        background-color: $alt-background-color-light;
+      }
+    }
 
   }
-
 }
+// </nice sass>
 
 .remove-sortable-css {
     border: 0px;

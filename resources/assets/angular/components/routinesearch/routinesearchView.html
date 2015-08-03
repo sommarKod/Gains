@@ -1,3 +1,4 @@
+<div class="left-search">
 <label class="row row-centered search-box">Search: <input id="searchbox" class="search-input"  ng-model="queryText" ng-keyup="dosearch()" >
     <a ng-click="queryText='';dosearch()" role="button">
         <span class="glyphicon glyphicon-remove-sign" aria-hidden="true" ></span>
@@ -5,11 +6,15 @@
 </label>
 
 <div class="row row-centered search-result">
-        <div class="search-column" ng-repeat="column in exercises2"  >
+    <div class="search-column" ng-repeat="column in exercises2"  >
             <span data-as-sortable="dragExerciseControlListeners" data-ng-model="column">
               <div ng-repeat="exercise in column | filter:search.filter">
                 <searchitem data-as-sortable-item class="exercisesearch remove-sortable-css"> </searchitem>
               </div>
           </span>
        </div>
+</div>
+    </div>
+<div class="right-search">
+<musclegrouplist></musclegrouplist>
 </div>
